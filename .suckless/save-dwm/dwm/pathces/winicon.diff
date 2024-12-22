@@ -369,3 +369,4 @@ index a96f33c..033ccec 100644
  void
  updatewindowtype(Client *c)
  {
+

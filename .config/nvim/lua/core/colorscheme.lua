@@ -1,26 +1,26 @@
---DONE:catppuccin
--- require("core.lazyplug.colorscheme.catppuccin")
+--catppuccin
+require("core.lazyplug.colorscheme.catppuccin")
 --
---DONE:gruvbox
+--gruvbox
 -- require("core.lazyplug.colorscheme.gruvbox")
 --
---DONE:tokyonight
+--tokyonight
 -- require("core.lazyplug.colorscheme.tokyonight")
 --
---DONE:onedark
+--onedark
 -- require("core.lazyplug.colorscheme.onedark")
 --
---DONE:kanagata
+--kanagata
 -- require("core.lazyplug.colorscheme.kanagata")
 --
---DONE:vscode
+--vscode
 -- require("core.lazyplug.colorscheme.vscode")
 --
---DONE:everforest
+--everforest
 -- require("core.lazyplug.colorscheme.everforest")
 --
---DONE:dracula
-require("core.lazyplug.colorscheme.dracula")
+--dracula
+-- require("core.lazyplug.colorscheme.dracula")
 ---------------------------------------------------------------
 --cursor theme
 if vim.o.background == "light" then

@@ -6,14 +6,19 @@
 ╚██████╗╚██████╔╝██║ ╚████║██║     ██║╚██████╔╝██╗██║  ██║
  ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝     ╚═╝ ╚═════╝ ╚═╝╚═╝  ╚═╝
 //==========================================================*/
-
-// appearance 
-static const unsigned int borderpx       = 4 ;       // border pixel of windows 
-static const unsigned int snap           = 0 ;       // snap pixel 
-
+//icon title
+#define                   ICONSIZE             18         /* icon size */
+#define                   ICONSPACING          10         /* space between icon and title */
+//tag preview
+static const int scalepreview                 = 4;        /* preview scaling (display w and h / scalepreview) */
+static const int previewbar                   = 0;        /* show the bar in the preview window */
 //========================================//
-static int floatposgrid_x           = 5;        /* float grid columns */
-static int floatposgrid_y           = 5;        /* float grid rows */
+// appearance 
+static const unsigned int borderpx            = 4 ;       // border pixel of windows 
+static const unsigned int snap                = 0 ;       // snap pixel 
+//========================================//
+static int floatposgrid_x                     = 5;        /* float grid columns */
+static int floatposgrid_y                     = 5;        /* float grid rows */
 //========================================//
 //systray
 static const unsigned int systraypinning     =  0 ;       // 0: sloppy systray follows selected monitor, >0: pin systray to monitor X 
@@ -52,7 +57,7 @@ static const          int showbar        = 1  ;       // 0 means no bar
 static const          int topbar         = 1  ;       // 0 means bottom bar 
 //========================================//
 //bar paddings
-static const          int vertpad        = 15 ;       // vertical padding of bar 
+static const          int vertpad        = 10 ;       // vertical padding of bar 
 static const          int sidepad        = 15 ;       // horizontal padding of bar 
 //========================================//
 // font
@@ -76,10 +81,10 @@ static const char *colors[][3]           = {
 };
 // tagging 
 static const char *tags[] = {   " 󱍢 ", "  ", " 󰈹 ", "  ", " 󰣇 ", "  ", "  ", "  ", "  " };
-//static const char *tags[] = { " 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 " };
+/* static const char *tags[] = { " 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 " }; */
 
-//static const char *tags[] = { "󱍢", "", "󰈹", "", "󰣇", "", "", "", "" };
-//static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+/* static const char *tags[] = { "󱍢", "", "󰈹", "", "󰣇", "", "", "", "" }; */
+/* static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }; */
 
 // Сохраняем состояние перед переходом в тег 0
 static unsigned int prevtags         = 0   ;     // Хранение предыдущего тега
@@ -161,11 +166,11 @@ static const Layout layouts[] = {
 #define ALTKEY Mod1Mask
 #define SHIFT  ShiftMask 
 #define CTRL   ControlMask 
-#define TAGKEYS(KEY,TAG)                                                                                     \
-       &((Keychord){1, {{MODKEY, KEY}},                                 view,           {.ui = 1 << TAG} }), \
-       &((Keychord){1, {{MODKEY|CTRL, KEY}},                     toggleview,     {.ui = 1 << TAG} }), \
-       &((Keychord){1, {{MODKEY|SHIFT, KEY}},                       tag,            {.ui = 1 << TAG} }), \
-       &((Keychord){1, {{MODKEY|CTRL|SHIFT, KEY}},           toggletag,      {.ui = 1 << TAG} }),
+#define TAGKEYS(KEY,TAG)                                                                          \
+       &((Keychord){1, {{MODKEY, KEY}},                            view,     {.ui = 1 << TAG} }), \
+       &((Keychord){1, {{MODKEY|CTRL, KEY}},                 toggleview,     {.ui = 1 << TAG} }), \
+       &((Keychord){1, {{MODKEY|SHIFT, KEY}},                       tag,     {.ui = 1 << TAG} }), \
+       &((Keychord){1, {{MODKEY|CTRL|SHIFT, KEY}},            previewtag,     {.ui = TAG     } }),
 ////======================================================================//
 ////======================================================================//
 ////======================================================================//
@@ -203,14 +208,16 @@ static Keychord *keychords[]        = {
     &((Keychord){2, {{MODKEY, XK_s}, {0, XK_d}}, toggle_bottGaps, {0}  }), // toggle bottGaps
     &((Keychord){2, {{MODKEY, XK_s}, {0, XK_b}}, spawn,           SHCMD("pgrep blueman-manager && pkill blueman-manager || blueman-manager &")  }), // blueman-manager
     &((Keychord){2, {{MODKEY, XK_s}, {0, XK_n}}, spawn,           SHCMD("pgrep -fx 'kitty --title nmtui nmtui-connect' && pkill -fx 'kitty --title nmtui nmtui-connect' || kitty --title nmtui nmtui-connect &") }), // network-manager
+    &((Keychord){2, {{MODKEY, XK_s}, {0, XK_p}}, spawn,           SHCMD("$HOME/.config/rofi/powermenu/powermenu.sh") }), //powermenu
+    &((Keychord){2, {{MODKEY, XK_s}, {0, XK_l}}, spawn,           SHCMD("$HOME/.config/rofi/powermenu/.screen-lock.sh") }), //lockfullscreen
 //======================================================================//
     // aplication [ super + a ] 
     &((Keychord){2, {{MODKEY, XK_a}, {0,XK_f}}, spawn,  {.v = browser } }),   //firefox
     &((Keychord){2, {{MODKEY, XK_a}, {0,XK_d}}, spawn,  SHCMD("vesktop")  }), //vesktop
     &((Keychord){2, {{MODKEY, XK_a}, {0,XK_t}}, spawn,  SHCMD("telegram-desktop")  }), //telegram-desktop
     &((Keychord){2, {{MODKEY, XK_a}, {0,XK_v}}, spawn,  {.v = codeEditor } }),//vscode
-    /* &((Keychord){2, {{MODKEY, XK_a}, {0,XK_c}}, spawn,   SHCMD("kitty --hold sh -c 'nvim'") }), //nvim */
-    &((Keychord){2, {{MODKEY, XK_a}, {0,XK_c}}, spawn,   SHCMD("$HOME/.local/bin/neovide") }), //nvim
+    &((Keychord){2, {{MODKEY, XK_a}, {0,XK_c}}, spawn,   SHCMD("kitty --hold sh -c 'nvim'") }), //nvim
+    /* &((Keychord){2, {{MODKEY, XK_a}, {0,XK_c}}, spawn,   SHCMD("$HOME/.local/bin/neovide") }), //nvim */
     &((Keychord){2, {{MODKEY, XK_a}, {0,XK_b}}, spawn,  SHCMD("kitty -e btop")  }), //btop
 //======================================================================//
     //screen [super + p ]
@@ -241,11 +248,11 @@ static Keychord *keychords[]        = {
     &((Keychord){1, {{CTRL, 0x60 }}, spawn,  SHCMD("$HOME/.suckless/scripts/caps.sh")  }),
 //======================================================================//
 	//rofi
-    &((Keychord){1, {{MODKEY, XK_r}},           spawn,  SHCMD("$HOME/.config/rofi/launchers/type-2/launcher.sh")  }),
-    &((Keychord){1, {{MODKEY|SHIFT, XK_a}}, spawn,  SHCMD("$HOME/.config/rofi/launchers/type-3/launcher_1.sh")  }),
-    &((Keychord){1, {{MODKEY, XK_v}},           spawn,  SHCMD("$HOME/.config/rofi/launchers/type-2/bufer.sh") }),
-    &((Keychord){1, {{MODKEY|ALTKEY, XK_a}},    spawn,  SHCMD("$HOME/.config/rofi/launchers/type-2/emoji.sh")  }),
-//======================================================================//
+    &((Keychord){1, {{MODKEY, XK_r}}, spawn,  SHCMD("$HOME/.config/rofi/launchers/launcher.sh")  }),
+    &((Keychord){1, {{MODKEY, XK_v}},           spawn,  SHCMD("$HOME/.config/rofi/clipboard/clipboard.sh") }),
+    &((Keychord){1, {{MODKEY|ALTKEY, XK_a}},    spawn,  SHCMD("$HOME/.config/rofi/emoji/emoji.sh")  }),
+    &((Keychord){1, {{MODKEY|SHIFT,  XK_s}},    spawn,  SHCMD("$HOME/.config/rofi/serf/serf.sh")  }),
+//=================================================================k====//
     //wallpapers control
     &((Keychord){1, {{MODKEY|CTRL, 0x5b}}, spawn, SHCMD("$HOME/.suckless/scripts/change_wallpaper.sh left" ) }),
     &((Keychord){1, {{MODKEY|CTRL, 0x5d}}, spawn, SHCMD("$HOME/.suckless/scripts/change_wallpaper.sh right") }),
@@ -284,7 +291,7 @@ static Keychord *keychords[]        = {
     &((Keychord){1, {{MODKEY|CTRL|SHIFT, XK_l}}, moveresizeedge, { .v = "R" } }),
 //======================================================================//
 	//toggleBar 
-    &((Keychord){1, {{MODKEY|SHIFT, XK_w}}, togglebar, { 0 } }),
+    &((Keychord){2, {{MODKEY, XK_w},{0,XK_b}}, togglebar, { 0 } }),
 //======================================================================//
 	//focusStack 
     &((Keychord){1, {{MODKEY|SHIFT, XK_j}}, focusstack, { .i = +1 } }),
@@ -371,6 +378,7 @@ static Keychord *keychords[]        = {
     &((Keychord){2, {{MODKEY, XK_w},{0|SHIFT, XK_g}}, togglesmartgaps,  { 0 } }),// togglesmartgaps
     &((Keychord){2, {{MODKEY, XK_w},{0,XK_t}},   toggleTagBoxes          ,  { 0 } }),// toggle_tag_boxes
     &((Keychord){3, {{MODKEY, XK_w},{0,XK_m},{0|SHIFT, XK_g}}, toggle_always_smartgaps_monocle, { 0 } }),// toggle_smartgaps_monocle
+    &((Keychord){1, {{MODKEY|SHIFT, XK_w}}, spawn, SHCMD("$HOME/.config/rofi/wifi/wifi.sh") }),// killclient
     //awesome key
     &((Keychord){3, {{MODKEY, XK_w},{0,XK_a},{0, XK_t}}, toggleshowtitle,   { 0 } }),// toggleshowtitle 
     &((Keychord){3, {{MODKEY, XK_w},{0,XK_a},{0, XK_h}}, hidewin,   { 0 } }),        // hidewin 
@@ -380,7 +388,7 @@ static Keychord *keychords[]        = {
     //===================================================================================//
     // click mouse
     &((Keychord){2, {{MODKEY, XK_w},{0,XK_f}}, spawn,  SHCMD("warpd --hint --click 1")  }),
-    &((Keychord){2, {{MODKEY, XK_w},{0,XK_l}}, spawn,  SHCMD("warpd --hint --click 3")  }),
+    &((Keychord){2, {{MODKEY, XK_w},{0|SHIFT, XK_f}}, spawn,  SHCMD("warpd --hint --click 3")  }),
     // click mouse
     &((Keychord){2, {{MODKEY, XK_w},{0,XK_g}}, spawn,  SHCMD("warpd --grid")            }),
     //===================================================================================//

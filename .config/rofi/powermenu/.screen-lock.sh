@@ -5,9 +5,8 @@ fg=c0caf5
 wrong=db4b4b
 date=7aa2f7
 verify=7aa2f7
-
 # Изображение для фона
-lock_image="$HOME/wallpapers/bg-7.jpg"
+lock_image="$HOME/wallpapers/bg-21.png"
 
 # Команда блокировки экрана
 i3lock -n -i "$lock_image" -e --indicator --radius=20 --ring-width=40 \

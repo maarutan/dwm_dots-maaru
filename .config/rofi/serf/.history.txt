@@ -1,3 +1,5 @@
-  ["duckduckgo"]="https://www.duckduckgo.com/?q="
-http://127.0.0.1:8000/
-nerd font icons 
+emoji
+instagram kaamitan
+nvim codding lazy
+ruff для nvim itproger 
+svermeulen/vim-cutlass

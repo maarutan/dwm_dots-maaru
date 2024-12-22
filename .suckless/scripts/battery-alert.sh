@@ -1,39 +1,38 @@
 #!/bin/sh
 
-# Possible values: NONE, FULL, LOW, CRITICAL
+# Возможные значения: NONE, FULL, LOW, CRITICAL
 last="NONE"
 critical=10
-low=25
+low=20
 
 while true; do
+  # Проверка батареи
+  for battery in /sys/class/power_supply/BAT*; do
+    if [ -d "$battery" ]; then
+      capacity=$(cat "$battery/capacity" 2>/dev/null)
+      status=$(cat "$battery/status" 2>/dev/null)
 
-  # If battery is plugged, do stuff
-  battery="/sys/class/power_supply/BAT0"
-  if [ -d $battery ]; then
+      # Если батарея заряжена полностью
+      if [ "$last" != "FULL" ] && [ "$status" = "Full" ]; then
+        notify-send "🔋 Battery full" "Your battery is fully charged."
+        last="FULL"
+      fi
 
-    capacity=$(cat $battery/capacity)
-    status=$(cat $battery/status)
+      # Если уровень низкий и разряжается
+      if [ "$last" != "LOW" ] && [ "$last" != "CRITICAL" ] && \
+         [ "$status" = "Discharging" ] && [ "$capacity" -le $low ]; then
+        notify-send "⚠️ Battery low" "Battery level is at $capacity%. Please charge soon."
+        last="LOW"
+      fi
 
-    # If battery full and not already warned about that
-    if [ "$last" != "FULL" ] && [ "$status" = "Full" ]; then
-      notify-send "Battery full"
-      last="FULL"
+      # Если уровень критический и разряжается
+      if [ "$last" != "CRITICAL" ] && [ "$status" = "Discharging" ] && \
+         [ "$capacity" -le $critical ]; then
+        notify-send "❗ Battery critical" "Battery level is at $capacity%. Charge immediately!"
+        last="CRITICAL"
+      fi
     fi
+  done
 
-    # If low and discharging
-    if [ "$last" != "LOW" ] && [ "$last" != "CRITICAL" ]  && \
-       [ "$status" = "Discharging" ] && [ $capacity -le $low ]; then
-      notify-send "Battery low: $capacity%"
-      last="LOW"
-	fi
-
-	# If critical level and discharging
-	if [ "$last" = "LOW" ] && [ "$status" = "Discharging" ] && \
-	   [ $capacity -le $critical ]; then
-	  notify-send "Battery critical: $capacity%"
-      last="CRITICAL"
-    fi
-  fi
   sleep 60
-
 done

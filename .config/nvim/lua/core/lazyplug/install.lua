@@ -108,6 +108,10 @@ return {
 	{ "tpope/vim-eunuch" },
 	--swhicher color theme
 	{ "gagbo/circadian.nvim" },
-	--pacman animshttps://github.com/maarutan/pacman-anims-nvim?tab=readme-ov-file
+	--pacman animshttps
 	{ "maarutan/pacman-anims-nvim" },
+	--nocut
+	{ "maarutan/nvim-nocut" },
+	--keycalm
+	{ "maarutan/keycalm.nvim" },
 }

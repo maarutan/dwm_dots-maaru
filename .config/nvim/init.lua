@@ -22,7 +22,7 @@ require("plugins.colorizer")
 require("plugins.todo")
 require("plugins.gitsing")
 require("plugins.cinnamon")
-require("plugins.cowboy") -- cowboy
+require("plugins.keycalm") -- KEYCALM:
 require("plugins.indentLine")
 require("plugins.yazinvim")
 require("plugins.treesitter-context")
@@ -35,6 +35,8 @@ require("plugins.illuminate")
 require("plugins.matchup")
 require("plugins.renamer")
 require("plugins.showfile")
+require("plugins.navic")
+require("plugins.nocut")
 --buffer
 require("plugins.buffer-name")
 require("plugins.buffer-new")
