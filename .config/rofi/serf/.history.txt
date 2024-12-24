@@ -1,5 +1,3 @@
-emoji
-instagram kaamitan
-nvim codding lazy
-ruff для nvim itproger 
-svermeulen/vim-cutlass
+maarutan/dwm_dots-maaru
+nvim coding lazy nosako
+youtube

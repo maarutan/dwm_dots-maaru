@@ -1,46 +1,49 @@
+--Telescope configuration
 local telescope = require("telescope")
 local builtin = require("telescope.builtin")
 
--- Основные привязки
-vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Найти файлы" })
-vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Открыть буферы" })
-vim.keymap.set("n", "<leader>fw", builtin.live_grep, { desc = "Поиск текста" })
-vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Справка" })
+-- Main key bindings
+vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = " Find files" })
+vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = " Open buffers" })
+vim.keymap.set("n", "<leader>fw", builtin.live_grep, { desc = " Search text" })
+vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = " Help tags" })
 
--- Проверка наличия .git
+-- Check for .git directory
 local function check_git_and_run(callback)
 	if vim.fn.isdirectory(".git") == 1 then
 		callback()
 	else
-		vim.notify("У вас нет репозитория", vim.log.levels.WARN, {
+		vim.notify("No Git repository found", vim.log.levels.WARN, {
 			title = "Git",
 			icon = "󰊢",
 		})
 	end
 end
 
--- Привязки для работы с Git
+-- Git key bindings
 vim.keymap.set("n", "<leader>gb", function()
 	check_git_and_run(builtin.git_branches)
-end, { desc = "Гит ветки" })
+end, { desc = "Git branches" })
 
 vim.keymap.set("n", "<leader>gc", function()
 	check_git_and_run(builtin.git_commits)
-end, { desc = "Гит коммиты" })
+end, { desc = "Git commits" })
 
 vim.keymap.set("n", "<leader>gs", function()
 	check_git_and_run(builtin.git_status)
-end, { desc = "Гит статус" })
+end, { desc = "Git status" })
 
--- Дополнительные функции
-vim.keymap.set("n", "<leader>cs", builtin.colorscheme, { desc = "Выбор цветовой схемы" })
-vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<CR>", { desc = "Открыть дерево undo" })
-vim.keymap.set("n", "<leader>fn", "<cmd>Telescope notify<CR>", { desc = "История уведомлений" })
+-- Additional functions
+vim.keymap.set("n", "<leader>cs", builtin.colorscheme, {
+	desc = " Select colorscheme",
+})
+vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<CR>", { desc = "󰣜 Open undo tree" })
+vim.keymap.set("n", "<leader>fn", "<cmd>Telescope notify<CR>", { desc = "󰍡 Notification history" })
 
 local function open_file_browser()
 	telescope.extensions.file_browser.file_browser({
 		prompt_title = "Select Directory",
-		cwd = vim.fn.getcwd(), -- Используем текущую рабочую директорию
+		cwd = vim.fn.getcwd(),
 		attach_mappings = function(_, map)
 			local actions = require("telescope.actions")
 			local action_state = require("telescope.actions.state")
@@ -55,8 +58,10 @@ local function open_file_browser()
 	})
 end
 
-vim.keymap.set("n", "<leader>wd", open_file_browser, { desc = "Открыть file_browser" })
--- Настройка Telescope
+vim.keymap.set("n", "<leader>wd", open_file_browser, { desc = "Open file_browser" })
+
+-- Telescope setup
+
 telescope.setup({
 	defaults = {
 		file_ignore_patterns = {
@@ -97,7 +102,7 @@ telescope.setup({
 	},
 })
 
--- Загрузка расширений
+-- Load Telescope extensions
 telescope.load_extension("notify")
 telescope.load_extension("file_browser")
 telescope.load_extension("undo")

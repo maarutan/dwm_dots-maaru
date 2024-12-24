@@ -66,10 +66,11 @@ static const          int sidepad        = 15 ;       // horizontal padding of b
 //========================================//
 // font
 static const char *fonts[] = { 
-    "FiraCode Nerd Font:size=11", 
-    "Noto Sans:size=11",
-    "Noto Sans CJK JP:size=11",
-    "apple-color-emoji:size=11",
+    "FiraCode Nerd Font:size=10", 
+    "Noto Sans:size=10",
+    "Noto Sans CJK JP:size=10",
+    "apple-color-emoji:size=10",
+    "monospace:size=10", 
 };
 //========================================//
 // color
@@ -253,8 +254,10 @@ static Keychord *keychords[]        = {
     &((Keychord){1, {{MODKEY, XK_q}},       killclient,     {0} }),
 //======================================================================//
     //changeKeyboard
-    &((Keychord){1, {{CTRL, 0xffe9}}, spawn,  SHCMD("pkill -RTMIN+1 dwmblocks; $HOME/.suckless/scripts/changeKeyboard.sh; setxkbmap -layout us,ru -option 'grp:ctrl_alt_toggle' -option 'ctrl:nocaps'")  }),
-    &((Keychord){1, {{CTRL, 0x60 }}, spawn,  SHCMD("$HOME/.suckless/scripts/caps.sh")  }),
+    &((Keychord){1, {{CTRL, XK_Alt_L}}, spawn,  SHCMD("pkill -RTMIN+1 dwmblocks; $HOME/.suckless/scripts/changeKeyboard.sh; setxkbmap -layout us,ru -option 'grp:ctrl_alt_toggle' -option 'ctrl:nocaps'")  }),
+    &((Keychord){1, {{CTRL, XK_grave}}, spawn,  SHCMD("$HOME/.suckless/scripts/caps.sh")  }),
+    &((Keychord){1, {{CTRL|SHIFT, XK_grave}}, spawn,  SHCMD("$HOME/.suckless/scripts/realoadKB.sh")  }),
+  
 //======================================================================//
 	//rofi
     &((Keychord){1, {{MODKEY, XK_r}}, spawn,  SHCMD("$HOME/.config/rofi/launchers/launcher.sh")  }),

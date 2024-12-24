@@ -1,6 +1,6 @@
 require("tokyonight").setup({
 	style = "auto", -- Автоматический выбор стиля
-	light_style = "night", -- Устанавливаем дневной стиль
+	light_style = "moon", -- Устанавливаем дневной стиль
 	transparent = false, -- Прозрачность отключена
 	terminal_colors = true, -- Использовать цвета терминала
 	styles = {
@@ -18,5 +18,5 @@ require("tokyonight").setup({
 if vim.o.background == "light" then
 	vim.cmd("colorscheme tokyonight-day")
 else
-	vim.cmd("colorscheme tokyonight-night")
+	vim.cmd("colorscheme tokyonight-moon")
 end

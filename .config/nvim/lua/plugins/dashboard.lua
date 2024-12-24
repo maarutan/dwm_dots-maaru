@@ -152,7 +152,7 @@ require("dashboard").setup({
 			},
 
 			{
-				icon = "󰄛 ",
+				icon = " ",
 				icon_hl = "Title",
 				desc = "Recent files",
 				desc_hl = "String",
@@ -195,8 +195,9 @@ require("dashboard").setup({
 		-- Запускаем анимацию
 		footer = function()
 			local pacman = require("pacman").get_pacman_text()
+			local space = " "
 			local text = "Welcome to neovim 🚀 "
-			return { text, pacman }
+			return { space, space, text }
 		end,
 	},
 })

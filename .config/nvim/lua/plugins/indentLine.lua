@@ -32,13 +32,6 @@ require("mini.indentscope").setup({
 	},
 
 	-- Горячие клавиши
-	mappings = {
-		object_scope = "ii",
-		object_scope_with_border = "ai",
-		goto_top = "[i",
-		goto_bottom = "]i",
-	},
-
 	-- Опции для вычисления области
 	options = {
 		border = "both", -- Отображение верхней и нижней границ области
@@ -52,7 +45,7 @@ require("mini.indentscope").setup({
 
 -- Добавляем игнорирование для mini.indentscope
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "dashboard", "help", "NvimTree", "lazy", "terminal" }, -- Список типов файлов для игнорирования
+	pattern = { "dashboard", "help", "neo-tree", "lazy", "terminal" }, -- Список типов файлов для игнорирования
 	callback = function()
 		vim.b.miniindentscope_disable = true -- Отключение mini.indentscope для текущего буфера
 	end,

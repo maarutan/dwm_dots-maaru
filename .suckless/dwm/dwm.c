@@ -1849,7 +1849,7 @@ drawbar(Monitor *m)
                 }
 
                 int line_offset = (w - line_width) / 2;
-                drw_rect(drw, x + line_offset, bh - line_height - 4.5, line_width, line_height, 1, 0);
+                drw_rect(drw, x + line_offset, bh - line_height - 3, line_width, line_height, 1, 0);
             } else if (show_tag_boxes == 3) {
                 drw_rect(drw, x + 6, bh - 20, 5, 5, 1, 0);
             } else if (show_tag_boxes == 4) {
@@ -1863,52 +1863,64 @@ drawbar(Monitor *m)
     drw_setscheme(drw, scheme[SchemeNorm]);
     x = drw_text(drw, x, y, w, th, lrpad / 2, m->ltsymbol, 0);
 
+
+
     /* Зона заголовка */
     if ((title_width = mw - tw - stw - x) > th) {
         title_start = x;
-        if (showtitle && m->sel) {
-            drw_setscheme(drw, scheme[SchemeTitle]);
-            XFillRectangle(drw->dpy, drw->drawable, drw->gc, title_start, y, title_width, th);
 
-            /* Отображение только названия приложения */
-            char app_name[256] = "Unknown";
-            XClassHint ch = { NULL, NULL };
-            if (XGetClassHint(dpy, m->sel->win, &ch)) {
-                if (ch.res_class) {
-                    strncpy(app_name, ch.res_class, sizeof(app_name) - 1);
-                    app_name[sizeof(app_name) - 1] = '\0';
-                    XFree(ch.res_class);
+        switch (showtitle) {
+        case 0: // Стадия 1: заголовок окна или арт
+            if (m->sel) { // Есть выбранное окно
+                drw_setscheme(drw, scheme[SchemeTitle]);
+                XFillRectangle(drw->dpy, drw->drawable, drw->gc, title_start, y, title_width, th);
+
+                char app_name[256] = "Unknown";
+                XClassHint ch = { NULL, NULL };
+                if (XGetClassHint(dpy, m->sel->win, &ch)) {
+                    if (ch.res_class) {
+                        strncpy(app_name, ch.res_class, sizeof(app_name) - 1);
+                        app_name[sizeof(app_name) - 1] = '\0';
+                        XFree(ch.res_class);
+                    }
+                    if (ch.res_name)
+                        XFree(ch.res_name);
                 }
-                if (ch.res_name)
-                    XFree(ch.res_name);
-            }
 
-            /* Отрисовка иконки и текста */
-            int total_width = TEXTW(app_name); // Ширина текста
-            int icon_offset = 0;
+                int total_width = TEXTW(app_name);
+                int icon_offset = 0;
 
-            if (m->sel->icon) {
-                total_width += m->sel->icw + ICONSPACING; // Учитываем ширину иконки и отступ
-            }
+                if (m->sel->icon) {
+                    total_width += m->sel->icw + ICONSPACING;
+                }
 
-            /* Центрируем общий блок (иконка + текст) */
-            int center_offset = MAX((title_width - total_width) / 2, 0);
+                int center_offset = MAX((title_width - total_width) / 2, 0);
 
-            if (m->sel->icon) {
-                drw_pic(drw, title_start + center_offset, y + (th - m->sel->ich) / 2, m->sel->icw, m->sel->ich, m->sel->icon);
-                icon_offset = m->sel->icw + ICONSPACING; // Сдвиг для текста
-            }
+                if (m->sel->icon) {
+                    drw_pic(drw, title_start + center_offset, y + (th - m->sel->ich) / 2, m->sel->icw, m->sel->ich, m->sel->icon);
+                    icon_offset = m->sel->icw + ICONSPACING;
+                }
 
-            drw_text(drw, title_start + center_offset + icon_offset, y, title_width - center_offset - icon_offset, th, lrpad / 2, app_name, 0);
-        } else {
-            drw_setscheme(drw, scheme[SchemeNorm]);
-            drw_rect(drw, title_start, y, title_width, th, 1, 1);
-
-            /* Добавление ASCII-арта */
-            if (showtitle) { // Добавляем проверку, чтобы арт скрывался с заголовком
+                drw_text(drw, title_start + center_offset + icon_offset, y, title_width - center_offset - icon_offset, th, lrpad / 2, app_name, 0);
+            } else { // Нет выбранного окна
+                drw_setscheme(drw, scheme[SchemeTitle]); // Используем схему фона заголовка
+                XFillRectangle(drw->dpy, drw->drawable, drw->gc, title_start, y, title_width, th);
                 int art_width = TEXTW(ascii_art);
                 drw_text(drw, title_start + MAX((title_width - art_width) / 2, 0), y, art_width, th, lrpad / 2, ascii_art, 0);
             }
+            break;
+
+        case 1: // Стадия 2: всегда только арт
+            drw_setscheme(drw, scheme[SchemeTitle]); // Используем схему фона заголовка
+            XFillRectangle(drw->dpy, drw->drawable, drw->gc, title_start, y, title_width, th); // Рисуем фон
+            int art_width = TEXTW(ascii_art);
+            drw_text(drw, title_start + MAX((title_width - art_width) / 2, 0), y, art_width, th, lrpad / 2, ascii_art, 0);
+            break;
+
+        case 2: // Стадия 3: ничего
+            drw_setscheme(drw, scheme[SchemeNorm]);
+            drw_rect(drw, title_start, y, title_width, th, 1, 1);
+            break;
         }
     }
 
@@ -1953,9 +1965,11 @@ void toggleTagBoxes(const Arg *arg) {
 
 void toggleshowtitle(const Arg *arg)
 {
-    showtitle = !showtitle; // Переключаем состояние
-    save_showtitle_state(); // Убедитесь, что эта функция существует и сохраняет состояние
-    drawbars();             // Обновляем панель
+    // Переключаем между 3 состояниями
+    showtitle = (showtitle + 1) % 3;
+
+    save_showtitle_state(); // Сохраняем состояние
+    drawbars();             // Обновляем панели
 }
 void
 grabkeys(void)

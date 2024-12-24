@@ -1,46 +1,64 @@
-require("full-border"):setup()
+-- ██╗███╗   ██╗██╗████████╗
+-- ██║████╗  ██║██║╚══██╔══╝
+-- ██║██╔██╗ ██║██║   ██║
+-- ██║██║╚██╗██║██║   ██║
+-- ██║██║ ╚████║██║   ██║
+-- ╚═╝╚═╝  ╚═══╝╚═╝   ╚═╝
+--
+require("full-border"):setup({
+	type = ui.Border.ROUNDED,
+})
+require("smart-enter"):setup({
+	open_multi = true,
+})
+if os.getenv("NVIM") then
+	require("hide-preview"):entry()
+end
 require("git"):setup()
-require("no-status"):setup()
-require("eza-preview"):setup()
+
+local catppuccin_theme = require("yatline-catppuccin"):setup("mocha") -- "latte" | "frappe" | "macchiato"
 require("yatline"):setup({
+	theme = catppuccin_theme,
 	section_separator = { open = "", close = "" },
 	part_separator = { open = "", close = "" },
 	inverse_separator = { open = "", close = "" },
 
 	style_a = {
-		fg = "#1e1e2e", -- Mocha: Base
+		fg = "black",
 		bg_mode = {
-			normal = "#b4befe", -- Mocha: Lavender
-			select = "#a6e3a1", -- Mocha: Green
-			un_set = "#f38ba8", -- Mocha: Red
+			normal = "white",
+			select = "brightyellow",
+			un_set = "brightred",
 		},
 	},
-	style_b = { bg = "#313244", fg = "#cdd6f4" }, -- Mocha: Surface0 and Text
-	style_c = { bg = "#1e1e2e", fg = "#b4befe" }, -- Mocha: Base and Lavender
+	style_b = { bg = "brightblack", fg = "brightwhite" },
+	style_c = { bg = "black", fg = "brightwhite" },
 
-	permissions_t_fg = "#a6e3a1", -- Mocha: Green
-	permissions_r_fg = "#fab387", -- Mocha: Peach
-	permissions_w_fg = "#f38ba8", -- Mocha: Red
-	permissions_x_fg = "#89b4fa", -- Mocha: Blue
-	permissions_s_fg = "#585b70", -- Mocha: Overlay0
+	permissions_t_fg = "green",
+	permissions_r_fg = "yellow",
+	permissions_w_fg = "red",
+	permissions_x_fg = "cyan",
+	permissions_s_fg = "white",
 
 	tab_width = 20,
 	tab_use_inverse = false,
 
-	selected = { icon = "󰻭", fg = "#f9e2af" }, -- Mocha: Yellow
-	copied = { icon = "", fg = "#a6e3a1" }, -- Mocha: Green
-	cut = { icon = "", fg = "#f38ba8" }, -- Mocha: Red
+	selected = { icon = "󰻭", fg = "yellow" },
+	copied = { icon = "", fg = "green" },
+	cut = { icon = "", fg = "red" },
 
-	total = { icon = "󰮍", fg = "#f9e2af" }, -- Mocha: Yellow
-	succ = { icon = "", fg = "#a6e3a1" }, -- Mocha: Green
-	fail = { icon = "", fg = "#f38ba8" }, -- Mocha: Red
-	found = { icon = "󰮕", fg = "#89b4fa" }, -- Mocha: Blue
-	processed = { icon = "󰐍", fg = "#a6e3a1" }, -- Mocha: Green
+	total = { icon = "󰮍", fg = "yellow" },
+	succ = { icon = "", fg = "green" },
+	fail = { icon = "", fg = "red" },
+	found = { icon = "󰮕", fg = "blue" },
+	processed = { icon = "󰐍", fg = "green" },
 
 	show_background = true,
 
 	display_header_line = true,
 	display_status_line = true,
+
+	component_positions = { "header", "tab", "status" },
 
 	header_line = {
 		left = {
@@ -70,7 +88,7 @@ require("yatline"):setup({
 				{ type = "string", custom = false, name = "hovered_size" },
 			},
 			section_c = {
-				{ type = "string", custom = false, name = "hovered_name" },
+				{ type = "string", custom = false, name = "hovered_path" },
 				{ type = "coloreds", custom = false, name = "count" },
 			},
 		},

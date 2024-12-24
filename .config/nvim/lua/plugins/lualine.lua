@@ -35,9 +35,9 @@ require("lualine").setup({
 				local mode_map = {
 					n = " Normal",
 					i = " Insert",
-					v = " Visual",
-					V = " V-Line",
-					[""] = " V-Block",
+					v = "󰈈 Visual",
+					V = "󰈈 V-Line",
+					[""] = "󰈈 V-Block",
 					c = " Command",
 					r = "󰑕 Replace",
 					R = "󰑕 Replace",
