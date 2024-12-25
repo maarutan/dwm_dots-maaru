@@ -1,7 +1,7 @@
 configuration{
     modi: "run,drun,window";
     lines: 5;
-    font: "JetBrainsMono Nerd Font 14";
+    font: "JetBrainsMono Nerd Font 25";
     show-icons: true;
     icon-theme: "Papirus-dark";
     terminal: "alacritty";
@@ -30,6 +30,9 @@ element-text, element-icon , mode-switcher {
 
 window {
     height: 360px;
+    width:  360px;
+    x-offset:                     480px;
+    y-offset:                    -280px;
     border: 3px;
     border-color: @border-col;
     background-color: @bg-col;
@@ -40,6 +43,7 @@ mainbox {
 }
 
 inputbar {
+    enabled:           false;
     children: [prompt,entry];
     background-color: @bg-col;
     border-radius: 5px;
