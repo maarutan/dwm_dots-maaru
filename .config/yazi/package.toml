@@ -18,7 +18,8 @@ deps = [
   { use = "Ape/open-with-cmd", rev = "a80d1cf" },
   { use = "TD-Sky/sudo", rev = "a8287ea" },
   { use = "ahkohd/eza-preview", rev = "5ef05bc" },
-  { use = "imsi32/yatline", rev = "600ed1f" },
+  { use = "imsi32/yatline", rev = "600ed1f" }, 
+  { use = "dedukun/relative-motions", rev = "df97039" },
 ]
 
 [flavor]

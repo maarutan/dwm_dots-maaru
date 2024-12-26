@@ -1,0 +1,2 @@
+bindkey '^L' forward-char
+

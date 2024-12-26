@@ -18,7 +18,7 @@ configuration{
     kb-row-down:  "j";
     kb-row-up:    "k";
     kb-row-left:  "h";
-    kb-row-right: "l";
+    kb-accept-entry: "l,Return,KP_Enter";
 }
 
 @theme "catppuccin"

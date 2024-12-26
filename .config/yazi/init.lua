@@ -5,6 +5,7 @@
 -- ██║██║ ╚████║██║   ██║
 -- ╚═╝╚═╝  ╚═══╝╚═╝   ╚═╝
 --
+require("relative-motions"):setup({ show_numbers = "relative_absolute", show_motion = true })
 require("full-border"):setup({
 	type = ui.Border.ROUNDED,
 })
@@ -16,7 +17,7 @@ if os.getenv("NVIM") then
 end
 require("git"):setup()
 
-local catppuccin_theme = require("yatline-catppuccin"):setup("mocha") -- "latte" | "frappe" | "macchiato"
+local catppuccin_theme = require("yatline-catppuccin"):setup("macchiato") -- "latte" | "frappe" | "macchiato"
 require("yatline"):setup({
 	theme = catppuccin_theme,
 	section_separator = { open = "", close = "" },

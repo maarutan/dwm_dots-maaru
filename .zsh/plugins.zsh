@@ -1,0 +1,11 @@
+plugins=(
+    git
+    zsh-autosuggestions
+    z
+    fzf-tab
+    zsh-completions
+    alias-tips
+    fast-syntax-highlighting
+    zsh-history-substring-search
+    zsh-dircolors-solarized
+    )

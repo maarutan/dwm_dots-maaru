@@ -10,7 +10,7 @@
 static const int scalepreview                 = 4;        /* preview scaling (display w and h / scalepreview) */
 static const int previewbar                   = 0;        /* show the bar in the preview window */
 //========================================//
-// appearance 
+// appearance  
 static const unsigned int borderpx            = 4 ;       // border pixel of windows 
 static const unsigned int snap                = 0 ;       // snap pixel 
 //========================================//
@@ -220,6 +220,7 @@ static Keychord *keychords[]        = {
     &((Keychord){2, {{MODKEY, XK_s}, {0, XK_n}}, spawn,           SHCMD("pgrep -fx 'kitty --title nmtui nmtui-connect' && pkill -fx 'kitty --title nmtui nmtui-connect' || kitty --title nmtui nmtui-connect &") }), // network-manager
     &((Keychord){2, {{MODKEY, XK_s}, {0, XK_p}}, spawn,           SHCMD("$HOME/.config/rofi/powermenu/powermenu.sh") }), //powermenu
     &((Keychord){2, {{MODKEY, XK_s}, {0, XK_l}}, spawn,           SHCMD("$HOME/.config/rofi/powermenu/.screen-lock.sh") }), //lockfullscreen
+    &((Keychord){2, {{MODKEY, XK_s}, {0, XK_q}}, spawn,           SHCMD("$HOME/.suckless/scripts/quran") }), //random ayat quran
 //======================================================================//
     // aplication [ super + a ] 
     &((Keychord){2, {{MODKEY, XK_a}, {0,XK_f}}, spawn,  {.v = browser } }),   //firefox

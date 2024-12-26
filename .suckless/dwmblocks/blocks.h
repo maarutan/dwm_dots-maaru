@@ -6,7 +6,7 @@ static const Block blocks[] = {
 	{"  󰮯 " , "cat $HOME/.suckless/scripts/dwmbScripts/.currentInfoUpDate", 1, 0},
 	{"  "   , "cat $HOME/.suckless/scripts/dwmbScripts/.currentShowInternet", 1, 0},
 	{"  "   , "cat $HOME/.suckless/scripts/dwmbScripts/.carrentsBattery", 1, 0},
-	{"  "   , "date '+%H:%M' &", 1, 0},
+	{"  "   , "date '+%I:%M %p' &", 1, 0},
 	/* {"        ", "", 0,}, */
 	{" ", "", 0,},
 };
