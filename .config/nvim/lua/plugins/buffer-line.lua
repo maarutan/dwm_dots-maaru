@@ -27,7 +27,8 @@ require("bufferline").setup({
 			{
 				filetype = "neo-tree",
 				text = function()
-					return require("pacman").get_pacman_text()
+					-- return require("pacman").get_pacman_text()
+					return ""
 				end,
 				text_align = "center",
 				separator = true,

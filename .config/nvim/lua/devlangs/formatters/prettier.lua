@@ -9,7 +9,7 @@ return null_ls.builtins.formatting.prettierd.with({
 		"jsx",
 		"tsx",
 		"json",
-		"html",
+		-- "html",
 		"css",
 		"scss",
 		"markdown",

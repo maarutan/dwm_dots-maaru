@@ -35,7 +35,7 @@
 	//font
 	"editor.fontLigatures": true,
 	"editor.inlayHints.fontFamily": "JetBrains mono",
-	"editor.fontFamily": "\"JetBrainsMono Nerd Font\", Consolas, \"Courier New\", monospacej",
+	"editor.fontFamily": "CaskaydiaCove Nerd Font Propo",
 	"editor.letterSpacing": 0.7,
 	"editor.tokenColorCustomizations": {
 		"textMateRules": [

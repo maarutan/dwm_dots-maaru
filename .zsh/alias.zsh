@@ -1,8 +1,18 @@
+#  █████╗ ██╗     ██╗ █████╗ ███████╗███████╗███████╗
+# ██╔══██╗██║     ██║██╔══██╗██╔════╝██╔════╝██╔════╝
+# ███████║██║     ██║███████║███████╗█████╗  ███████╗
+# ██╔══██║██║     ██║██╔══██║╚════██║██╔══╝  ╚════██║
+# ██║  ██║███████╗██║██║  ██║███████║███████╗███████║
+# ╚═╝  ╚═╝╚══════╝╚═╝╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝
+# change directory
 alias ..="cd .."
 alias ...="cd ../.."
 alias ~="cd ~"
 
+# git
 alias gs="git status"
+alias gib="git init -b"
+alias gi="git init"
 alias ga="git add -A"
 alias gc="git commit -v"
 alias gc!="git commit -v --amend --no-edit"
@@ -14,24 +24,33 @@ alias gf="git fetch --all"
 alias gb="git branch"
 alias gr="git rebase"
 alias gt='cd "$(git rev-parse --show-toplevel)"'
+alias gra="git remote add"
+alias gr="git remote"
+alias grr="git remote rm"
+alias grsu="git remote set-url"
+alias gco="git checkout"
+alias grs="git reset"
 
-alias gay="$HOME/suckless/scripts/gay.sh"
+# system
+alias cls="clear"
+alias ex="exit"
+alias pg="ping google.com"
+alias fl="touch" 
+alias dr="mkdir" 
+alias rm!="rm -rf"
+alias rm="rm -r"
 alias ll="eza -l -g --icons"
-alias lla="eza -l -g --icons -a"
 alias ls='exa --icons --color'
 alias la='exa -a --icons --color'
+alias y="yazi" 
 
+# utils
 alias g="z"
 alias gp="grep"
-
+alias gay="$HOME/suckless/scripts/gay.sh"
 alias nzsh="nvim ~/.zshrc"
 alias szsh="nvim ~/.zshrc"
-
 alias matrix="unimatrix -b -s 95  -c blue"
 alias neo="$HOME/.config/neofetch/.startFetch.sh"
 alias fetch="$HOME/.suckless/scripts/fetch.sh"
 alias clock="peaclock"
-
-alias cls="clear"
-alias ex="exit"
-alias pg="ping google.com"

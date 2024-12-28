@@ -14,14 +14,35 @@ end
 
 -- Добавляем сниппет
 luasnip.add_snippets("json", {
-	luasnip.snippet("pyrightconfig", {
+	luasnip.snippet("pyconfig", {
 		luasnip.function_node(function()
-			local venv = find_virtual_env() or "venv" -- Используем "venv" по умолчанию
+			local venv = find_virtual_env()
+
+			-- Если виртуальной среды нет, возвращаем пустые поля
+			if not venv then
+				return {
+					"{",
+					'  "venvPath": "",',
+					'  "venv": "",',
+					'  "pythonPath": "",',
+					'  "exclude": [',
+					'    "**/node_modules",',
+					'    "**/__pycache__"',
+					"  ]",
+					"}",
+				}
+			end
+
+			-- Определяем путь для Python в зависимости от ОС
+			local is_windows = uv.os_uname().version:match("Windows")
+			local python_path = is_windows and ('"./' .. venv .. '/Scripts/python.exe"')
+				or ('"./' .. venv .. '/bin/python"')
+
 			return {
 				"{",
 				'  "venvPath": "./",',
 				'  "venv": "' .. venv .. '",',
-				'  "pythonPath": "./' .. venv .. '/bin/python",', -- Для Linux/MacOS
+				'  "pythonPath": ' .. python_path .. ",",
 				'  "exclude": [',
 				'    "**/node_modules",',
 				'    "**/__pycache__"',

@@ -338,12 +338,15 @@ vim.cmd([[
     cnoremap <C-k> <C-p>
 ]])
 
--- Безопасное удаление привязок
-pcall(vim.keymap.del, "n", "<CR>")
-pcall(vim.keymap.del, "i", "<CR>")
-pcall(vim.keymap.del, "c", "<CR>")
-
--- Восстановление стандартного поведения
-vim.keymap.set("n", "<CR>", "o<Esc>", { noremap = true, silent = true }) -- Normal mode
-vim.keymap.set("i", "<CR>", "<CR>", { noremap = true, silent = true }) -- Insert mode
-vim.keymap.set("c", "<CR>", "<CR>", { noremap = true, silent = true }) -- Command mode
+-- -- save
+-- vim.keymap.set("n", "<C-s>", "<cmd>w<CR>", {
+-- 	noremap = true,
+-- 	silent = true,
+-- 	desc = "save",
+-- })
+--
+-- vim.keymap.set("i", "<C-s>", "<cmd>w<CR>", {
+-- 	noremap = true,
+-- 	silent = true,
+-- 	desc = "save",
+-- })

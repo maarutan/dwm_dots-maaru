@@ -17,8 +17,9 @@ wk.add({
 	{ "<leader>t", desc = "Tabs" },
 	{ "<leader>u", desc = "Undo" },
 	{ "<leader>b", desc = "Buffer" },
-	{ "<leader>w", desc = "Hop" },
+	{ "<leader>w", desc = "Tile" },
 	{ "<leader>s", desc = "Select" },
+	{ "<leader>h", desc = "hop" },
 	{ "<leader>sf", desc = "File" },
 	{ "<leader>T", desc = "New Buffer and Terminal" },
 
