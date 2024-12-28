@@ -1,3 +1,10 @@
+# ██████╗ ██╗     ██╗   ██╗ ██████╗ ██╗███╗   ██╗███████╗
+# ██╔══██╗██║     ██║   ██║██╔════╝ ██║████╗  ██║██╔════╝
+# ██████╔╝██║     ██║   ██║██║  ███╗██║██╔██╗ ██║███████╗
+# ██╔═══╝ ██║     ██║   ██║██║   ██║██║██║╚██╗██║╚════██║
+# ██║     ███████╗╚██████╔╝╚██████╔╝██║██║ ╚████║███████║
+# ╚═╝     ╚══════╝ ╚═════╝  ╚═════╝ ╚═╝╚═╝  ╚═══╝╚══════╝
+# 
 plugins=(
     git
     zsh-autosuggestions
@@ -8,4 +15,16 @@ plugins=(
     fast-syntax-highlighting
     zsh-history-substring-search
     zsh-dircolors-solarized
-    )
+    git-open
+    sudo
+    copypath
+)
+
+
+############
+#   init   #
+############
+
+for file in $HOME/.zsh/plugins/*.zsh; do
+    source "$file"
+done;

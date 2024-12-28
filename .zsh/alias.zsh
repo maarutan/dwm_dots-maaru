@@ -30,6 +30,7 @@ alias grr="git remote rm"
 alias grsu="git remote set-url"
 alias gco="git checkout"
 alias grs="git reset"
+alias gon="git open"
 
 # system
 alias cls="clear"
@@ -43,6 +44,7 @@ alias ll="eza -l -g --icons"
 alias ls='exa --icons --color'
 alias la='exa -a --icons --color'
 alias y="yazi" 
+alias cpp="copypath" 
 
 # utils
 alias g="z"
