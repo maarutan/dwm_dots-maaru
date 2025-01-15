@@ -1,4 +1,4 @@
-//==========================================================*/
+/*/==========================================================*/
 /*  ██████╗ ██████╗ ███╗   ██╗███████╗██╗ ██████╗    ██╗  ██╗ */
 /* ██╔════╝██╔═══██╗████╗  ██║██╔════╝██║██╔════╝    ██║  ██║ */
 /* ██║     ██║   ██║██╔██╗ ██║█████╗  ██║██║  ███╗   ███████║ */
@@ -8,7 +8,7 @@
 //==========================================================*/
 //
 //logo
-static const char *logo = " I'm use 󰣇 btw   "; 
+static const char *logo = " I use 󰣇 btw   "; 
 static const char *logo_script = "$HOME/.config/rofi/launchers/launcher.sh";
 static int logo_state = 1;  
 //power 
@@ -146,7 +146,7 @@ static const char tag9InactiveBG[]       = "#1e1e2e"; // Темный фон (Ba
 static const char *colors[][3] = {
  //                            fg             bg            border
     [SchemeLogo]         = {   logoFG   ,    logoBG      ,    logoBR              }, // logo
-    [SchemePower]        = {   powerFG  ,    powerBG     ,    powerBR             }, // power
+    [SchemePower]        = {   powerBG  ,    powerFG     ,    powerBR             }, // power
     [SchemeNorm]         = { "#cdd6f4"  ,    "#1e1e2e"   ,    "#45475a"           }, // Нормальный режим
     [SchemeSel]          = { "#1e1e2e"  ,    "#89b4fa"   ,    "#89b4fa"           }, // Выбранный элемент
     [SchemeFg]           = { background ,    selectedBG  ,    col_borderActive    }, // title active teg color
@@ -329,7 +329,7 @@ static Keychord *keychords[]        = {
     &((Keychord){2, {{MODKEY, XK_e}, {0, XK_y}}, spawn,  SHCMD("kitty --hold sh -c 'yazi'")  }), // yazi
     &((Keychord){2, {{MODKEY, XK_e}, {0, XK_n}}, spawn,  SHCMD("nemo")  }), // nemo
 //======================================================================//
-    // web apps
+  // web apps
     &((Keychord){2, {{MODKEY|SHIFT, XK_f},{0,XK_m}}, spawn,  SHCMD("firefox --class WebApp-monkey3985 --name WebApp-monkey3985 --profile $HOME/.local/share/ice/firefox/monkey3985 --no-remote 'https://monkeytype.com'")  }), //monkeytype
     &((Keychord){2, {{MODKEY|SHIFT, XK_f},{0,XK_g}}, spawn,  SHCMD("firefox --class WebApp-chatG2444 --name WebApp-chatG2444 --profile /home/maaru/.local/share/ice/firefox/chatG2444 --no-remote 'https://chatgpt.com/'")  }), //chat gpt
 //======================================================================//

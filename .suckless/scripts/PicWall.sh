@@ -50,6 +50,7 @@ while true; do
     echo "Name: $(basename "$selected")"
     echo "Path: $(realpath "$selected")"
 
+
     # Set the wallpaper using feh
     feh --bg-scale "$selected"
 

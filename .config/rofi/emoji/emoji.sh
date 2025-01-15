@@ -5,5 +5,5 @@ theme='emoji'
 
 ## Run
 rofi \
-    -show emoji -kb-custom-1 Ctrl+c \
+    -show emoji \
     -theme ${dir}/${theme}.rasi

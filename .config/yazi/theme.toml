@@ -8,3 +8,8 @@
 
 [flavor]
 use = "catppuccin-mocha"
+
+
+[plugin.full-border]
+border_symbol = "│"
+border_style  = { fg = "#FF5733" }

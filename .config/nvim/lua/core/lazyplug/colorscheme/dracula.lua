@@ -47,4 +47,8 @@ require("dracula").setup({
 	},
 })
 
-vim.cmd([[colorscheme dracula]])
+if vim.o.background == "light" then
+	vim.cmd("colorscheme dracula-day")
+elseif vim.o.background == "dark" then
+	vim.cmd("colorscheme dracula")
+end

@@ -12,9 +12,9 @@ require("full-border"):setup({
 require("smart-enter"):setup({
 	open_multi = true,
 })
-if os.getenv("NVIM") then
-	require("hide-preview"):entry()
-end
+-- if os.getenv("NVIM") then
+-- 	require("hide-preview"):entry()
+-- end
 require("git"):setup()
 
 local catppuccin_theme = require("yatline-catppuccin"):setup("macchiato") -- "latte" | "frappe" | "macchiato"

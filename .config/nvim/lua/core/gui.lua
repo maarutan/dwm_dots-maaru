@@ -10,9 +10,9 @@ vim.o.guifont = "JetBrainsMono Nerd Font:h11:sp2" -- sp2 для увеличен
 -- vim.g.neovide_cursor_animation_length = 0.1 -- Плавная длительная анимация
 
 -- Настройка курсора
--- vim.o.guicursor = "n-v-c:block-Cursor/lCursor-blinkon800-blinkoff600-blinkwait500,"
--- 	.. "i-ci-ve:ver25-CursorInsert/lCursor-blinkon800-blinkoff600-blinkwait500,"
--- 	.. "r-cr:hor20-CursorReplace/lCursor-blinkon800-blinkoff600-blinkwait500"
+vim.o.guicursor = "n-v-c:block-Cursor/lCursor-blinkon800-blinkoff600-blinkwait500,"
+	.. "i-ci-ve:ver25-CursorInsert/lCursor-blinkon800-blinkoff600-blinkwait500,"
+	.. "r-cr:hor20-CursorReplace/lCursor-blinkon800-blinkoff600-blinkwait500"
 
 -- Скрытие мыши при вводе текста
 vim.g.neovide_hide_mouse_when_typing = true

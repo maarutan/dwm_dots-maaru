@@ -1,80 +1,65 @@
--- quik nvim
+-- General settings
 vim.loader.enable()
-
-vim.opt.list = true -- Включить отображение listchars
+vim.opt.fillchars:append({ eob = " " })
+vim.opt.autoread = true
+vim.opt.list = true
+vim.opt.mouse = ""
 vim.opt.listchars = {
-	-- space = "·", -- Символ для пробела
-	tab = "│ ", -- Символ для табуляции (настроить при необходимости)
-	trail = "→", -- Символ для лишних пробелов
-	-- extends = ">", -- Символ для переполнения строки
-	-- precedes = "<", -- Символ для текста перед началом строки
+	tab = "│ ",
+	trail = "→",
+	extends = ">",
+	precedes = "<",
 }
-
--- Включение автокоманд для правильной обработки типов файлов
 vim.cmd("filetype plugin indent on")
-vim.cmd([[autocmd VimEnter * lua require('core.options')]])
-vim.opt.cursorline = true -- Подсвечивать строку с курсором
+vim.opt.cursorline = true
 
--- vim.o.cursorcolumn = true  -- Включить подсветку столбца с курсором
--- Настройки номеров строк
-vim.opt.number = true -- Показывать номера строк
-vim.opt.relativenumber = true -- Относительные номера строк
+-- Line numbers
+vim.opt.number = true
+vim.opt.relativenumber = true
 
--- Использование пробелов вместо табуляции
-vim.opt.expandtab = true -- Преобразовывать табуляцию в пробелы
+-- Tabs and spaces
+vim.opt.expandtab = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
 
--- Настройка автокоманд для Python
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "python",
-	callback = function()
-		vim.opt_local.tabstop = 4 -- 4 пробела для табуляции
-		vim.opt_local.shiftwidth = 4 -- 4 пробела для автоотступа
-		vim.opt_local.expandtab = true -- Пробелы вместо табов
-	end,
-})
+-- Search settings
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.hlsearch = true
+vim.opt.incsearch = true
 
--- Поиск
-vim.opt.ignorecase = true -- Игнорировать регистр при поиске
-vim.opt.smartcase = true -- Учитывать регистр при поиске, если есть заглавные буквы
-vim.opt.hlsearch = true -- Подсвечивать совпадения
-vim.opt.incsearch = true -- Показывать совпадения по мере ввода
+-- Interface
+vim.opt.termguicolors = true
+vim.opt.signcolumn = "yes"
+vim.opt.wrap = false
 
--- Настройки интерфейса
-vim.opt.termguicolors = true -- Использовать 24-битные цвета
-vim.opt.signcolumn = "yes" -- Всегда показывать колонку для знаков
-vim.opt.wrap = false -- Отключить перенос строк
-vim.g.VM_highlight_matches = "underline" -- Меняет стиль выделения курсоров
+-- Windows and splits
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 
--- Окна и вкладки
-vim.opt.splitright = true -- Вертикальные окна открываются справа
-vim.opt.splitbelow = true -- Горизонтальные окна открываются снизу
+-- Performance
+vim.opt.updatetime = 100
+vim.opt.timeoutlen = 500
 
--- Производительность
-vim.opt.updatetime = 100 -- Время ожидания перед обновлением (мс)
-vim.opt.timeoutlen = 500 -- Таймаут для ввода комбинаций клавиш (мс)
+-- Clipboard
+vim.opt.clipboard = "unnamedplus"
 
--- Буфер обмена
-vim.opt.clipboard = "unnamedplus" -- Общий буфер обмена (система)
+-- Scrolling
+vim.opt.scrolloff = 8
+vim.opt.sidescrolloff = 8
 
--- Прокрутка
-vim.opt.scrolloff = 8 -- Минимальное количество строк сверху/снизу при прокрутке
-vim.opt.sidescrolloff = 8 -- Минимальное количество столбцов слева/справа при прокрутке
-
--- Обработка файлов
-vim.opt.swapfile = false -- Отключить swap-файлы
-vim.opt.backup = false -- Не сохранять резервные копии
-vim.opt.undofile = true -- Включить историю изменений
+-- File handling
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undofile = true
 local undodir = vim.fn.stdpath("data") .. "/undo"
 if not vim.fn.isdirectory(undodir) then
-	vim.fn.mkdir(undodir, "p") -- Создать папку для undo-файлов, если она отсутствует
+	vim.fn.mkdir(undodir, "p")
 end
 vim.opt.undodir = undodir
 
--- Оповещения и короткие сообщения
--- vim.opt.shortmess:append("c") -- Отключить стандартные сообщения о сохранении файла
-
--- Отключить стандартную подсветку синтаксиса
+-- Syntax
 vim.opt.syntax = "off"
+
+-- Command abbreviations
+vim.cmd([[cabbrev Q q!]])

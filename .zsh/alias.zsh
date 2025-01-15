@@ -4,7 +4,7 @@
 # ██╔══██║██║     ██║██╔══██║╚════██║██╔══╝  ╚════██║
 # ██║  ██║███████╗██║██║  ██║███████║███████╗███████║
 # ╚═╝  ╚═╝╚══════╝╚═╝╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝
- 
+
 
 
 # change directory
@@ -38,27 +38,28 @@ alias grs="git reset"
 alias gon="git open"
 
 # system
-alias cls="clear"
+alias cls="clear && $(basename $SHELL)"
+alias cls!="clear"
 alias rzh="rm -rf $HOME/.zsh/.zsh_history"
+alias nzh="nvim $HOME/.zsh/.zsh_history"
 alias ex="exit"
 alias pg="ping google.com"
-alias fl="touch" 
-alias dr="mkdir" 
+alias fl="touch"
+alias dr="mkdir"
 alias rm!="rm -rf"
 alias rm="rm -r"
 alias ll="eza -l -g --icons"
 alias la='exa -a --icons --color'
-alias lt='exa --tree --icons --color'  
-alias ls='exa --icons --color=auto'   
-alias y="yazi" 
-alias cpp="copypath" 
-alias gp="grep"
+alias lt='exa --tree --icons --color'
+alias ls='exa --icons --color=auto'
+alias y="yazi"
+alias cpp="copypath"
 
 # utils
 alias g="z"
-alias gay="$HOME/suckless/scripts/gay.sh"
+alias gay="$HOME/.suckless/scripts/gay.sh"
 alias nzsh="nvim ~/.zshrc"
-alias szsh="nvim ~/.zshrc"
+alias hzsh="nvim $HOME/.zsh/.zsh_history"
 alias matrix="unimatrix -b -s 95  -c blue"
 alias neo="$HOME/.config/neofetch/.startFetch.sh"
 alias fetch="$HOME/.suckless/scripts/fetch.sh"

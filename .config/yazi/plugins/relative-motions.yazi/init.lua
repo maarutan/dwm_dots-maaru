@@ -1,29 +1,29 @@
 -- stylua: ignore
 local MOTIONS_AND_OP_KEYS = {
-  { on = "0" }, { on = "1" }, { on = "2" }, { on = "3" }, { on = "4" },
-  { on = "5" }, { on = "6" }, { on = "7" }, { on = "8" }, { on = "9" },
-  -- commands
-  { on = "d" }, { on = "v" }, { on = "y" }, { on = "x" },
-  -- tab commands
-  { on = "t" }, { on = "L" }, { on = "H" }, { on = "w" },
-  { on = "W" }, { on = "<" }, { on = ">" }, { on = "~" },
-  -- movement
-  { on = "g" }, { on = "j" }, { on = "k" }, { on = "<Down>" }, { on = "<Up>" }
+	{ on = "0" }, { on = "1" }, { on = "2" }, { on = "3" }, { on = "4" },
+	{ on = "5" }, { on = "6" }, { on = "7" }, { on = "8" }, { on = "9" },
+	-- commands
+	{ on = "d" }, { on = "v" }, { on = "y" }, { on = "x" },
+	-- tab commands
+	{ on = "t" }, { on = "L" }, { on = "H" }, { on = "w" },
+	{ on = "W" }, { on = "<" }, { on = ">" }, { on = "~" },
+	-- movement
+	{ on = "g" }, { on = "j" }, { on = "k" }, { on = "<Down>" }, { on = "<Up>" }
 }
 
 -- stylua: ignore
 local MOTION_KEYS = {
-  { on = "0" }, { on = "1" }, { on = "2" }, { on = "3" }, { on = "4" },
-  { on = "5" }, { on = "6" }, { on = "7" }, { on = "8" }, { on = "9" },
-  -- movement
-  { on = "g" }, { on = "j" }, { on = "k" }
+	{ on = "0" }, { on = "1" }, { on = "2" }, { on = "3" }, { on = "4" },
+	{ on = "5" }, { on = "6" }, { on = "7" }, { on = "8" }, { on = "9" },
+	-- movement
+	{ on = "g" }, { on = "j" }, { on = "k" }
 }
 
 -- stylua: ignore
 local DIRECTION_KEYS = {
-  { on = "j" }, { on = "k" }, { on = "<Down>" }, { on = "<Up>" },
-  -- tab movement
-  { on = "t" }
+	{ on = "j" }, { on = "k" }, { on = "<Down>" }, { on = "<Up>" },
+	-- tab movement
+	{ on = "t" }
 }
 
 local SHOW_NUMBERS_ABSOLUTE = 0
@@ -37,9 +37,7 @@ local SHOW_NUMBERS_RELATIVE_ABSOLUTE = 2
 local render_motion_setup = ya.sync(function(_)
 	ya.render()
 
-	Status.motion = function()
-		return ui.Span("")
-	end
+	Status.motion = function() return ui.Span("") end
 
 	Status.children_redraw = function(self, side)
 		local lines = {}
@@ -73,12 +71,12 @@ local render_motion = ya.sync(function(_, motion_num, motion_cmd)
 			motion_span = ui.Span(string.format(" %3d%s ", motion_num, motion_cmd))
 		end
 
-		return ui.Line({
+		return ui.Line {
 			ui.Span(THEME.status.separator_open):fg(style.main.bg),
 			motion_span:style(style.main),
 			ui.Span(THEME.status.separator_close):fg(style.main.bg),
 			ui.Span(" "),
-		})
+		}
 	end
 end)
 
@@ -128,8 +126,7 @@ local render_numbers = ya.sync(function(_, mode)
 			linemodes[#linemodes + 1] = Linemode:new(f):redraw()
 
 			local entity = Entity:new(f)
-			entities[#entities + 1] = ui.Line({ Entity:number(i, f, hovered_index), entity:redraw() })
-				:style(entity:style())
+			entities[#entities + 1] = ui.Line({ Entity:number(i, f, hovered_index), entity:redraw() }):style(entity:style())
 		end
 
 		return {
@@ -139,17 +136,13 @@ local render_numbers = ya.sync(function(_, mode)
 	end
 end)
 
-local function render_clear()
-	render_motion()
-end
+local function render_clear() render_motion() end
 
 -----------------------------------------------
 --------- C O M M A N D   P A R S E R ---------
 -----------------------------------------------
 
-local get_keys = ya.sync(function(state)
-	return state._only_motions and MOTION_KEYS or MOTIONS_AND_OP_KEYS
-end)
+local get_keys = ya.sync(function(state) return state._only_motions and MOTION_KEYS or MOTIONS_AND_OP_KEYS end)
 
 local function normal_direction(dir)
 	if dir == "<Down>" then
@@ -166,7 +159,7 @@ local function get_cmd(first_char, keys)
 
 	while true do
 		render_motion(tonumber(lines))
-		local key = ya.which({ cands = keys, silent = true })
+		local key = ya.which { cands = keys, silent = true }
 		if not key then
 			return nil, nil, nil
 		end
@@ -188,7 +181,7 @@ local function get_cmd(first_char, keys)
 		DIRECTION_KEYS[#DIRECTION_KEYS + 1] = {
 			on = last_key,
 		}
-		local direction_key = ya.which({ cands = DIRECTION_KEYS, silent = true })
+		local direction_key = ya.which { cands = DIRECTION_KEYS, silent = true }
 		if not direction_key then
 			return nil, nil, nil
 		end
@@ -210,9 +203,7 @@ local function is_tab_command(command)
 	return false
 end
 
-local get_active_tab = ya.sync(function(_)
-	return cx.tabs.idx
-end)
+local get_active_tab = ya.sync(function(_) return cx.tabs.idx end)
 
 -----------------------------------------------
 ---------- E N T R Y   /   S E T U P ----------

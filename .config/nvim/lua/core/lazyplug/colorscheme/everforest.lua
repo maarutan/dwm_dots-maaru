@@ -1,4 +1,3 @@
--- Функция для переключения режима (день/ночь)
 if vim.o.background == "light" then
 	vim.g.everforest_background = "hard"
 	vim.cmd([[

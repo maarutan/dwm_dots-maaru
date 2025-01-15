@@ -3,12 +3,13 @@ return {
 	{ "catppuccin/nvim" },
 	{ "ellisonleao/gruvbox.nvim" },
 	{ "folke/tokyonight.nvim" },
-	{ "navarasu/onedark.nvim" },
 	{ "rebelot/kanagawa.nvim" },
-	{ "Mofiqul/vscode.nvim" },
+	{ "mofiqul/vscode.nvim" },
 	{ "sainnhe/everforest" },
 	{ "binhtran432k/dracula.nvim" },
-	{ "xiyaowong/transparent.nvim" },
+	{ "shaunsingh/moonlight.nvim" },
+	--nocut
+	{ "maarutan/nvim-nocut" },
 	-- treesitter
 	{ "nvim-treesitter/nvim-treesitter" },
 	-- telescope
@@ -22,35 +23,37 @@ return {
 	{ "nvim-tree/nvim-web-devicons" },
 	-- neo tree
 	{ "nvim-neo-tree/neo-tree.nvim", branch = "v2.x" },
-	{ "MunifTanjim/nui.nvim" },
+	{ "muniftanjim/nui.nvim" },
 	-- highlight colors
 	{ "brenoprata10/nvim-highlight-colors" },
 	-- multi cursor
 	{ "maarutan/nvim-visual-multi", branch = "main" },
-	-- Bufferline
+	-- bufferline
 	{ "akinsho/bufferline.nvim" },
 	-- smoothcursor
-	{ "gen740/SmoothCursor.nvim" },
+	{ "gen740/smoothcursor.nvim" },
 	-- hop move
 	{ "hadronized/hop.nvim" },
 	-- terminal
 	{ "akinsho/toggleterm.nvim" },
 	-- noice
-	{ "folke/noice.nvim", event = "VeryLazy" },
+	{ "folke/noice.nvim" },
 	-- notifysend
 	{ "rcarriga/nvim-notify" },
 	-- comments
 	{ "terrortylor/nvim-comment" },
 	-- code runner
-	{ "CRAG666/code_runner.nvim" },
+	{ "maarutan/betterRun.nvim" },
 	-- yazi for nvim
 	{ "mikavilpas/yazi.nvim" },
-	--TODO:
+	--todo:
 	{ "folke/todo-comments.nvim" },
 	-- gitsigns
 	{ "lewis6991/gitsigns.nvim" },
 	-- cinnamon for cursor
 	{ "declancm/cinnamon.nvim" },
+	-- neoscroll
+	{ "karb94/neoscroll.nvim" },
 	-- blankline
 	{ "lukas-reineke/indent-blankline.nvim" },
 	{ "echasnovski/mini.indentscope" },
@@ -74,10 +77,8 @@ return {
 	{ "glepnir/dashboard-nvim" },
 	-- mason
 	{ "williamboman/mason.nvim" },
-	{ "williamboman/mason-lspconfig.nvim" },
-	{ "jay-babu/mason-null-ls.nvim" },
-	-- null-ls
-	{ "jose-elias-alvarez/null-ls.nvim" },
+	--formatter
+	{ "mhartington/formatter.nvim" },
 	-- snippets
 	{ "L3MON4D3/LuaSnip" },
 	{ "rafamadriz/friendly-snippets" },
@@ -105,20 +106,18 @@ return {
 	{ "gagbo/circadian.nvim" },
 	--pacman animshttps
 	{ "maarutan/pacman-anims-nvim" },
-	--nocut
-	{ "maarutan/nvim-nocut" },
 	--keycalm
 	{ "maarutan/keycalm.nvim" },
-	-- mini animate
-	{ "echasnovski/mini.animate", version = "*" },
-	{ "echasnovski/mini.icons", version = "*" },
 	--cursor anims
+	{ "echasnovski/mini.animate", version = "*" },
+	-- mini animate
+	{ "echasnovski/mini.icons", version = "*" },
 	--whichkey
 	{ "folke/which-key.nvim", event = "VeryLazy" },
 	--better esc
 	{ "max397574/better-escape.nvim" },
 	--autopairs
-	{ "jiangmiao/auto-pairs" },
+	{ "windwp/nvim-autopairs" },
 	--nvim-surround
 	{ "kylechui/nvim-surround", version = "*", event = "VeryLazy" },
 	--lorem for nvim
@@ -129,6 +128,31 @@ return {
 	{ "sphamba/smear-cursor.nvim" },
 	--macro notify
 	{ "maarutan/macro-notify.nvim" },
-	--img view
-	{ "samodostal/image.nvim" },
+	--kitty clipboard mode
+	{ "mikesmithgh/kitty-scrollback.nvim" },
+	--nvim linting
+	{ "mfussenegger/nvim-lint" },
+	--quickfix ui for nvim
+	{ "kevinhwang91/nvim-bqf" },
+	-- { "folke/trouble.nvim" },
+	--lspsaga better ui for lsp
+	{ "nvimdev/lspsaga.nvim" },
+	--auto autotag
+	{ "windwp/nvim-ts-autotag" },
+	--cmp view lsp
+	{ "onsails/lspkind.nvim" },
+	--preview img
+	{ "3rd/image.nvim" },
+	--rainbow
+	{ "hiphish/rainbow-delimiters.nvim" },
+	-- keyboard change bro
+	{ "Wansmer/langmapper.nvim" },
+	-- buffResize
+	{ "maarutan/splitResizer.nvim" },
+	-- mini map for nvim
+	{ "wfxr/minimap.vim" },
+	-- eyeliner
+	{ "jinh0/eyeliner.nvim" },
+	-- beacon cursor
+	{ "DanilaMihailov/beacon.nvim" },
 }

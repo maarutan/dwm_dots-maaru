@@ -1,12 +1,5 @@
 -- leader key
 vim.g.mapleader = " "
--- Delete a word backwards
-vim.keymap.set("n", "dw", 'vb"_d', {
-	noremap = true,
-	silent = true,
-	desc = "   Delete word ",
-})
-
 vim.keymap.set("n", "<A-e>", "<cmd>:Neotree toggle<CR>", {
 	noremap = true,
 	silent = true,
@@ -66,23 +59,12 @@ vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", {
 }) -- Фокус на правое окно
 
 --
-vim.api.nvim_set_keymap("n", "<leader>wv", ":vsplit<CR>", {
-	noremap = true,
-	silent = true,
-	desc = "  Vertical Split",
-})
-
-vim.api.nvim_set_keymap("n", "<leader>ws", ":split<CR>", {
-	noremap = true,
-	silent = true,
-	desc = "  horizontal Split",
-})
-vim.api.nvim_set_keymap("n", "<A-s-h>", ":vertical resize -5<cr>", {
+vim.api.nvim_set_keymap("n", "<A-s-h>", ":vertical resize -30<cr>", {
 	noremap = true,
 	silent = true,
 	desc = " 󰶢 Left resize",
 }) -- уменьшить ширину окна
-vim.api.nvim_set_keymap("n", "<A-s-l>", ":vertical resize +5<cr>", {
+vim.api.nvim_set_keymap("n", "<A-s-l>", ":vertical resize +30<cr>", {
 	noremap = true,
 	silent = true,
 	desc = " 󰔰 Right resize ",
@@ -172,8 +154,7 @@ vim.keymap.set("n", "<leader>tv", ":ToggleTerm direction=vertical size=40<CR>", 
 	desc = "  term: Vertical",
 })
 
--- Горячая клавиша для закрытия буфера или окна: <C-w>
-vim.api.nvim_set_keymap("n", "<leader>bd", ":Bdelete<CR>", {
+vim.api.nvim_set_keymap("n", "<leader>bd", "<cmd>Bdelete<CR>", {
 	noremap = true,
 	silent = true,
 	desc = " 󰩈  Delete buffer",
@@ -239,31 +220,15 @@ vim.keymap.set("n", "<C-a>", "ggVG", {
 	silent = true,
 	desc = " Select all in normal mode",
 })
-vim.keymap.set("n", "<C-q>", "GVgg", {
-	noremap = true,
-	silent = true,
-	desc = "󰎓 Inverse select all in normal mode",
-})
-vim.keymap.set("i", "<C-q>", "<Esc>GVggi", {
-	noremap = true,
-	silent = true,
-	desc = "󰎓 Inverse select all in insert mode",
-})
-vim.keymap.set("i", "<C-a>", "<Esc>ggVGi", {
-	noremap = true,
-	silent = true,
-	desc = " Select all in insert mode",
-})
-
 -- Delete backward word
-vim.keymap.set("i", "<C-BS>", "<Esc>vbdi", {
+vim.keymap.set("i", "<C-BS>", "<cmd>vbdi", {
 	noremap = true,
 	silent = true,
 	desc = "󰂄 Delete word backwards",
 })
 
 -- Delete forward word
-vim.keymap.set("i", "<C-Del>", "<Esc>vedi", {
+vim.keymap.set("i", "<C-Del>", "<cmd>vedi", {
 	noremap = true,
 	silent = true,
 	desc = "󰂅 Delete word forwards",
@@ -338,6 +303,33 @@ vim.cmd([[
     cnoremap <C-k> <C-p>
 ]])
 
+vim.keymap.set("n", "M", "q", {
+	noremap = true,
+	silent = true,
+	desc = "Start/stop macro recording",
+})
+
+vim.keymap.set("n", "<Leader>ph", "H", {
+	noremap = true,
+	silent = true,
+	desc = "Postion Cursor  Top",
+})
+vim.keymap.set("n", "<Leader>pm", "M", {
+	noremap = true,
+	silent = true,
+	desc = "Postion Cursor Center",
+})
+vim.keymap.set("n", "<Leader>pl", "L", {
+	noremap = true,
+	silent = true,
+	desc = "Postion Cursor Bottom",
+})
+
+vim.keymap.set("n", "l", "<Right>", {
+	noremap = true,
+	silent = true,
+})
+
 -- -- save
 -- vim.keymap.set("n", "<C-s>", "<cmd>w<CR>", {
 -- 	noremap = true,
@@ -350,3 +342,4 @@ vim.cmd([[
 -- 	silent = true,
 -- 	desc = "save",
 -- })
+--

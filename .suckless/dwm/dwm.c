@@ -4337,6 +4337,7 @@ void
 viewnextwithmove(const Arg *arg) {
     unsigned int i;
     Client *c = selmon->sel;
+    unsigned int prevtags = selmon->tagset[selmon->seltags]; // Сохраняем текущие теги
 
     if (!c) // Если нет активного окна, просто переключаем тег
         goto switch_tag;
@@ -4345,6 +4346,7 @@ viewnextwithmove(const Arg *arg) {
         if (selmon->tagset[selmon->seltags] & (1 << i)) {
             // Перемещаем активное окно в следующий тег
             c->tags = 1 << ((i + 1) % LENGTH(tags));
+            setclienttagprop(c); // Обновляем свойства окна (если используется EWMH)
             break;
         }
     }
@@ -4354,10 +4356,17 @@ switch_tag:
         if (selmon->tagset[selmon->seltags] & (1 << i)) {
             // Переключаем на следующий тег
             view(&(Arg) { .ui = 1 << ((i + 1) % LENGTH(tags)) });
+
             // Устанавливаем фокус на перемещённое окно
             selmon->sel = c;
             focus(c);
             arrange(selmon);
+
+            // Обновляем текущий рабочий стол
+            updatecurrentdesktop();
+
+            // Сохраняем предыдущие теги для возможного возврата
+            selmon->pertag->prevtag = prevtags;
             return;
         }
     }
@@ -4368,6 +4377,7 @@ void
 viewprevwithmove(const Arg *arg) {
     unsigned int i;
     Client *c = selmon->sel;
+    unsigned int prevtags = selmon->tagset[selmon->seltags]; // Сохраняем текущие теги
 
     if (!c) // Если нет активного окна, просто переключаем тег
         goto switch_tag;
@@ -4376,6 +4386,7 @@ viewprevwithmove(const Arg *arg) {
         if (selmon->tagset[selmon->seltags] & (1 << i)) {
             // Перемещаем активное окно в предыдущий тег
             c->tags = 1 << ((i + LENGTH(tags) - 1) % LENGTH(tags));
+            setclienttagprop(c); // Обновляем свойства окна (если используется EWMH)
             break;
         }
     }
@@ -4385,10 +4396,17 @@ switch_tag:
         if (selmon->tagset[selmon->seltags] & (1 << i)) {
             // Переключаем на предыдущий тег
             view(&(Arg) { .ui = 1 << ((i + LENGTH(tags) - 1) % LENGTH(tags)) });
+
             // Устанавливаем фокус на перемещённое окно
             selmon->sel = c;
             focus(c);
             arrange(selmon);
+
+            // Обновляем текущий рабочий стол
+            updatecurrentdesktop();
+
+            // Сохраняем предыдущие теги для возможного возврата
+            selmon->pertag->prevtag = prevtags;
             return;
         }
     }
