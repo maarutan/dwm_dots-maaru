@@ -1,0 +1,24 @@
+[Default Applications]
+image/jpeg=feh.desktop
+image/png=feh.desktop
+image/gif=feh.desktop
+image/bmp=feh.desktop
+image/tiff=feh.desktop
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/chrome=firefox.desktop
+text/html=firefox.desktop
+application/x-extension-htm=firefox.desktop
+application/x-extension-html=firefox.desktop
+application/x-extension-shtml=firefox.desktop
+application/xhtml+xml=firefox.desktop
+application/x-extension-xhtml=firefox.desktop
+application/x-extension-xht=firefox.desktop
+x-scheme-handler/about=chromium.desktop
+x-scheme-handler/unknown=chromium.desktop
+application/x-ms-dos-executable;application/x-wine-extension-msp;application/x-msi;application/x-msdos-program;text/win-bat;=PortProton.desktop
+
+[Added Associations]
+x-scheme-handler/http=firefox.desktop;
+x-scheme-handler/https=firefox.desktop;
+text/html=firefox.desktop;
