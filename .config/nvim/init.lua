@@ -5,6 +5,7 @@
 require("core.keymaps")
 require("core.options")
 require("core.lazyplug.config")
+
 require("core.colorscheme")
 require("core.gui")
 -------------
@@ -34,15 +35,16 @@ require("plugins.tools.treesitter")
 require("plugins.tools.yazinvim")
 require("plugins.tools.autotag")
 require("plugins.tools.autopairs")
-require("plugins.tools.image")
-require("plugins.tools.langmapper")
 require("plugins.tools.splitResizer")
 require("plugins.tools.eyeliner")
+require("plugins.tools.gitgraph")
+require("plugins.tools.ddifview")
 
 -- ui
 require("plugins.ui.cinnamon")
 require("plugins.ui.neoscroll")
 require("plugins.ui.colorizer")
+require("plugins.ui.image")
 require("plugins.ui.noice")
 require("plugins.ui.dashboard")
 require("plugins.ui.gitsing")
@@ -67,7 +69,9 @@ require("plugins.ui.lspkind")
 require("plugins.ui.rainbow")
 require("plugins.ui.whichkey")
 require("plugins.ui.minimap")
+require("plugins.ui.beacon")
 -- require("plugins.ui.cursor-anims")
+require("plugins.ui.space")
 
 -- snippets
 require("plugins.snippets.snippets")
@@ -75,7 +79,6 @@ require("plugins.snippets.pyright")
 require("plugins.snippets.config")
 
 -- extras
-require("plugins.extras.buffer-clouse")
 require("plugins.extras.buffer-del")
 require("plugins.extras.buffer-name")
 require("plugins.extras.buffer-new")

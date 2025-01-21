@@ -224,7 +224,7 @@ require("dashboard").setup({
 			local pacman = require("pacman").get_pacman_text()
 			local space = " "
 			local text = "Welcome to neovim 🚀 "
-			return { space, space, text }
+			return { space, text }
 		end,
 	},
 })

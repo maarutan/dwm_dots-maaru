@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Директория с обоями
-WALLPAPER_DIR="$HOME/wallpapers"
+WALLPAPER_DIR="$HOME/Pictures/wallpapers"
 
 # Файл для хранения пути к текущим обоям
 CURRENT_WALLPAPER_FILE="$HOME/.current_wallpaper"

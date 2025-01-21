@@ -66,6 +66,7 @@ cmp.setup({
 	},
 
 	sources = cmp.config.sources({
+		{ name = "vim-dadbod-completion" },
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
 		{ name = "buffer" },
@@ -89,12 +90,12 @@ cmp.setup({
 			mode = "symbol_text",
 			maxwidth = 50,
 			ellipsis_char = "...",
-			menu = {
-				nvim_lsp = "[LSP]",
-				luasnip = "[Snippet]",
-				buffer = "[Buffer]",
-				path = "[Path]",
-			},
+			-- menu = {
+			-- nvim_lsp = "[LSP]",
+			-- luasnip = "[Snippet]",
+			-- buffer = "[Buffer]",
+			-- path = "[Path]",
+			-- },
 		}),
 	},
 
@@ -122,7 +123,39 @@ cmp.setup({
 			["<CR>"] = cmp.mapping.confirm({ select = true }),
 		},
 		sources = {
+			{ name = "path" },
 			{ name = "buffer" },
 		},
 	}),
 })
+cmp.setup.cmdline(":", {
+	mapping = vim.tbl_extend("force", cmp.mapping.preset.cmdline(), {
+		["<C-j>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_next_item()
+			else
+				fallback()
+			end
+		end, { "c" }),
+
+		["<C-k>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_prev_item()
+			else
+				fallback()
+			end
+		end, { "c" }),
+
+		["<CR>"] = cmp.mapping.confirm({ select = true }),
+	}),
+	sources = cmp.config.sources({
+		{ name = "path" },
+		{ name = "cmdline" },
+	}),
+})
+
+--commands
+vim.cmd([[
+    cnoremap <C-j> <C-n>
+    cnoremap <C-k> <C-p>
+]])

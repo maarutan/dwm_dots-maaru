@@ -6,6 +6,10 @@
 # ╚═╝  ╚═╝╚══════╝╚═╝╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝
 
 
+EXPLORE="yazi"
+EDITOR="nvim"
+
+
 
 # change directory
 alias ..="cd .."
@@ -38,7 +42,7 @@ alias grs="git reset"
 alias gon="git open"
 
 # system
-alias cls="clear && $(basename $SHELL)"
+alias cls="clear && exec $(basename $SHELL)"
 alias cls!="clear"
 alias rzh="rm -rf $HOME/.zsh/.zsh_history"
 alias nzh="nvim $HOME/.zsh/.zsh_history"
@@ -52,16 +56,19 @@ alias ll="eza -l -g --icons"
 alias la='exa -a --icons --color'
 alias lt='exa --tree --icons --color'
 alias ls='exa --icons --color=auto'
-alias y="yazi"
+alias e=$"EXPLORE"
+alias n=$"EDITOR"
 alias cpp="copypath"
 
 # utils
 alias g="z"
+alias walchoice="$HOME/wallpapers/.choise.sh"
 alias gay="$HOME/.suckless/scripts/gay.sh"
 alias nzsh="nvim ~/.zshrc"
 alias hzsh="nvim $HOME/.zsh/.zsh_history"
 alias matrix="unimatrix -b -s 95  -c blue"
 alias neo="$HOME/.config/neofetch/.startFetch.sh"
+alias bfetch="$HOME/.suckless/scripts/bestfetch.sh"
 alias fetch="$HOME/.suckless/scripts/fetch.sh"
 alias pwall="$HOME/.suckless/scripts/PicWall.sh"
 alias clock="peaclock"

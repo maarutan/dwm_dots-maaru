@@ -7,7 +7,6 @@ return {
 	{ "mofiqul/vscode.nvim" },
 	{ "sainnhe/everforest" },
 	{ "binhtran432k/dracula.nvim" },
-	{ "shaunsingh/moonlight.nvim" },
 	--nocut
 	{ "maarutan/nvim-nocut" },
 	-- treesitter
@@ -23,7 +22,8 @@ return {
 	{ "nvim-tree/nvim-web-devicons" },
 	-- neo tree
 	{ "nvim-neo-tree/neo-tree.nvim", branch = "v2.x" },
-	{ "muniftanjim/nui.nvim" },
+	-- nvim ui
+	{ "MunifTanjim/nui.nvim" },
 	-- highlight colors
 	{ "brenoprata10/nvim-highlight-colors" },
 	-- multi cursor
@@ -77,6 +77,7 @@ return {
 	{ "glepnir/dashboard-nvim" },
 	-- mason
 	{ "williamboman/mason.nvim" },
+	{ "WhoIsSethDaniel/mason-tool-installer.nvim" },
 	--formatter
 	{ "mhartington/formatter.nvim" },
 	-- snippets
@@ -91,9 +92,7 @@ return {
 	-- bdelete
 	{ "famiu/bufdelete.nvim" },
 	-- database
-	{ "tpope/vim-dadbod" },
-	{ "kristijanhusak/vim-dadbod-ui" },
-	{ "kristijanhusak/vim-dadbod-completion" },
+	{ require("plugins.dev.database.dadbod") },
 	-- matchup
 	{ "andymass/vim-matchup" },
 	-- illuminate
@@ -145,8 +144,6 @@ return {
 	{ "3rd/image.nvim" },
 	--rainbow
 	{ "hiphish/rainbow-delimiters.nvim" },
-	-- keyboard change bro
-	{ "Wansmer/langmapper.nvim" },
 	-- buffResize
 	{ "maarutan/splitResizer.nvim" },
 	-- mini map for nvim
@@ -155,4 +152,10 @@ return {
 	{ "jinh0/eyeliner.nvim" },
 	-- beacon cursor
 	{ "DanilaMihailov/beacon.nvim" },
+	--gitgraph
+	{ "maarutan/gitgraph.nvim" },
+	-- diffview
+	{ "sindrets/diffview.nvim" },
+	-- cellular automaton
+	{ "Eandrju/cellular-automaton.nvim" },
 }

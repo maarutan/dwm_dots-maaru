@@ -1,5 +1,6 @@
 -- General settings
 vim.loader.enable()
+vim.opt.inccommand = "split"
 vim.opt.fillchars:append({ eob = " " })
 vim.opt.autoread = true
 vim.opt.list = true
@@ -7,8 +8,8 @@ vim.opt.mouse = ""
 vim.opt.listchars = {
 	tab = "│ ",
 	trail = "→",
-	extends = ">",
-	precedes = "<",
+	extends = "󰜵",
+	precedes = "󰜲",
 }
 vim.cmd("filetype plugin indent on")
 vim.opt.cursorline = true
@@ -22,6 +23,16 @@ vim.opt.expandtab = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 
+-- disable auto comment
+vim.api.nvim_create_autocmd("BufEnter", {
+	pattern = "*",
+	callback = function()
+		vim.opt.formatoptions:remove("c")
+		vim.opt.formatoptions:remove("r")
+		vim.opt.formatoptions:remove("o")
+	end,
+})
+
 -- Search settings
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
@@ -32,6 +43,7 @@ vim.opt.incsearch = true
 vim.opt.termguicolors = true
 vim.opt.signcolumn = "yes"
 vim.opt.wrap = false
+vim.opt.foldenable = false
 
 -- Windows and splits
 vim.opt.splitright = true

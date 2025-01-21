@@ -471,3 +471,9 @@ desc = "Move in relative steps"
 on   = "<A-p>"
 run  = "plugin max-preview"
 desc = "Maximize or restore preview"
+
+
+[[manager.prepend_keymap]]
+on = [ "y", "Y" ]
+run = ["plugin system-clipboard"]
+desc = "System Clipboard"

@@ -18,5 +18,8 @@ require("key-calm").setup({
 		"mason",
 		"lazy",
 		"minimap",
+		"sql",
+		"dbui",
+		"dbout",
 	},
 })

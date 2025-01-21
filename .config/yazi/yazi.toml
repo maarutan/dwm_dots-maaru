@@ -59,6 +59,4 @@ sort_by = "natural"
 linemode = "size"
 
 
-[plugins]
-"cowboy" = {}
 

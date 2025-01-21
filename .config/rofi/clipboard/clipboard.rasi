@@ -17,7 +17,7 @@ configuration {
 /*****----- Global Properties -----*****/
 
 * {
-    font: "Fira Code 17";
+    font: "CaskaydiaCove Nerd Font 17";
 }
 
 @import "~/.config/rofi/.colors/catppuccin.rasi"

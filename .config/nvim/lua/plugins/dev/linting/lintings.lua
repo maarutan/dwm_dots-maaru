@@ -61,3 +61,16 @@ vim.keymap.set("n", "<leader>dq", function()
 	vim.fn.setqflist({}, "r", { title = "Diagnostics", items = vim.diagnostic.toqflist(diagnostics) })
 	vim.cmd("copen")
 end, { noremap = true, silent = true })
+local lint_enabled = true
+
+vim.keymap.set("n", "<leader>dl", function()
+	if lint_enabled then
+		vim.diagnostic.reset(nil, vim.api.nvim_get_current_buf())
+		lint_enabled = false
+		print("Linting disabled")
+	else
+		require("lint").try_lint()
+		lint_enabled = true
+		print("Linting enabled")
+	end
+end, { desc = "Toggle nvim-lint" })

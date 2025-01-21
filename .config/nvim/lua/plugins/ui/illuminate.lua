@@ -1,7 +1,14 @@
 require("illuminate").configure({
 	providers = {
-		"regex", -- Использовать только регулярные выражения для подсветки
+		"regex",
 	},
 	delay = 200,
-	under_cursor = true, -- Подсвечивать слово под курсором
+	under_cursor = true,
+	filetypes_denylist = {
+		"neo-tree",
+		"dashboard",
+		"help",
+		"toggleterm",
+		"gitgraph",
+	},
 })

@@ -17,14 +17,14 @@ insert-pairs() {
 
 delete-pairs() {
     local pairs=(
-        "{ }" "[ ]" "( )" "< >" "' '" '\" \"' '` `' '" "' 
+        "{ }" "[ ]" "( )" "< >" "' '" '\" \"' '` `' '" "'
     )
     for pair in "${pairs[@]}"; do
         local left="${pair%% *}"
         local right="${pair##* }"
         if [[ "${LBUFFER[-1]}" == "$left" && "${RBUFFER[1]}" == "$right" ]]; then
-            LBUFFER="${LBUFFER%?}" 
-            RBUFFER="${RBUFFER#?}" 
+            LBUFFER="${LBUFFER%?}"
+            RBUFFER="${RBUFFER#?}"
             return
         fi
     done

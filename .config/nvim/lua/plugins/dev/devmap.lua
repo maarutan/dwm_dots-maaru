@@ -1,3 +1,6 @@
+local lspconfig = require("lspconfig")
+
+-- Keymaps
 local on_attach = function(client, bufnr)
 	local function buf_set_keymap(...)
 		vim.api.nvim_buf_set_keymap(bufnr, ...)
@@ -13,29 +16,27 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap("n", "<leader>l[", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
 	buf_set_keymap("n", "<leader>l]", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
 	buf_set_keymap("n", "<leader>lR", "<cmd>LspRestart<CR>", opts)
-	buf_set_keymap("n", "<leader>lI", "<cmd>LspRestart<CR>", opts)
+	buf_set_keymap("n", "<leader>lS", "<cmd>LspStop<CR>", opts)
+	buf_set_keymap("n", "<leader>ls", "<cmd>LspStart<CR>", opts)
 end
 
-require("lspconfig").ts_ls.setup({
-	on_attach = on_attach,
-})
-
-require("lspconfig").pyright.setup({
-	on_attach = on_attach,
-})
-
-require("lspconfig").bashls.setup({
-	on_attach = on_attach,
-})
-
-require("lspconfig").cssls.setup({
-	on_attach = on_attach,
-})
-
-require("lspconfig").html.setup({
-	on_attach = on_attach,
-})
-
-require("lspconfig").lua_ls.setup({
-	on_attach = on_attach,
-})
+-- Setup language servers
+local servers = {
+	"ts_ls",
+	"pyright",
+	"bashls",
+	"cssls",
+	"html",
+	"lua_ls",
+	"jsonls",
+	"marksman",
+	"sqls",
+	"taplo",
+	"yamlls",
+	"clangd",
+}
+for _, server in ipairs(servers) do
+	lspconfig[server].setup({
+		on_attach = on_attach,
+	})
+end

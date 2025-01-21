@@ -74,11 +74,12 @@ static const          int sidepad        = 15 ;       // horizontal padding of b
 //========================================//
 // font
 static const char *fonts[] = { 
-    "FiraCode Nerd Font:size=11", 
-    "Noto Sans:size=10",
-    "Noto Sans CJK JP:size=10",
-    "apple-color-emoji:size=10",
+    "CaskaydiaCove Nerd Font:size=11",
     "monospace:size=10", 
+    /* "FiraCode Nerd Font:size=11", */
+    "Noto Sans:size=10",
+    "apple-color-emoji:size=10",
+    "Noto Sans CJK JP:size=10",
 };
 //========================================//
 // Определение цветовых значений
@@ -174,7 +175,7 @@ static const char *colors[][3] = {
 
 // Основной массив цветов
 // tagging 
-static const char forTags[]          = { " 󰊠 " };   
+static const char forTags[]          = { " 󰊠 " };
 static const char *tagicons_active[] = { " 󰮯 " };
 static const char *tags[]            = { forTags, forTags, forTags, forTags, forTags, forTags, forTags, forTags, forTags };
 
@@ -455,7 +456,7 @@ static Keychord *keychords[]        = {
 	// 10 { ":::",     gaplessgrid 
 	// 11 { "|M|",     centeredmaster 
 	// 12 { ">M>",     centeredfloatingmaster 
-	// 13 { "><>",     NULL                 
+	// 13 { "><>",     NULL
     //===================================================================================//
     // window [ super + w ]
     //===================================================================================//

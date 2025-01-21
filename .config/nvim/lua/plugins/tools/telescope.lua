@@ -76,7 +76,7 @@ local function open_file_browser()
 	})
 end
 
-vim.keymap.set("n", "<leader>wd", open_file_browser, { desc = "Open file_browser" })
+vim.keymap.set("n", "<leader>fd", open_file_browser, { desc = "Open file_browser" })
 
 -- Custom function to move selection up by 4 items
 local function custom_move_selection_previous(prompt_bufnr)
@@ -237,3 +237,4 @@ vim.api.nvim_set_keymap(
 	"<cmd>Telescope oldfiles<CR>",
 	{ desc = "Open Recent Files", noremap = true, silent = true }
 )
+

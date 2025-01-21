@@ -18,7 +18,7 @@ deps = [
 { use = "TD-Sky/sudo", rev = "a8287ea" },
 { use = "imsi32/yatline", rev = "9328205" },
 { use = "dedukun/relative-motions", rev = "df97039" },
-{ use = "yazi-rs/plugins:max-preview", rev = "600614a" },
+{ use = "yazi-rs/plugins:max-preview", rev = "600614a" }, { use = "orhnk/system-clipboard", rev = "7775a80" },
 ]
 
 [flavor]

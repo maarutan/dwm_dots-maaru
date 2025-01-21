@@ -13,7 +13,6 @@ zinit light Aloxaf/fzf-tab
 zinit light zsh-users/zsh-autosuggestions
 
 # fast run load later
-zinit wait lucid for OMZ::plugins/git
 zinit wait lucid for agkozak/zsh-z
 zinit wait lucid for zsh-users/zsh-completions
 zinit wait lucid for djui/alias-tips

@@ -3,6 +3,8 @@ require("better_escape").setup({
 	mappings = {
 		i = {
 			j = {
+				j = "jj",
+
 				k = function()
 					local filetype = { "terminal", "term", "toggleterm", "yazi" }
 					if vim.bo.filetype == filetype then
@@ -14,8 +16,10 @@ require("better_escape").setup({
 				end,
 			},
 		},
+
 		t = {
 			j = {
+				j = "jj",
 				k = function()
 					-- Escape insert mode when jk is pressed
 					local filetype = { "terminal", "term", "toggleterm", "yazi" }
@@ -24,7 +28,6 @@ require("better_escape").setup({
 					end
 					return "<esc>"
 				end,
-				-- k = "<Esc>",
 			},
 		},
 	},

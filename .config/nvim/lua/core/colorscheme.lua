@@ -2,9 +2,6 @@
 --catppuccin
 require("core.lazyplug.colorscheme.catppuccin")
 --
---moonlight
--- require("core.lazyplug.colorscheme.moonlight")
---
 --gruvbox
 -- require("core.lazyplug.colorscheme.gruvbox")
 --

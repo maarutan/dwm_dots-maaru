@@ -50,9 +50,30 @@ require("lualine").setup({
 			{ "branch", icon = "" },
 			{ "diff", icon = "" },
 			{ "diagnostics", icon = "" },
+			{
+				function()
+					return vim.fn["db_ui#statusline"]({
+						prefix = "DB: ",
+						separator = " -> ",
+						show = { "db_name", "schema", "table" },
+					})
+				end,
+			},
 		},
 		lualine_c = {
-			"filename",
+			{
+				function()
+					local filename = vim.fn.expand("%:t") -- Получаем имя текущего файла
+					if filename == "" then
+						return "[No Name]"
+					end
+					local max_length = 20
+					if #filename > max_length then
+						return filename:sub(1, max_length - 2) .. "..."
+					end
+					return filename
+				end,
+			},
 			function()
 				return "🌊🌊"
 			end,
@@ -68,6 +89,28 @@ require("lualine").setup({
 			-- 		return ""
 			-- 	end
 			-- end,
+			--
+			{
+				function()
+					local status = require("codeium.virtual_text").status()
+
+					if status.state == "idle" then
+						-- Output was cleared, for example when leaving insert mode
+						return " "
+					end
+
+					if status.state == "waiting" then
+						-- Waiting for response
+						return "Waiting..."
+					end
+
+					if status.state == "completions" and status.total > 0 then
+						return string.format("%d/%d", status.current, status.total)
+					end
+
+					return " 0 "
+				end,
+			},
 			function()
 				return "🌊🌊"
 			end,
