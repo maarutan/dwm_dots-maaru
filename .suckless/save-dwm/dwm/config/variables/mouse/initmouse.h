@@ -1,0 +1,29 @@
+#define MODKEY Mod4Mask
+#define ALTKEY Mod1Mask
+#define CTRL ControlMask
+#define SHIFT ShiftMask
+#define BUTTON1 Button1
+#define BUTTON2 Button2
+#define BUTTON3 Button3
+#define BUTTON4 Button4
+#define BUTTON5 Button5
+
+#define ClkLtSymbol 0
+#define ClkClientWin 1
+#define ClkTagBar 2
+#define ClkStatusText 3
+#define ClkRootWin 4
+
+#define ACTION_SETLAYOUT setlayout
+#define ACTION_MOVEMOUSE movemouse
+#define ACTION_TOGGLEFLOATING togglefloating
+#define ACTION_RESIZEMOUSE resizemouse
+#define ACTION_VIEW view
+#define ACTION_TOGGLEVIEW toggleview
+#define ACTION_TAG tag
+#define ACTION_TOGGLETAG toggletag
+#define ACTION_SPAWN spawn
+#define ACTION_VIEWNEXT viewnext
+#define ACTION_VIEWPREV viewprev
+#define ACTION_VIEWACTIVESCROLLNEXT viewactivescrollnext
+#define ACTION_VIEWACTIVESCROLLPREV viewactivescrollprev

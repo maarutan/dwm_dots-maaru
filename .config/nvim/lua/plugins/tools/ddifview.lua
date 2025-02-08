@@ -1,0 +1,7 @@
+vim.keymap.set("n", "<leader>gdo", ":DiffviewOpen<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>gdc", ":DiffviewClose<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>gdc", ":DiffviewClose<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>gdh", ":DiffviewFileHistory<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>gdr", ":DiffviewRefresh<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>gdr", ":DiffviewRefresh<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>gdf", ":DiffviewToggleFiles<CR>", { noremap = true, silent = true })
