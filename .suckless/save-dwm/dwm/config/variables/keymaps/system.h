@@ -1,8 +1,0 @@
-#define SCRIPT_UPDATE "$HOME/.suckless/scripts/update.sh"
-#define SCRIPT_PUSHDOTS "$HOME/.suckless/scripts/pushdots.sh"
-#define SCRIPT_TOGGLE_TOUCHPAD "$HOME/.suckless/scripts/toggle_touchpad.sh"
-#define SCRIPT_BLUETOOTH "pgrep blueman-manager && pkill blueman-manager || blueman-manager &"
-#define SCRIPT_NMTUI "pgrep -fx 'kitty --title nmtui nmtui-connect' && pkill -fx 'kitty --title nmtui nmtui-connect' || kitty --title nmtui nmtui-connect &"
-#define SCRIPT_POWERMENU "$HOME/.config/rofi/powermenu/powermenu.sh"
-#define SCRIPT_SCREEN_LOCK "$HOME/.config/rofi/powermenu/.screen-lock.sh"
-#define SCRIPT_QURAN "$HOME/.suckless/scripts/quran"
