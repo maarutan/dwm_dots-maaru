@@ -1,0 +1,10 @@
+[DEFAULT]
+indent = 4
+format_html = true
+format_css = true
+format_js = true
+line_length = 120
+require_meta_description = true
+require_meta_keywords = true
+require_img_alt = true
+require_img_width_height = true
