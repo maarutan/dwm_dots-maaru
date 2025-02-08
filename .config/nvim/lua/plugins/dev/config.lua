@@ -16,7 +16,7 @@ require("plugins.dev.lsp.yaml") -- yaml-lsp
 require("plugins.dev.formatting.formatter")
 
 -- linting:
-require("plugins.dev.linting.lintings")
+-- require("plugins.dev.linting.lintings")
 
 -- mason:
 require("plugins.dev.mason")

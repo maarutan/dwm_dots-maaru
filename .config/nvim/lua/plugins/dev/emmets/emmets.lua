@@ -11,5 +11,3 @@ lspconfig.emmet_ls.setup({
 		},
 	},
 })
-
-print("hello world")

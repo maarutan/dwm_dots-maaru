@@ -1,11 +1,12 @@
-source "$HOME/.zsh/beauty.zsh"
-source "$HOME/.zsh/keymap.zsh"
-source "$HOME/.zsh/plugins.zsh"
-source "$HOME/.zsh/export.zsh"
-source "$HOME/.zsh/alias.zsh"
-source "$HOME/.zsh/func_init.zsh"
-source "$HOME/.zsh/theme.zsh"
+source "$HOME/.config/zsh/beauty.zsh"
+source "$HOME/.config/zsh/plugins.zsh"
+source "$HOME/.config/zsh/keymap.zsh"
+source "$HOME/.config/zsh/export.zsh"
+source "$HOME/.config/zsh/alias.zsh"
+source "$HOME/.config/zsh/func_init.zsh"
+source "$HOME/.config/zsh/abbr.zsh"
+source "$HOME/.config/zsh/theme.zsh"
 
 ### connect Zinit
-source "$HOME/.zsh/zinit.zsh"
+source "$HOME/.config/zsh/zinit.zsh"
 ### End of Zinit's installer chunk

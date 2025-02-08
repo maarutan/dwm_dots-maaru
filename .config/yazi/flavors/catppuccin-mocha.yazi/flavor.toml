@@ -31,9 +31,10 @@ count_selected = { fg = "#1e1e2e", bg = "#f9e2af" }
 
 # Border
 border_symbol = "│"
-border_style  = { fg = "#89B4FA" }
+border_style  = { fg = "#7f849c" }
 
 # : }}}
+
 
 # : Mode {{{
 
@@ -43,8 +44,8 @@ normal_main = { fg = "#1e1e2e", bg = "#89b4fa", bold = true }
 normal_alt  = { fg = "#89b4fa", bg = "#313244" }
 
 # Select mode
-select_main = { fg = "#1e1e2e", bg = "#a6e3a1", bold = true }
-select_alt  = { fg = "#a6e3a1", bg = "#313244" }
+select_main = { fg = "#1e1e2e", bg = "#94e2d5", bold = true }
+select_alt  = { fg = "#94e2d5", bg = "#313244" }
 
 # Unset mode
 unset_main = { fg = "#1e1e2e", bg = "#f2cdcd", bold = true }
@@ -139,6 +140,7 @@ footer  = { fg = "#313244", bg = "#cdd6f4" }
 
 # : Notify {{{
 
+[notify]
 title_info  = { fg = "#a6e3a1" }
 title_warn  = { fg = "#f9e2af" }
 title_error = { fg = "#f38ba8" }
@@ -169,4 +171,3 @@ rules = [
 ]
 
 # : }}}
-

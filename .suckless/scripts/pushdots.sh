@@ -8,13 +8,13 @@ TARGET_DIR=${TARGET_DIR:-"$HOME/.dwm_dots-maaru"}
 
 # //==============доп вызовы==============//
 YOURTERM=${YOURTERM:-"kitty -e"}
-add_more_push()
-{
-    $HOME/.suckless/scripts/pushvsconfig.sh
-    $HOME/.suckless/scripts/pushzinit.sh
-    $HOME/.suckless/scripts/pushdwm.sh
-
-}
+# add_more_push()
+# {
+#     $HOME/.suckless/scripts/pushvsconfig.sh
+#     $HOME/.suckless/scripts/pushzinit.sh
+#     $HOME/.suckless/scripts/pushdwm.sh
+#
+# }
 # //==============доп вызовы==============//
 
 # Проверка наличия необходимых приложений

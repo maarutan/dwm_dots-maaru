@@ -44,6 +44,7 @@ vim.opt.termguicolors = true
 vim.opt.signcolumn = "yes"
 vim.opt.wrap = false
 vim.opt.foldenable = false
+vim.opt.textwidth = 80
 
 -- Windows and splits
 vim.opt.splitright = true
@@ -75,3 +76,5 @@ vim.opt.syntax = "off"
 
 -- Command abbreviations
 vim.cmd([[cabbrev Q q!]])
+vim.cmd([[cabbrev W w!]])
+vim.cmd([[cabbrev w w!]])

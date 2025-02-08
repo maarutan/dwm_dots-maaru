@@ -23,7 +23,12 @@ return {
 
 		-- ya.notify({ title = #urls, content = table.concat(urls, " "), level = "info", timeout = 5 })
 
-		local status, err = Command("cb"):arg("copy"):args(urls):spawn():wait()
+		local status, err =
+				Command("cb")
+				:arg("copy")
+				:args(urls)
+				:spawn()
+				:wait()
 
 		if status or status.succes then
 			ya.notify({
@@ -37,7 +42,10 @@ return {
 		if not status or not status.success then
 			ya.notify({
 				title = "System Clipboard",
-				content = string.format("Could not copy selected file(s) %s", status and status.code or err),
+				content = string.format(
+					"Could not copy selected file(s) %s",
+					status and status.code or err
+				),
 				level = "error",
 				timeout = 5,
 			})

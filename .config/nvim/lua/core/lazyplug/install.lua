@@ -101,8 +101,6 @@ return {
 	{ "filipdutescu/renamer.nvim" },
 	--filename
 	{ "tpope/vim-eunuch" },
-	--swhicher color theme
-	{ "gagbo/circadian.nvim" },
 	--pacman animshttps
 	{ "maarutan/pacman-anims-nvim" },
 	--keycalm
@@ -113,16 +111,12 @@ return {
 	{ "echasnovski/mini.icons", version = "*" },
 	--whichkey
 	{ "folke/which-key.nvim", event = "VeryLazy" },
-	--better esc
-	{ "max397574/better-escape.nvim" },
 	--autopairs
 	{ "windwp/nvim-autopairs" },
 	--nvim-surround
 	{ "kylechui/nvim-surround", version = "*", event = "VeryLazy" },
 	--lorem for nvim
 	{ "maarutan/lorem.nvim" },
-	--lifeshare
-	{ "azratul/live-share.nvim", dependencies = "jbyuki/instant.nvim" },
 	--smoothcursor
 	{ "sphamba/smear-cursor.nvim" },
 	--macro notify
@@ -133,29 +127,24 @@ return {
 	{ "mfussenegger/nvim-lint" },
 	--quickfix ui for nvim
 	{ "kevinhwang91/nvim-bqf" },
-	-- { "folke/trouble.nvim" },
 	--lspsaga better ui for lsp
 	{ "nvimdev/lspsaga.nvim" },
 	--auto autotag
 	{ "windwp/nvim-ts-autotag" },
 	--cmp view lsp
 	{ "onsails/lspkind.nvim" },
-	--preview img
-	{ "3rd/image.nvim" },
 	--rainbow
 	{ "hiphish/rainbow-delimiters.nvim" },
 	-- buffResize
 	{ "maarutan/splitResizer.nvim" },
-	-- mini map for nvim
-	{ "wfxr/minimap.vim" },
 	-- eyeliner
 	{ "jinh0/eyeliner.nvim" },
-	-- beacon cursor
-	{ "DanilaMihailov/beacon.nvim" },
 	--gitgraph
 	{ "maarutan/gitgraph.nvim" },
 	-- diffview
 	{ "sindrets/diffview.nvim" },
 	-- cellular automaton
 	{ "Eandrju/cellular-automaton.nvim" },
+	--  movengine
+	{ "booperlv/nvim-gomove" },
 }

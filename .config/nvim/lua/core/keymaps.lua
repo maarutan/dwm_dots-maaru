@@ -6,6 +6,9 @@ vim.g.mapleader = " "
 -- Neotree mappings
 vim.keymap.set("n", "<leader>e", "<cmd>:Neotree toggle<CR>", opts)
 
+-- betteresc
+vim.keymap.set("i", "jk", "<Esc>", { noremap = true, silent = true })
+
 -- Window navigation
 vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", opts)
 vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", opts)
@@ -18,17 +21,17 @@ vim.api.nvim_set_keymap("n", "<A-s-l>", ":vertical resize +30<cr>", opts)
 vim.api.nvim_set_keymap("n", "<A-s-k>", ":resize -5<cr>", opts)
 vim.api.nvim_set_keymap("n", "<A-s-j>", ":resize +5<cr>", opts)
 
--- Move lines up and down
-vim.api.nvim_set_keymap("n", "<A-k>", ":m .-2<cr>==", opts)
-vim.api.nvim_set_keymap("n", "<A-j>", ":m .+1<cr>==", opts)
-vim.api.nvim_set_keymap("v", "<A-k>", ":m '<-2<cr>gv=gv", opts)
-vim.api.nvim_set_keymap("v", "<A-j>", ":m '>+1<cr>gv=gv", opts)
-
--- Indent lines left and right
-vim.api.nvim_set_keymap("n", "<A-l>", "<cmd>normal!>><cr>", opts)
-vim.api.nvim_set_keymap("n", "<A-h>", "<cmd>normal!<<<cr>", opts)
-vim.api.nvim_set_keymap("v", "<A-l>", "<cmd>normal!>gv<cr>", opts)
-vim.api.nvim_set_keymap("v", "<A-h>", "<cmd>normal!<gv<cr>", opts)
+-- -- Move lines up and down
+-- vim.api.nvim_set_keymap("n", "<A-k>", ":m .-2<cr>==", opts)
+-- vim.api.nvim_set_keymap("n", "<A-j>", ":m .+1<cr>==", opts)
+-- vim.api.nvim_set_keymap("v", "<A-k>", ":m '<-2<cr>gv=gv", opts)
+-- vim.api.nvim_set_keymap("v", "<A-j>", ":m '>+1<cr>gv=gv", opts)
+--
+-- -- Indent lines left and right
+-- vim.api.nvim_set_keymap("n", "<A-l>", "<cmd>normal!>><cr>", opts)
+-- vim.api.nvim_set_keymap("n", "<A-h>", "<cmd>normal!<<<cr>", opts)
+-- vim.api.nvim_set_keymap("v", "<A-l>", "<cmd>normal!>gv<cr>", opts)
+-- vim.api.nvim_set_keymap("v", "<A-h>", "<cmd>normal!<gv<cr>", opts)
 
 -- Bufferline navigation
 vim.api.nvim_set_keymap("n", "<S-j>", ":BufferLineCycleNext<CR>", opts)

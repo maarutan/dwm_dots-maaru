@@ -7,7 +7,9 @@
 # 
 
 [flavor]
-use = "catppuccin-mocha"
+dark = "catppuccin-mocha"
+# dark = "gruvbox-dark"
+# dark = "kanagawa"
 
 
 [plugin.full-border]

@@ -5,7 +5,7 @@ require("notify").setup({
 	minimum_width = 20, -- Минимальная ширина уведомления
 	max_width = 40, -- Максимальная ширина уведомления
 	max_height = 10, -- Максимальная высота уведомления
-	render = "default", -- Стиль отображения уведомления
+	render = "minimal", -- Стиль отображения уведомления
 	top_down = true,
 	fps = 144,
 	time_formats = {

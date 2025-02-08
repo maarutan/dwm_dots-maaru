@@ -1,7 +1,6 @@
 local luasnip = require("luasnip")
 local uv = vim.loop
 
--- Функция для поиска директории виртуальной среды
 local function find_virtual_env()
 	local venvs = { ".venv", "venv", "env" }
 	for _, venv in ipairs(venvs) do
@@ -12,13 +11,11 @@ local function find_virtual_env()
 	return nil
 end
 
--- Добавляем сниппет
 luasnip.add_snippets("json", {
 	luasnip.snippet("pyconfig", {
 		luasnip.function_node(function()
 			local venv = find_virtual_env()
 
-			-- Если виртуальной среды нет, возвращаем пустые поля
 			if not venv then
 				return {
 					"{",

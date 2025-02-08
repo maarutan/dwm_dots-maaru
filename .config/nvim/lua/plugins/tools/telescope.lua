@@ -237,4 +237,3 @@ vim.api.nvim_set_keymap(
 	"<cmd>Telescope oldfiles<CR>",
 	{ desc = "Open Recent Files", noremap = true, silent = true }
 )
-

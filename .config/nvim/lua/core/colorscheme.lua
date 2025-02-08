@@ -22,4 +22,3 @@ require("core.lazyplug.colorscheme.catppuccin")
 --
 -- vim.o.background = "light"
 ----------------------------------------------------------------
--- visual multi settings theme corsor

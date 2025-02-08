@@ -14,3 +14,7 @@ end, { expr = true, silent = true })
 vim.g.codeium_enable = 1 -- codeium_enable
 vim.g.codeium_completions_enabled = 1 -- codeium_completions_enabled
 vim.g.codeium_insert_mode_mappings = 1 -- codeium_insert_mode_mappings
+
+vim.g.codeium_filetypes = {
+	speedtyper = false, -- отключает Codeium в буферах с filetype=speedtyper
+}

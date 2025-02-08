@@ -1,8 +1,8 @@
 -- init.lua
 vim.opt.sessionoptions = { -- required
-    "buffers",
-    "tabpages",
-    "globals",
+	"buffers",
+	"tabpages",
+	"globals",
 }
 
-require("scope").setup({})-- init.lua
+require("scope").setup({}) -- init.lua

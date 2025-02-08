@@ -12,12 +12,12 @@ lint.linters_by_ft = {
 	python = { "ruff" }, -- For Python
 	lua = { "selene" }, -- For Lua
 	sh = { "shellcheck" }, -- For Shell
-	-- css = { "stylelint" }, -- For CSS/SCSS
+	css = { "stylelint" }, -- For CSS/SCSS
 	yaml = { "yamllint" }, -- For YAML
 }
 
 -- Automatically trigger linting on file read and write
-vim.api.nvim_create_autocmd({ "BufReadPost", "BufWritePost" }, {
+vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 	callback = function()
 		require("lint").try_lint()
 	end,

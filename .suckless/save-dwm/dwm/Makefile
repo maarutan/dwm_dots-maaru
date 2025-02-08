@@ -1,45 +1,41 @@
-# dwm - dynamic window manager
-# See LICENSE file for copyright and license details.
+include config/config.mk
 
-include config.mk
-
-SRC = drw.c dwm.c util.c attachbelow.c  # Добавляем attachbelow.c в список исходных файлов
+SRC = src/drw.c src/dwm.c src/util.c
 OBJ = ${SRC:.c=.o}
+BIN_DIR = $(HOME)/.local/bin
+BIN_DWM = $(BIN_DIR)/dwm
+BIN_DWMBLOCKS = $(BIN_DIR)/dwmblocks
+MAN = src/dwm.1
 
-all: dwm
+CFLAGS += -std=c99 -pedantic -Wall -Wno-deprecated-declarations -Os -I/usr/X11R6/include -I/usr/include/freetype2
+LDFLAGS += -L/usr/X11R6/lib -lX11 -lXinerama -lfontconfig -lXft -lImlib2 -lXrender
+
+all: dwm dwmblocks
 
 .c.o:
-	${CC} -c ${CFLAGS} $<
-
-${OBJ}: config.h config.mk
-
-config.h:
-	cp config.def.h $@
+	${CC} -c ${CFLAGS} $< -o $@
 
 dwm: ${OBJ}
-	${CC} -o $@ ${OBJ} ${LDFLAGS}
+	mkdir -p ${BIN_DIR}
+	${CC} -o ${BIN_DWM} ${OBJ} ${LDFLAGS}
+
+dwmblocks:
+	mkdir -p ${BIN_DIR}
+	${CC} -o ${BIN_DWMBLOCKS} patches/dwmblocks.c ${CFLAGS} ${LDFLAGS}
 
 clean:
-	rm -f dwm ${OBJ} dwm-${VERSION}.tar.gz
-
-dist: clean
-	mkdir -p dwm-${VERSION}
-	cp -R LICENSE Makefile README config.def.h config.mk\
-		dwm.1 drw.h util.h ${SRC} dwm.png transient.c dwm-${VERSION}
-	tar -cf dwm-${VERSION}.tar dwm-${VERSION}
-	gzip dwm-${VERSION}.tar
-	rm -rf dwm-${VERSION}
+	rm -f ${BIN_DWM} ${BIN_DWMBLOCKS} src/*.o
 
 install: all
-	mkdir -p ${DESTDIR}${PREFIX}/bin
-	cp -f dwm ${DESTDIR}${PREFIX}/bin
-	chmod 755 ${DESTDIR}${PREFIX}/bin/dwm
 	mkdir -p ${DESTDIR}${MANPREFIX}/man1
-	sed "s/VERSION/${VERSION}/g" < dwm.1 > ${DESTDIR}${MANPREFIX}/man1/dwm.1
-	chmod 644 ${DESTDIR}${MANPREFIX}/man1/dwm.1
+	if [ -f ${MAN} ]; then \
+		sed "s/VERSION/${VERSION}/g" < ${MAN} > ${DESTDIR}${MANPREFIX}/man1/dwm.1; \
+		chmod 644 ${DESTDIR}${MANPREFIX}/man1/dwm.1; \
+	fi
 
 uninstall:
-	rm -f ${DESTDIR}${PREFIX}/bin/dwm\
+	rm -f ${BIN_DWM} ${BIN_DWMBLOCKS} \
 		${DESTDIR}${MANPREFIX}/man1/dwm.1
 
-.PHONY: all clean dist install uninstall
+.PHONY: all clean install uninstall
+

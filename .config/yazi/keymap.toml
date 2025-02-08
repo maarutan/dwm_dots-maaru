@@ -95,7 +95,7 @@ keymap = [
 	{ on = "<C-s>",     run = "escape --search",             desc = "Cancel the ongoing search" },
 	{ on = "z",         run = "plugin zoxide",               desc = "Jump to a directory via zoxide" },
 	{ on = [ "g", "o" ],        run = "plugin zoxide",               desc = "Jump to a directory via zoxide" },
-	{ on = "Z",         run = "plugin fzf",                  desc = "Jump to a file/directory via fzf" },
+	{ on =  "f" ,         run = "plugin fzf",                  desc = "Jump to a file/directory via fzf" },
 
 	# Linemode
 	{ on = [ "m", "s" ], run = "linemode size",        desc = "Linemode: size" },
@@ -393,7 +393,7 @@ run  = "plugin hide-preview"
 desc = "Hide or show preview"
 
 [[manager.prepend_keymap]]
-on   = "f"
+on   = "H"
 run  = "plugin jump-to-char"
 desc = "Jump to char"
 
@@ -402,10 +402,7 @@ on   = [ "c", "m" ]
 run  = "plugin chmod"
 desc = "Chmod on selected files"
 
-[[manager.prepend_keymap]]
-on = ["e"]
-run = "plugin ouch --args=zip"
-desc = "Compress with ouch"
+
 
 [[manager.prepend_keymap]]
 on   = "o"
@@ -477,3 +474,49 @@ desc = "Maximize or restore preview"
 on = [ "y", "Y" ]
 run = ["plugin system-clipboard"]
 desc = "System Clipboard"
+
+
+
+[[manager.prepend_keymap]]
+on   = "j"
+run  = "plugin keycalm --args=j"
+desc = "Keycalm protection for j"
+
+[[manager.prepend_keymap]]
+on   = "k"
+run  = "plugin keycalm --args=k"
+desc = "Keycalm protection for k"
+
+[[manager.prepend_keymap]]
+on = "<Esc>"
+run = "plugin keycalm --args=<Esc>"
+desc = "Reset keycalm block"
+
+
+[[manager.prepend_keymap]]
+on = ["e"]
+run = "plugin ouch --args=zip"
+desc = "Compress with ouch"
+
+
+[[manager.prepend_keymap]]
+on = [ "E" ]
+run = "plugin eza-preview"
+desc = "Toggle tree/list dir preview"
+
+
+[[manager.prepend_keymap]]
+on = [ "-" ]
+run = "plugin eza-preview --args='--inc-level'"
+desc = "Increment tree level" 
+
+
+[[manager.prepend_keymap]]
+on = [ "_" ]
+run = "plugin eza-preview --args='--dec-level'"
+desc = "Decrement tree level"
+
+[[manager.prepend_keymap]]
+on = [ "$" ]
+run = "plugin eza-preview --args='--toggle-follow-symlinks'"
+desc = "Toggle tree follow symlinks"
