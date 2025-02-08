@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 
+LOAD_RANDOM_WALL = 0
+LOAD_DEFAULT_WALL = 0
+
 import os
 import glob
 from subprocess import run as shell
 from PIL import Image
+import random
 
 
 HOME = os.getenv("HOME")
@@ -14,16 +18,25 @@ CACHE_WALL = f"{HOME}/.cache/wallpapers_cache"
 CURRENT_WALL = f"{HOME}/.cache/wallpaper_current"
 
 DEFAULT_WALLS = glob.glob(f"{WALL_DIR}/.default/default.*")
-DEFAULT_WALL = DEFAULT_WALLS[0] if DEFAULT_WALLS else None
+DEFAULT_WALL = DEFAULT_WALLS[0] if DEFAULT_WALLS else ""
+DEFAULT_RANDOM_DIR = f"{HOME}/Pictures/wallpapers/"
 
 
-def wall_start():
+def wall_start() -> None:
     shell(["feh", "--no-fehbg", "--bg-scale", rofi()])
     # and more your wall softs
-    # shell(["your soft", rofi()]) # rofi() - this is path your walls
+    # shell(["your soft", rofi()]) #    rofi() =     this is path your walls
 
 
 os.makedirs(CACHE_WALL, exist_ok=True)
+
+
+def get_random_wall() -> str:
+    walls = glob.glob(f"{DEFAULT_RANDOM_DIR}/*")
+    if not walls:
+        print("Invalid: wallpapers not found !")
+
+    return random.choice(walls)
 
 
 def get_info_wall_thumbnail() -> list:
@@ -70,15 +83,21 @@ def rofi() -> str:
 
     selected_wall = result.stdout.strip()
 
-    if not selected_wall:
-        if DEFAULT_WALL:
-            print("you did't choose a wallpaper. load default wallpaper.")
-            with open(CURRENT_WALL, "w") as f:
-                f.write(DEFAULT_WALL)
-            return DEFAULT_WALL
-        else:
-            print("Invalid selection: no wallpaper detected !!!!!")
-            exit(1)
+    if not selected_wall and LOAD_DEFAULT_WALL:
+        print("you did't choose a wallpaper. load default wallpaper.")
+        with open(CURRENT_WALL, "w") as f:
+            f.write(DEFAULT_WALL)
+        return DEFAULT_WALL
+
+    if not selected_wall and LOAD_RANDOM_WALL:
+        print("you did't choose a wallpaper. load random wallpaper.")
+        with open(CURRENT_WALL, "w") as f:
+            f.write(get_random_wall())
+        return get_random_wall()
+
+    if not selected_wall and not LOAD_DEFAULT_WALL and not LOAD_RANDOM_WALL:
+        print("you did't choose a wallpaper. load default wallpaper.")
+        return ""
 
     selected_path = (
         selected_wall

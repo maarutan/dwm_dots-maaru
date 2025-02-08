@@ -52,7 +52,7 @@ mainbox {
 listview {
     enabled:                     true;
     columns:                     6;
-    lines:                       2;
+    lines:                       1;
     spacing:                     50px;
     padding:                     20px 30px;
     cycle:                       true;
