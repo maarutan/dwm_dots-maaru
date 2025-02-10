@@ -147,4 +147,6 @@ return {
 	{ "Eandrju/cellular-automaton.nvim" },
 	--  movengine
 	{ "booperlv/nvim-gomove" },
+	-- nvim ufo
+	{ "kevinhwang91/nvim-ufo", dependencies = "kevinhwang91/promise-async" },
 }

@@ -21,6 +21,7 @@ require("gruvbox").setup({
 	palette_overrides = {},
 	overrides = {
 		SignColumn = { bg = "" },
+		FoldColumn = { bg = "" },
 	},
 	dim_inactive = false,
 	transparent_mode = false,

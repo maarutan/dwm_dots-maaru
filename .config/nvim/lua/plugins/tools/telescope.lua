@@ -55,7 +55,7 @@ end, { desc = "Git status" })
 vim.keymap.set("n", "<leader>cs", builtin.colorscheme, {
 	desc = " Select colorscheme",
 })
-vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<CR>", { desc = "󰣜 Open undo tree" })
+vim.keymap.set("n", "<leader>fu", "<cmd>Telescope undo<CR>", { desc = "󰣜 Open undo tree" })
 vim.keymap.set("n", "<leader>fn", "<cmd>Telescope notify<CR>", { desc = "󰍡 Notification history" })
 
 local function open_file_browser()

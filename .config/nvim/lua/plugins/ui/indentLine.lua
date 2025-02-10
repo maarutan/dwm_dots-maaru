@@ -9,7 +9,6 @@ require("ibl").setup({
 		filetypes = { "dashboard", "NvimTree", "neo-tree", "toggleterm", "terminal", "term" }, -- Исключаем файлы
 	},
 })
-
 vim.api.nvim_set_hl(0, "IndentBlanklineChar", { fg = "#3e4451", nocombine = true })
 require("mini.indentscope").setup({
 	draw = {

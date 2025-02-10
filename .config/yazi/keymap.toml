@@ -7,14 +7,14 @@
 
 [manager]
 keymap = [
-  { on = ["R", "p", "p"], run = "plugin sudo --args='paste'", desc = "sudo paste" },
-  { on = ["R", "P"], run = "plugin sudo --args='paste -f'", desc = "sudo paste force" },
-  { on = ["R", "r"], run = "plugin sudo --args='rename'", desc = "sudo rename" },
-  { on = ["R", "p", "l"], run = "plugin sudo --args='link'", desc = "sudo link" },
-  { on = ["R", "p", "L"], run = "plugin sudo --args='link -r'", desc = "sudo link relative path" },
-  { on = ["R", "a"], run = "plugin sudo --args='create'", desc = "sudo create" },
-  { on = ["R", "d"], run = "plugin sudo --args='remove'", desc = "sudo trash" },
-  { on = ["R", "D"], run = "plugin sudo --args='remove -P'", desc = "sudo delete" },
+  { on = ["R", "p", "p"], run = "plugin sudo paste", desc = "sudo paste" },
+  { on = ["R", "P"], run = "plugin sudo paste -f", desc = "sudo paste force" },
+  { on = ["R", "r"], run = "plugin sudo rename", desc = "sudo rename" },
+  { on = ["R", "p", "l"], run = "plugin sudo link", desc = "sudo link" },
+  { on = ["R", "p", "L"], run = "plugin sudo link -r", desc = "sudo link relative path" },
+  { on = ["R", "a"], run = "plugin sudo create", desc = "sudo create" },
+  { on = ["R", "d"], run = "plugin sudo remove", desc = "sudo trash" },
+  { on = ["R", "D"], run = "plugin sudo remove -P", desc = "sudo delete" },
 	{ on = "<Esc>", run = "escape",             desc = "Exit visual mode, clear selected, or cancel search" },
 	{ on = "<C-[>", run = "escape",             desc = "Exit visual mode, clear selected, or cancel search" },
 	{ on = "q",     run = "quit",               desc = "Quit the process" },
@@ -39,8 +39,8 @@ keymap = [
 	{ on = "<PageUp>",     run = "arrow -100%", desc = "Move cursor up one page" },
 	{ on = "<PageDown>",   run = "arrow 100%",  desc = "Move cursor down one page" },
 
-	{ on = [ "g", "g" ], run = "arrow -99999999", desc = "Move cursor to the top" },
-	{ on = "G",          run = "arrow 99999999",  desc = "Move cursor to the bottom" },
+	{ on = [ "g", "g" ], run = "arrow top", desc = "Move cursor to the top" },
+	{ on = "G",          run = "arrow bot",  desc = "Move cursor to the bottom" },
 
 	# Navigation
 	{ on = "h", run = "leave", desc = "Go back to the parent directory" },
@@ -406,7 +406,7 @@ desc = "Chmod on selected files"
 
 [[manager.prepend_keymap]]
 on   = "o"
-run  = "plugin open-with-cmd --args=block"
+run  = "plugin open-with-cmd --block"
 desc = "Open with command in the terminal"
 
 [[manager.prepend_keymap]]
@@ -421,47 +421,47 @@ desc = "Trigger a new relative motion"
 
 [[manager.prepend_keymap]]
 on = [ "1" ]
-run = "plugin relative-motions --args=1"
+run = "plugin relative-motions 1"
 desc = "Move in relative steps"
 
 [[manager.prepend_keymap]]
 on = [ "2" ]
-run = "plugin relative-motions --args=2"
+run = "plugin relative-motions 2"
 desc = "Move in relative steps"
 
 [[manager.prepend_keymap]]
 on = [ "3" ]
-run = "plugin relative-motions --args=3"
+run = "plugin relative-motions 3"
 desc = "Move in relative steps"
 
 [[manager.prepend_keymap]]
 on = [ "4" ]
-run = "plugin relative-motions --args=4"
+run = "plugin relative-motions 4"
 desc = "Move in relative steps"
 
 [[manager.prepend_keymap]]
 on = [ "5" ]
-run = "plugin relative-motions --args=5"
+run = "plugin relative-motions 5"
 desc = "Move in relative steps"
 
 [[manager.prepend_keymap]]
 on = [ "6" ]
-run = "plugin relative-motions --args=6"
+run = "plugin relative-motions 6"
 desc = "Move in relative steps"
 
 [[manager.prepend_keymap]]
 on = [ "7" ]
-run = "plugin relative-motions --args=7"
+run = "plugin relative-motions 7"
 desc = "Move in relative steps"
 
 [[manager.prepend_keymap]]
 on = [ "8" ]
-run = "plugin relative-motions --args=8"
+run = "plugin relative-motions 8"
 desc = "Move in relative steps"
 
 [[manager.prepend_keymap]]
 on = [ "9" ]
-run = "plugin relative-motions --args=9"
+run = "plugin relative-motions 9"
 desc = "Move in relative steps"
 
 [[manager.prepend_keymap]]
@@ -479,23 +479,23 @@ desc = "System Clipboard"
 
 [[manager.prepend_keymap]]
 on   = "j"
-run  = "plugin keycalm --args=j"
+run  = "plugin keycalm j"
 desc = "Keycalm protection for j"
 
 [[manager.prepend_keymap]]
 on   = "k"
-run  = "plugin keycalm --args=k"
+run  = "plugin keycalm k"
 desc = "Keycalm protection for k"
 
 [[manager.prepend_keymap]]
 on = "<Esc>"
-run = "plugin keycalm --args=<Esc>"
+run = "plugin keycalm  <Esc>"
 desc = "Reset keycalm block"
 
 
 [[manager.prepend_keymap]]
 on = ["e"]
-run = "plugin ouch --args=zip"
+run = "plugin ouch zip"
 desc = "Compress with ouch"
 
 
@@ -507,16 +507,17 @@ desc = "Toggle tree/list dir preview"
 
 [[manager.prepend_keymap]]
 on = [ "-" ]
-run = "plugin eza-preview --args='--inc-level'"
+run = "plugin eza-preview  --inc-level"
 desc = "Increment tree level" 
 
 
 [[manager.prepend_keymap]]
 on = [ "_" ]
-run = "plugin eza-preview --args='--dec-level'"
+run = "plugin eza-preview  --dec-level"
 desc = "Decrement tree level"
 
 [[manager.prepend_keymap]]
 on = [ "$" ]
-run = "plugin eza-preview --args='--toggle-follow-symlinks'"
+run = "plugin eza-preview --toggle-follow-symlinks"
 desc = "Toggle tree follow symlinks"
+

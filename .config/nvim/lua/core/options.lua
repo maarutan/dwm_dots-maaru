@@ -1,13 +1,21 @@
 -- General settings
 vim.loader.enable()
 vim.opt.inccommand = "split"
-vim.opt.fillchars:append({ eob = " " })
 vim.opt.autoread = true
 vim.opt.list = true
 vim.opt.mouse = ""
+vim.cmd("set termguicolors")
+vim.opt.fillchars = {
+	fold = " ",
+	foldopen = "",
+	foldsep = " ",
+	eob = " ",
+	foldclose = "",
+}
 vim.opt.listchars = {
 	tab = "│ ",
 	trail = "→",
+	eol = "↴",
 	extends = "󰜵",
 	precedes = "󰜲",
 }
@@ -75,6 +83,5 @@ vim.opt.undodir = undodir
 vim.opt.syntax = "off"
 
 -- Command abbreviations
-vim.cmd([[cabbrev Q q!]])
-vim.cmd([[cabbrev W w!]])
-vim.cmd([[cabbrev w w!]])
+vim.cmd([[cabbrev Q q]])
+vim.cmd([[cabbrev W w]])

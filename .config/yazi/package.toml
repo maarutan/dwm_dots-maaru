@@ -1,33 +1,89 @@
-# ██████╗  █████╗  ██████╗██╗  ██╗ █████╗  ██████╗ ███████╗
-# ██╔══██╗██╔══██╗██╔════╝██║ ██╔╝██╔══██╗██╔════╝ ██╔════╝
-# ██████╔╝███████║██║     █████╔╝ ███████║██║  ███╗█████╗
-# ██╔═══╝ ██╔══██║██║     ██╔═██╗ ██╔══██║██║   ██║██╔══╝
-# ██║     ██║  ██║╚██████╗██║  ██╗██║  ██║╚██████╔╝███████╗
-# ╚═╝     ╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝
-#
-[plugin]
-deps = [
-{ use = "yazi-rs/plugins:full-border", rev = "02d18be" },
-{ use = "yazi-rs/plugins:smart-enter", rev = "02d18be" },
-{ use = "yazi-rs/plugins:hide-preview", rev = "02d18be" },
-{ use = "yazi-rs/plugins:jump-to-char", rev = "02d18be" },
-{ use = "yazi-rs/plugins:git", rev = "02d18be" },
-{ use = "yazi-rs/plugins:chmod", rev = "02d18be" },
-{ use = "Tyarel8/video-ffmpeg", rev = "1250b85" },
-{ use = "Ape/open-with-cmd", rev = "a80d1cf" },
-{ use = "TD-Sky/sudo", rev = "f403008" },
-{ use = "imsi32/yatline", rev = "9328205" },
-{ use = "dedukun/relative-motions", rev = "0d9c8cf" },
-{ use = "yazi-rs/plugins:max-preview", rev = "02d18be" },
-{ use = "orhnk/system-clipboard", rev = "7775a80" },
-{ use = "maarutan/keycalm", rev = "891857e" }, { use = "ahkohd/eza-preview", rev = "5ef05bc" },
-]
+[[plugin.deps]]
+use = "yazi-rs/plugins:full-border"
+rev = "02d18be"
+hash = "882ed23839778f82dc137248979c8681"
 
-[flavor]
-deps = [
-{ use = "yazi-rs/flavors:catppuccin-mocha", rev = "fd85060" },
-{ use = "bennyyip/gruvbox-dark", rev = "b4cc9f2" },
-{ use = "dangooddd/kanagawa", rev = "d98f0c3" }
-]
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-enter"
+rev = "02d18be"
+hash = "c1a2739e9ef2d837030ccb4267be3ed1"
 
+[[plugin.deps]]
+use = "yazi-rs/plugins:hide-preview"
+rev = "02d18be"
+hash = "5be5885898ca9df783bdec0d402bf4b0"
 
+[[plugin.deps]]
+use = "yazi-rs/plugins:jump-to-char"
+rev = "02d18be"
+hash = "72c66a0b3d60f8377eb9db5e1d8b60b2"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:git"
+rev = "02d18be"
+hash = "4d6a07559118975e2dee983d27474d70"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:chmod"
+rev = "02d18be"
+hash = "4c7e8fd0266eedee7b619d966bd2d025"
+
+[[plugin.deps]]
+use = "Tyarel8/video-ffmpeg"
+rev = "1250b85"
+hash = "54a2158dde0bf6ecb377bd71c9cdcdf9"
+
+[[plugin.deps]]
+use = "Ape/open-with-cmd"
+rev = "a80d1cf"
+hash = "86e0312b01bc5762813c6c1d0517f073"
+
+[[plugin.deps]]
+use = "TD-Sky/sudo"
+rev = "f403008"
+hash = "bd78d2296020f9b410e2c47bc7eb6375"
+
+[[plugin.deps]]
+use = "imsi32/yatline"
+rev = "9328205"
+hash = "3e51d1fd8a2e481fcfa8eab1251d1c5f"
+
+[[plugin.deps]]
+use = "dedukun/relative-motions"
+rev = "0d9c8cf"
+hash = "561ad872c77b95360c2657c5e8d395ed"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:max-preview"
+rev = "02d18be"
+hash = "9bc26d10d2f6e2aa93b10905b1b76979"
+
+[[plugin.deps]]
+use = "orhnk/system-clipboard"
+rev = "7775a80"
+hash = "9b8f2573da54334b04747e51556040cc"
+
+[[plugin.deps]]
+use = "maarutan/keycalm"
+rev = "891857e"
+hash = "eb7c7ed0c91d311659de32d4145d344f"
+
+[[plugin.deps]]
+use = "ahkohd/eza-preview"
+rev = "5ef05bc"
+hash = "72355a6c8b7c8de6ed4dda0f98f86fee"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-mocha"
+rev = "fd85060"
+hash = "c40e434318a8ceffd01842f8dfb2390e"
+
+[[flavor.deps]]
+use = "bennyyip/gruvbox-dark"
+rev = "b4cc9f2"
+hash = "f44c42bcbed3c8564100e45e2fe3649a"
+
+[[flavor.deps]]
+use = "dangooddd/kanagawa"
+rev = "d98f0c3"
+hash = "cada780385f75abbcfbf5343256b441"
