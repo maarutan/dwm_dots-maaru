@@ -2,6 +2,7 @@
 import os
 import sys
 import subprocess
+from time import sleep
 
 HOME = os.getenv("HOME")
 WALLPAPER_DIR = f"{HOME}/Pictures/wallpapers"
@@ -13,7 +14,16 @@ def set_wallpaper(wallpaper, cache_file):
     subprocess.run(["feh", "--bg-scale", wallpaper], check=True)
     with open(cache_file, "w") as f:
         f.write(wallpaper)
+    storage_lockscreen()
     notify_send(wallpaper)
+
+
+def storage_lockscreen():
+    sleep(1.5)
+    script_path = os.path.join(
+        os.path.dirname(__file__), "lockscreen", "betterlockscreen.py"
+    )
+    subprocess.run([script_path, "-g"])
 
 
 def get_wallpaper_list(directory):

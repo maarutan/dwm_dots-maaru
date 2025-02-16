@@ -2,6 +2,7 @@
 
 LOAD_RANDOM_WALL = 0
 LOAD_DEFAULT_WALL = 0
+NOTIFY = 1
 
 import os
 import glob
@@ -15,7 +16,7 @@ ROFI_THEME = f"{HOME}/.suckless/scripts/wallpapers/rofi/.wall.rasi"
 
 WALL_DIR = f"{HOME}/Pictures/wallpapers"
 CACHE_WALL = f"{HOME}/.cache/wallpapers_cache"
-CURRENT_WALL = f"{HOME}/.cache/wallpaper_current"
+CURRENT_WALL = f"{HOME}/.cache/current_wallpaper"
 
 DEFAULT_WALLS = glob.glob(f"{WALL_DIR}/.default/default.*")
 DEFAULT_WALL = DEFAULT_WALLS[0] if DEFAULT_WALLS else ""
@@ -24,11 +25,38 @@ DEFAULT_RANDOM_DIR = f"{HOME}/Pictures/wallpapers/"
 
 def wall_start() -> None:
     shell(["feh", "--no-fehbg", "--bg-scale", rofi()])
+    storage_lockscreen()
     # and more your wall softs
     # shell(["your soft", rofi()]) #    rofi() =     this is path your walls
 
 
 os.makedirs(CACHE_WALL, exist_ok=True)
+
+
+def storage_lockscreen():
+    script_path = os.path.join(
+        os.path.dirname(__file__), "..", "lockscreen", "betterlockscreen.py"
+    )
+    shell([script_path, "-g"])
+
+    if NOTIFY:
+        current_wall = ""
+        if os.path.exists(CURRENT_WALL):
+            with open(CURRENT_WALL, "r") as f:
+                current_wall = f.read().strip()
+
+        if current_wall and os.path.exists(current_wall):
+            shell(
+                [
+                    "dunstify",
+                    "-r",
+                    "9999",
+                    "-i",
+                    current_wall,
+                    "Lockscreen Updated",
+                    f"Wallpaper: {os.path.basename(current_wall)}",
+                ]
+            )
 
 
 def get_random_wall() -> str:

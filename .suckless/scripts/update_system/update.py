@@ -23,6 +23,7 @@ PACMAN = True
 YAY = True
 PARU = False
 FLATPAK = False
+END_DELAY = 5
 
 
 # nerd font check
@@ -40,7 +41,6 @@ def main():
         check_font()
         ui()
         start_update()
-        ending()
 
     except KeyboardInterrupt:
         print(f"\n {PURPLE}cancel{PURPLE}")
@@ -63,8 +63,8 @@ def shell(command) -> str:
     return subprocess.getoutput(command)
 
 
-def ending() -> None:
-    print(
+def ending():
+  print(
         f"{RESET}▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁{RESET}\n\n",
         YELLOW,
         "\n === Done ===",
@@ -73,8 +73,8 @@ def ending() -> None:
         f"\n === bye bye {os.environ['USER']} ^^ ===",
         PURPLE,
         f"{RESET}\n\n▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁{RESET}\n\n",
-        sleep(3),
     )
+  sleep(END_DELAY)
 
 
 def start_update() -> None:
@@ -88,6 +88,7 @@ def start_update() -> None:
         paru_update()
     if FLATPAK:
         flatpak_update()
+    ending()
 
 
 def yay_update() -> int | None:

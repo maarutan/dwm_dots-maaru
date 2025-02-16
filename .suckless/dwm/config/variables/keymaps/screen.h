@@ -1,7 +1,5 @@
 #define PICK_COLOR SHCMD("$HOME/.suckless/scripts/xcolor-picker.sh")
 #define SCREENSHOT SHCMD("flameshot gui")
 #define CLOCK SHCMD("$HOME/.suckless/scripts/clock.sh")
-#define PICOM_BLUR SHCMD("$HOME/.config/picom/toggle_config.sh default; $HOME/.config/kitty/.other/toggle_config.sh default && $HOME/.config/dunst/.picom/toggle_config.sh default")
-#define PICOM_GLASS SHCMD("$HOME/.config/picom/toggle_config.sh glass; $HOME/.config/kitty/.other/toggle_config.sh default && $HOME/.config/dunst/.picom/toggle_config.sh default")
-#define PICOM_NO_OPACITY SHCMD("$HOME/.config/picom/toggle_config.sh nOpacity; $HOME/.config/kitty/.other/toggle_config.sh nOpacity && $HOME/.config/dunst/.picom/toggle_config.sh nOpacity")
+#define SCREENLOCK SHCMD("$HOME/.suckless/scripts/wallpapers/lockscreen/betterlockscreen.py -s")
 #define PICOM_CONFIG SHCMD("kitty -e $HOME/.config/picom/")

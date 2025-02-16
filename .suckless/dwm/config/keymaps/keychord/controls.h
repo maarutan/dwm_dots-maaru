@@ -9,7 +9,7 @@
         &((Keychord){1, {{MODKEY, 0x5b}}, spawn, VOLUME_UP}),                     \
         &((Keychord){1, {{MODKEY, 0x5d}}, spawn, VOLUME_DOWN}),                   \
         &((Keychord){1, {{MODKEY, 0x5c}}, spawn, VOLUME_MUTE}),                   \
-        &((Keychord){1, {{CTRL, XK_Alt_L}}, spawn, CHANGE_KEYBOARD}),             \
+        &((Keychord){1, {{MODKEY, XK_space}}, spawn, CHANGE_KEYBOARD}),           \
         &((Keychord){1, {{CTRL, XK_grave}}, spawn, CAPS_LOCK_TOGGLE}),            \
         &((Keychord){1, {{CTRL | SHIFT, XK_grave}}, spawn, RELOAD_KEYBOARD}),     \
         &((Keychord){1, {{MODKEY, XK_f}}, togglefullscr, {0}}),                   \
