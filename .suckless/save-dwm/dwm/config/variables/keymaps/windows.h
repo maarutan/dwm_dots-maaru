@@ -9,8 +9,6 @@
 #define LAYOUT_CENTEREDMASTER &layouts[11]
 #define LAYOUT_GRID &layouts[13]
 
-#define SCRIPT_WIFI SHCMD("$HOME/.config/rofi/wifi/wifi.sh")
-#define SCRIPT_PICWALL SHCMD("$HOME/.suckless/scripts/PicWall.sh")
 #define L_CLICK SHCMD("warpd --hint --click 1")
 #define R_CLICK SHCMD("warpd --hint --click 3")
 #define GRID_CLICK SHCMD("warpd --grid")

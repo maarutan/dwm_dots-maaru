@@ -18,6 +18,7 @@
         &((Keychord){1, {{MODKEY | SHIFT | CTRL, XK_h}}, viewprevwithmove, {0}}), \
         &((Keychord){1, {{MODKEY | SHIFT | CTRL, XK_l}}, viewnextwithmove, {0}}), \
         &((Keychord){2, {{MODKEY, XK_w}, {0, XK_b}}, togglebar, {0}}),            \
+        &((Keychord){2, {{MODKEY, XK_w}, {0, XK_p}}, toggle_padding, {0}}),       \
         &((Keychord){1, {{MODKEY, XK_Tab}}, view, {0}}),                          \
         &((Keychord){1, {{MODKEY, XK_0}}, view, {.ui = ~0}}),                     \
         &((Keychord){1, {{MODKEY, XK_o}}, winview, {0}})

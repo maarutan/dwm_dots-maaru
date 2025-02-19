@@ -14,8 +14,10 @@ CONFIG_FILE = "/tmp/cava_tmp_config"
 def pkill_loop():
     """Функция для непрерывного выполнения pkill в фоновом потоке"""
     while True:
-        os.system("kill -RTMIN+2 $(pgrep dwmblocks)")
-        sleep(0.1)
+        pgrep_process = subprocess.run(["pgrep", "dwmblocks"], stdout=subprocess.PIPE)
+        if pgrep_process.stdout:
+            os.system("kill -RTMIN+2 $(pgrep dwmblocks)")
+        sleep(1)
 
 
 def main():
@@ -76,10 +78,14 @@ def process_cava_output(config_path, output_file):
                     if line
                     else previous_content
                 )
-                out_file.seek(0)
-                out_file.write(transformed_line + "\n")
-                out_file.truncate()
-                out_file.flush()
+
+                # Если новый вывод совпадает с текущим содержимым файла, пропускаем запись
+                if transformed_line != previous_content:
+                    out_file.seek(0)
+                    out_file.write(transformed_line + "\n")
+                    out_file.truncate()
+                    out_file.flush()
+                    previous_content = transformed_line  # Обновляем предыдущий контент
 
 
 if __name__ == "__main__":

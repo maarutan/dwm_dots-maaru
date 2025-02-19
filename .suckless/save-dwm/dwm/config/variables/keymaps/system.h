@@ -1,5 +1,5 @@
-#define SCRIPT_UPDATE "$HOME/.suckless/scripts/update.sh"
-#define SCRIPT_PUSHDOTS "$HOME/.suckless/scripts/pushdots.sh"
+#define SCRIPT_UPDATE "kitty -e $HOME/.suckless/scripts/update_system/update.py"
+#define SCRIPT_PUSHDOTS "kitty -e $HOME/.suckless/scripts/pushdots.sh"
 #define SCRIPT_TOGGLE_TOUCHPAD "$HOME/.suckless/scripts/toggle_touchpad.sh"
 #define SCRIPT_BLUETOOTH "pgrep blueman-manager && pkill blueman-manager || blueman-manager &"
 #define SCRIPT_NMTUI "pgrep -fx 'kitty --title nmtui nmtui-connect' && pkill -fx 'kitty --title nmtui nmtui-connect' || kitty --title nmtui nmtui-connect &"

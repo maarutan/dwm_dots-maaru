@@ -27,6 +27,7 @@
 #include <string.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <time.h>
 #include <unistd.h>
 #ifdef XINERAMA
 #include <X11/extensions/Xinerama.h>
@@ -413,6 +414,7 @@ static void takepreview(void);
 static void previewtag(const Arg *arg);
 void loadAttachBelow(void);
 void saveAttachBelow(void);
+void toggle_padding(const Arg *arg);
 
 /* variables */
 static Systray *systray = NULL;
@@ -1836,6 +1838,22 @@ int gettextprop(Window w, Atom atom, char *text, unsigned int size) {
     return 1;
 }
 
+
+
+
+void toggle_padding(const Arg *arg) {
+    if (vertpad == 0 && sidepad == 0) {
+        vertpad = 10;  // Вернуть к начальному значению
+        sidepad = 15;
+    } else {
+        vertpad = 0;  // Установить отступы в 0
+        sidepad = 0;
+    }
+    arrange(selmon);  // Применить изменения
+}
+
+
+
 void drawbar(Monitor *m) {
     int x, y = 0, w, tw = 0, stw = 0;
     int th = bh;
@@ -2014,10 +2032,40 @@ void drawbar(Monitor *m) {
                 break;
             }
 
-            case 2:
+            case 2: {
                 // Рисуем полный фон
                 drw_rect(drw, title_start, y, title_width, th, 1, 1);
                 break;
+            }
+            case 3: {  // Часы HH:MM:SS
+                time_t now = time(NULL);
+                struct tm *tm_info = localtime(&now);
+                char time_str[9];  // "HH:MM:SS"
+                strftime(time_str, sizeof(time_str), "%H:%M:%S", tm_info);
+
+                int time_width = TEXTW(time_str);
+                int time_x = title_start + MAX((title_width - time_width) / 2, 0);
+
+                drw_setscheme(drw, scheme[SchemeTitle]);
+                drw_rect(drw, time_x, y, time_width, th, 1, 1);  // Фон только под текст
+                drw_text(drw, time_x, y, time_width, th, lrpad / 2, time_str, 0);
+                break;
+            }
+
+            case 4: {  // Часы AM/PM
+                time_t now = time(NULL);
+                struct tm *tm_info = localtime(&now);
+                char time_str[9];  // "HH:MM AM/PM"
+                strftime(time_str, sizeof(time_str), "%I:%M %p", tm_info);
+
+                int time_width = TEXTW(time_str);
+                int time_x = title_start + MAX((title_width - time_width) / 2, 0);
+
+                drw_setscheme(drw, scheme[SchemeTitle]);
+                drw_rect(drw, time_x, y, time_width, th, 1, 1);
+                drw_text(drw, time_x, y, time_width, th, lrpad / 2, time_str, 0);
+                break;
+            }
         }
     }
 
@@ -2063,12 +2111,13 @@ void toggleTagBoxes(const Arg *arg) {
 }
 
 void toggleshowtitle(const Arg *arg) {
-    // Переключаем между 3 состояниями
-    showtitle = (showtitle + 1) % 3;
+    // Переключаем между 5 состояниями (0-4)
+    showtitle = (showtitle + 1) % 5;
 
     save_showtitle_state();  // Сохраняем состояние
     drawbars();              // Обновляем панели
 }
+
 void grabkeys(void) {
     updatenumlockmask();
     {

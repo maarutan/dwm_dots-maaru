@@ -1,78 +1,78 @@
-/* ██████╗  █████╗ ██████╗ ██╗  ██╗ */
-/* ██╔══██╗██╔══██╗██╔══██╗██║ ██╔╝ */
-/* ██║  ██║███████║██████╔╝█████╔╝ */
-/* ██║  ██║██╔══██║██╔══██╗██╔═██╗ */
-/* ██████╔╝██║  ██║██║  ██║██║  ██╗ */
-/* ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝ */
+/* ███╗   ███╗ ██████╗  ██████╗██╗  ██╗ █████╗  */
+/* ████╗ ████║██╔═══██╗██╔════╝██║  ██║██╔══██╗ */
+/* ██╔████╔██║██║   ██║██║     ███████║███████║ */
+/* ██║╚██╔╝██║██║   ██║██║     ██╔══██║██╔══██║ */
+/* ██║ ╚═╝ ██║╚██████╔╝╚██████╗██║  ██║██║  ██║ */
+/* ╚═╝     ╚═╝ ╚═════╝  ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝ */
 
 // General colors
-static const char COLOR_FG_NOACTIVE[] = "#a89984"; // Light gray (inactive text)
-static const char COLOR_FG_ACTIVE[] = "#ebdbb2";   // White (active text)
-static const char COLOR_BG_BASE[] = "#282828";     // Background (dark gray)
-static const char COLOR_BORDER_ACTIVE[] = "#d65d0e"; // Orange (active border)
-static const char COLOR_BG_NOACTIVE[] = "#3c3836";   // Gray (inactive bg)
-static const char COLOR_BG_SELECTED[] = "#504945";   // Dark gray (selection bg)
-static const char COLOR_FG_LOGO[] = "#fabd2f";       // Yellow
-static const char COLOR_BG_LOGO[] = "#282828";       // Background
-static const char COLOR_BORDER_LOGO[] = "#fabd2f";   // Yellow
-static const char COLOR_FG_POWER[] = "#282828";      // Background
-static const char COLOR_BG_POWER[] = "#cc241d";      // Red
-static const char COLOR_BORDER_POWER[] = "#cc241d";  // Red
-static const char COLOR_BG_TITLE[] = "#282828";      // Background
+static const char COLOR_FG_NOACTIVE[] = "#cdd6f4";
+static const char COLOR_FG_ACTIVE[] = "#cdd6f4";
+static const char COLOR_BG_BASE[] = "#1e1e2e";
+static const char COLOR_BORDER_ACTIVE[] = "#89b4fa";
+static const char COLOR_BG_NOACTIVE[] = "#45475a";
+static const char COLOR_BG_SELECTED[] = "#2f2f49";
+static const char COLOR_FG_LOGO[] = "#8aadf4";
+static const char COLOR_BG_LOGO[] = "#1e1e2e";
+static const char COLOR_BORDER_LOGO[] = "#8aadf4";
+static const char COLOR_FG_POWER[] = "#1e1e2e";
+static const char COLOR_BG_POWER[] = "#f38ba8";
+static const char COLOR_BORDER_POWER[] = "#f38ba8";
+static const char COLOR_BG_TITLE[] = "#1E1E2E";
 
 // Tag 1 colors
-static const char FG_TAG_1_ACTIVE[] = "#282828";   // Background
-static const char BG_TAG_1_ACTIVE[] = "#d65d0e";   // Orange
-static const char FG_TAG_1_INACTIVE[] = "#fabd2f"; // Yellow
-static const char BG_TAG_1_INACTIVE[] = "#282828"; // Background
+static const char FG_TAG_1_ACTIVE[] = "#1e1e2e";
+static const char BG_TAG_1_ACTIVE[] = "#f38ba8";
+static const char FG_TAG_1_INACTIVE[] = "#FAB387";
+static const char BG_TAG_1_INACTIVE[] = "#1e1e2e";
 
 // Tag 2 colors
-static const char FG_TAG_2_ACTIVE[] = "#282828";
-static const char BG_TAG_2_ACTIVE[] = "#fabd2f";   // Yellow
-static const char FG_TAG_2_INACTIVE[] = "#d65d0e"; // Orange
-static const char BG_TAG_2_INACTIVE[] = "#282828";
+static const char FG_TAG_2_ACTIVE[] = "#1e1e2e";
+static const char BG_TAG_2_ACTIVE[] = "#fab387";
+static const char FG_TAG_2_INACTIVE[] = "#F38BA8";
+static const char BG_TAG_2_INACTIVE[] = "#1e1e2e";
 
 // Tag 3 colors
-static const char FG_TAG_3_ACTIVE[] = "#282828";
-static const char BG_TAG_3_ACTIVE[] = "#b8bb26";   // Green
-static const char FG_TAG_3_INACTIVE[] = "#fabd2f"; // Yellow
-static const char BG_TAG_3_INACTIVE[] = "#282828";
+static const char FG_TAG_3_ACTIVE[] = "#1e1e2e";
+static const char BG_TAG_3_ACTIVE[] = "#f9e2af";
+static const char FG_TAG_3_INACTIVE[] = "#A6E3A1";
+static const char BG_TAG_3_INACTIVE[] = "#1e1e2e";
 
 // Tag 4 colors
-static const char FG_TAG_4_ACTIVE[] = "#282828";
-static const char BG_TAG_4_ACTIVE[] = "#83a598";   // Cyan
-static const char FG_TAG_4_INACTIVE[] = "#b8bb26"; // Green
-static const char BG_TAG_4_INACTIVE[] = "#282828";
+static const char FG_TAG_4_ACTIVE[] = "#1e1e2e";
+static const char BG_TAG_4_ACTIVE[] = "#a6e3a1";
+static const char FG_TAG_4_INACTIVE[] = "#f9e2af";
+static const char BG_TAG_4_INACTIVE[] = "#1e1e2e";
 
 // Tag 5 colors
-static const char FG_TAG_5_ACTIVE[] = "#282828";
-static const char BG_TAG_5_ACTIVE[] = "#d3869b";   // Pink
-static const char FG_TAG_5_INACTIVE[] = "#83a598"; // Cyan
-static const char BG_TAG_5_INACTIVE[] = "#282828";
+static const char FG_TAG_5_ACTIVE[] = "#1e1e2e";
+static const char BG_TAG_5_ACTIVE[] = "#89b4fa";
+static const char FG_TAG_5_INACTIVE[] = "#b4befe";
+static const char BG_TAG_5_INACTIVE[] = "#1e1e2e";
 
 // Tag 6 colors
-static const char FG_TAG_6_ACTIVE[] = "#282828";
-static const char BG_TAG_6_ACTIVE[] = "#fe8019";   // Orange
-static const char FG_TAG_6_INACTIVE[] = "#d3869b"; // Pink
-static const char BG_TAG_6_INACTIVE[] = "#282828";
+static const char FG_TAG_6_ACTIVE[] = "#1e1e2e";
+static const char BG_TAG_6_ACTIVE[] = "#b4befe";
+static const char FG_TAG_6_INACTIVE[] = "#89b4fa";
+static const char BG_TAG_6_INACTIVE[] = "#1e1e2e";
 
 // Tag 7 colors
-static const char FG_TAG_7_ACTIVE[] = "#282828";
-static const char BG_TAG_7_ACTIVE[] = "#b8bb26";   // Green
-static const char FG_TAG_7_INACTIVE[] = "#fe8019"; // Orange
-static const char BG_TAG_7_INACTIVE[] = "#282828";
+static const char FG_TAG_7_ACTIVE[] = "#1e1e2e";
+static const char BG_TAG_7_ACTIVE[] = "#cba6f7";
+static const char FG_TAG_7_INACTIVE[] = "#f5c2e7";
+static const char BG_TAG_7_INACTIVE[] = "#1e1e2e";
 
 // Tag 8 colors
-static const char FG_TAG_8_ACTIVE[] = "#282828";
-static const char BG_TAG_8_ACTIVE[] = "#83a598";   // Cyan
-static const char FG_TAG_8_INACTIVE[] = "#fe8019"; // Orange
-static const char BG_TAG_8_INACTIVE[] = "#282828";
+static const char FG_TAG_8_ACTIVE[] = "#1e1e2e";
+static const char BG_TAG_8_ACTIVE[] = "#f5c2e7";
+static const char FG_TAG_8_INACTIVE[] = "#94e2d5";
+static const char BG_TAG_8_INACTIVE[] = "#1e1e2e";
 
 // Tag 9 colors
-static const char FG_TAG_9_ACTIVE[] = "#282828";
-static const char BG_TAG_9_ACTIVE[] = "#d65d0e";   // Orange
-static const char FG_TAG_9_INACTIVE[] = "#83a598"; // Cyan
-static const char BG_TAG_9_INACTIVE[] = "#282828";
+static const char FG_TAG_9_ACTIVE[] = "#1e1e2e";
+static const char BG_TAG_9_ACTIVE[] = "#94e2d5";
+static const char FG_TAG_9_INACTIVE[] = "#cba6f7";
+static const char BG_TAG_9_INACTIVE[] = "#1e1e2e";
 
 // Colors array for scheme
 static const char *colors[][3] = {

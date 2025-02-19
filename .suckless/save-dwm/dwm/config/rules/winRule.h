@@ -1,15 +1,18 @@
 static const char *noborder_apps[] = {
     "polybar",
+    "Wlogout",
     NULL,
 };
 
 static const char *alltags_apps[] = {
     "polybar",
+    "Wlogout",
     NULL,
 };
 
 static const char *focusIgnore[] = {
     "polybar",
+    "Wlogout",
     NULL,
 };
 

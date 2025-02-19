@@ -17,5 +17,12 @@ static const int topbar = 1;
 
 // bar paddings
 
-static const int vertpad = 10;
-static const int sidepad = 15;
+/* static const int vertpad = 10; */
+/* static const int sidepad = 15; */
+
+// Параметры отступов
+static int vertpad = 10;
+static int sidepad = 15;
+
+/* static const int vertpad = 0; */
+/* static const int sidepad = 0; */

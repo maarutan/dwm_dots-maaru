@@ -17,8 +17,6 @@
         &((Keychord){2, {{MODKEY, XK_w}, {0 | SHIFT, XK_g}}, togglesmartgaps, {0}}),                            \
         &((Keychord){2, {{MODKEY, XK_w}, {0, XK_t}}, toggleTagBoxes, {0}}),                                     \
         &((Keychord){3, {{MODKEY, XK_w}, {0, XK_m}, {0 | SHIFT, XK_g}}, toggle_always_smartgaps_monocle, {0}}), \
-        &((Keychord){1, {{MODKEY | SHIFT, XK_w}}, spawn, SCRIPT_WIFI}),                                         \
-        &((Keychord){2, {{MODKEY, XK_w}, {0, XK_c}}, spawn, SCRIPT_PICWALL}),                                   \
         &((Keychord){3, {{MODKEY, XK_w}, {0, XK_a}, {0, XK_t}}, toggleshowtitle, {0}}),                         \
         &((Keychord){3, {{MODKEY, XK_w}, {0, XK_a}, {0, XK_h}}, hidewin, {0}}),                                 \
         &((Keychord){3, {{MODKEY, XK_w}, {0, XK_a}, {0, XK_s}}, restorewin, {0}}),                              \

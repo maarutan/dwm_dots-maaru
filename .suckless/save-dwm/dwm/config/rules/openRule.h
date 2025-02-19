@@ -1,5 +1,6 @@
 static const Rule rules[] = {
     {"firefox", NULL, NULL, 0, 0, NULL, -1},
+    {"Wlogout", NULL, NULL, 0, 1, "50% 50% 0W 0H", -1},
     {"TelegramDesktop", NULL, NULL, 0, 1, "80% 50% 570W 944H", -1},
     {"Blueman-manager", NULL, NULL, 0, 1, "25% 20% 800W 400H", -1},
     {"WebApp-monkey5058", NULL, NULL, 0, 1, "30% 50% 570W 844H", -1},

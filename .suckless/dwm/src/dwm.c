@@ -27,6 +27,7 @@
 #include <string.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <time.h>
 #include <unistd.h>
 #ifdef XINERAMA
 #include <X11/extensions/Xinerama.h>
@@ -70,6 +71,7 @@
 #define STATE_FILE_PATH_TITLE ".cache/dwmtitle_state"
 #define STATE_FILE_TOGGLEGAPS ".cache/togglebottgaps"
 #define CURRENTS_MINIBOX ".cache/dwmshowtagboxes_state"
+#define STATE_FILE_PADDING ".cache/padding_state"
 /* enums */
 enum { CurNormal,
        CurResize,
@@ -413,6 +415,10 @@ static void takepreview(void);
 static void previewtag(const Arg *arg);
 void loadAttachBelow(void);
 void saveAttachBelow(void);
+void toggle_padding(const Arg *arg);
+void load_padding_settings(void);
+void save_padding_settings(void);
+void apply_padding_settings(void);
 
 /* variables */
 static Systray *systray = NULL;
@@ -2014,10 +2020,40 @@ void drawbar(Monitor *m) {
                 break;
             }
 
-            case 2:
+            case 2: {
                 // Рисуем полный фон
                 drw_rect(drw, title_start, y, title_width, th, 1, 1);
                 break;
+            }
+            case 3: {  // Часы HH:MM:SS
+                time_t now = time(NULL);
+                struct tm *tm_info = localtime(&now);
+                char time_str[9];  // "HH:MM:SS"
+                strftime(time_str, sizeof(time_str), "%H:%M:%S", tm_info);
+
+                int time_width = TEXTW(time_str);
+                int time_x = title_start + MAX((title_width - time_width) / 2, 0);
+
+                drw_setscheme(drw, scheme[SchemeTitle]);
+                drw_rect(drw, time_x, y, time_width, th, 1, 1);  // Фон только под текст
+                drw_text(drw, time_x, y, time_width, th, lrpad / 2, time_str, 0);
+                break;
+            }
+
+            case 4: {  // Часы AM/PM
+                time_t now = time(NULL);
+                struct tm *tm_info = localtime(&now);
+                char time_str[9];  // "HH:MM AM/PM"
+                strftime(time_str, sizeof(time_str), "%I:%M %p", tm_info);
+
+                int time_width = TEXTW(time_str);
+                int time_x = title_start + MAX((title_width - time_width) / 2, 0);
+
+                drw_setscheme(drw, scheme[SchemeTitle]);
+                drw_rect(drw, time_x, y, time_width, th, 1, 1);
+                drw_text(drw, time_x, y, time_width, th, lrpad / 2, time_str, 0);
+                break;
+            }
         }
     }
 
@@ -2063,12 +2099,13 @@ void toggleTagBoxes(const Arg *arg) {
 }
 
 void toggleshowtitle(const Arg *arg) {
-    // Переключаем между 3 состояниями
-    showtitle = (showtitle + 1) % 3;
+    // Переключаем между 5 состояниями (0-4)
+    showtitle = (showtitle + 1) % 5;
 
     save_showtitle_state();  // Сохраняем состояние
     drawbars();              // Обновляем панели
 }
+
 void grabkeys(void) {
     updatenumlockmask();
     {
@@ -4542,7 +4579,56 @@ void zoom(const Arg *arg) {
     pop(c);
 }
 
+void apply_padding_settings(void) {
+    if (padding_enabled == 1) {
+        sp = sidepad;                             // Устанавливаем отступы для боковой панели
+        vp = (topbar == 1) ? vertpad : -vertpad;  // Устанавливаем отступы для вертикальной панели
+    } else {
+        sp = 0;  // Если отступы отключены, устанавливаем их в 0
+        vp = 0;
+    }
+
+    arrange(selmon);    // Применяем изменения (перерисовываем окно)
+    drawbar(selmon);    // Перерисовываем бар
+    XSync(dpy, False);  // Обновляем экран
+}
+
+void load_padding_settings(void) {
+    FILE *file = fopen(STATE_FILE_PADDING, "r");
+    if (file) {
+        fscanf(file, "%d", &padding_enabled);  // Загружаем состояние
+        fclose(file);
+        printf("Загружены настройки отступов: %d\n", padding_enabled);
+    } else {
+        printf("Файл настроек не найден, используем значения по умолчанию (0).\n");
+        padding_enabled = 0;  // Значение по умолчанию
+    }
+}
+
+void save_padding_settings(void) {
+    FILE *file = fopen(STATE_FILE_PADDING, "w");
+    if (file) {
+        fprintf(file, "%d", padding_enabled);  // Сохраняем состояние
+        fclose(file);
+    } else {
+        printf("Ошибка при сохранении настроек отступов.\n");
+    }
+}
+
+void toggle_padding(const Arg *arg) {
+    padding_enabled = !padding_enabled;  // Переключаем между 1 и 0
+    save_padding_settings();             // Сохраняем новое состояние
+
+    // Перерисовываем с учётом новых отступов
+    apply_padding_settings();
+
+    // Принудительная перезагрузка баров
+    arrange(selmon);
+    drawbar(selmon);
+    XSync(dpy, False);
+}
 int main(int argc, char *argv[]) {
+    load_padding_settings();
     loadAttachBelow();
     load_bottGaps_state();
     MINIBOXloadState();
