@@ -64,7 +64,7 @@ def shell(command) -> str:
 
 
 def ending():
-  print(
+    print(
         f"{RESET}▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁{RESET}\n\n",
         YELLOW,
         "\n === Done ===",
@@ -74,7 +74,7 @@ def ending():
         PURPLE,
         f"{RESET}\n\n▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁{RESET}\n\n",
     )
-  sleep(END_DELAY)
+    sleep(END_DELAY)
 
 
 def start_update() -> None:

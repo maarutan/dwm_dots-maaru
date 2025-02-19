@@ -21,6 +21,7 @@ require("nvim-treesitter.configs").setup({
 		"toml",
 		"rust",
 		"go",
+		"todotxt",
 	},
 	build = ":TSUpdate",
 

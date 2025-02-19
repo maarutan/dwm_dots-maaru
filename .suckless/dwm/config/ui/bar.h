@@ -19,3 +19,6 @@ static const int topbar = 1;
 
 static const int vertpad = 10;
 static const int sidepad = 15;
+
+/* static const int vertpad = 0; */
+/* static const int sidepad = 0; */

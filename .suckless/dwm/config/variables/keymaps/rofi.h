@@ -3,5 +3,5 @@
 #define ROFI_EMOJI SHCMD("$HOME/.config/rofi/emoji/emoji.sh")
 #define ROFI_SERF SHCMD("$HOME/.config/rofi/serf/serf.sh")
 #define ROFI_PICOM SHCMD("$HOME/.suckless/scripts/picom/picom.py")
-#define ROFI_WALL_SELECT SHCMD("$HOME/.suckless/scripts/wallpapers/rofi/launcher.py")
-#define ROFI_WALL_TYPE SHCMD("$HOME/.suckless/scripts/wallpapers/rofi/.types/type.py")
+#define ROFI_WALL_SELECT SHCMD("$HOME/.suckless/scripts/wallpapers/images/launcher.py")
+#define ROFI_WALL_TYPE SHCMD("$HOME/.suckless/scripts/wallpapers/images/.types/choice_type.py")

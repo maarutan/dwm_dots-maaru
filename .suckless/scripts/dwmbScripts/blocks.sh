@@ -6,6 +6,7 @@ SCRIPTS=(
     "$HOME/.suckless/scripts/dwmbScripts/internet.sh"
     "$HOME/.suckless/scripts/dwmbScripts/showInternet.sh"
     "$HOME/.suckless/scripts/dwmbScripts/updateInfo.py"
+    "$HOME/.suckless/scripts/dwmbScripts/printCava.py"
     "$HOME/.suckless/scripts/dwmbScripts/memory.sh"
     # "$HOME/.suckless/scripts/dwmbScripts/weather.sh"
 )

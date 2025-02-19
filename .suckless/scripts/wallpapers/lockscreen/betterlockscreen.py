@@ -8,6 +8,10 @@ HOME = os.getenv("HOME")
 CURRENT_WALL = f"{HOME}/.cache/current_wallpaper"
 
 
+def start():
+    shell("betterlockscreen -l blur")
+
+
 def arguments():
     parser = argparse.ArgumentParser(description="Usage: --generate (-g), --start (-s)")
 
@@ -39,10 +43,6 @@ def get_wall_path():
 
 def generate_lock_wall():
     shell(f"betterlockscreen -u {get_wall_path()}")
-
-
-def start():
-    shell("betterlockscreen -l blur")
 
 
 if __name__ == "__main__":

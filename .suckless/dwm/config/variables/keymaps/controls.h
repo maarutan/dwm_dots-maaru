@@ -1,5 +1,5 @@
-#define WALLPAPER_LEFT SHCMD("$HOME/.suckless/scripts/wallpapers/control.py left")
-#define WALLPAPER_RIGHT SHCMD("$HOME/.suckless/scripts/wallpapers/control.py right")
+#define WALLPAPER_LEFT SHCMD("$HOME/.suckless/scripts/wallpapers/utils/control.py left")
+#define WALLPAPER_RIGHT SHCMD("$HOME/.suckless/scripts/wallpapers/utils/control.py right")
 
 #define BRIGHTNESS_UP SHCMD("$HOME/.suckless/scripts/brightnessControl.sh up")
 #define BRIGHTNESS_DOWN SHCMD("$HOME/.suckless/scripts/brightnessControl.sh down")

@@ -9,6 +9,29 @@ compile_path = f"{HOME}/.suckless/dwm/"
 rofi_config_path = f"{HOME}/.config/rofi/emoji/emoji.rasi"
 
 
+# ---------------------------------------------------------------------------------
+# DONE: this is the main function
+def main():
+    themes = get_themes()
+    if not themes:
+        return
+
+    selected_theme = show_rofi_menu(themes, prompt="Select Theme:")
+    if not selected_theme:
+        return
+
+    list_items = get_list_items(selected_theme)
+    if not list_items:
+        return
+
+    selected_item = show_rofi_menu(list_items, prompt="Select Item:")
+    if not selected_item:
+        return
+
+    set_theme(selected_theme, selected_item)
+
+
+# ---------------------------------------------------------------------------------
 def get_themes():
     try:
         result = subprocess.check_output([theme_script, "-l"], text=True)
@@ -49,7 +72,7 @@ def set_theme(theme_name, item_name):
         subprocess.run([theme_script, "-s", theme_name, item_name], check=True)
         subprocess.run(["make", "clean", "install"], cwd=compile_path, check=True)
         subprocess.run(
-            "pgrep -x dwm | xargs -r kill || notify-send 'Ошибка при перекомпиляции dwm'",
+            "pgrep -x dwm | xargs -r kill || notify-send 'envalid dwm recompiled'",
             shell=True,
             check=True,
         )
@@ -57,25 +80,6 @@ def set_theme(theme_name, item_name):
         pass
 
 
-def main():
-    themes = get_themes()
-    if not themes:
-        return
-
-    selected_theme = show_rofi_menu(themes, prompt="Select Theme:")
-    if not selected_theme:
-        return
-
-    list_items = get_list_items(selected_theme)
-    if not list_items:
-        return
-
-    selected_item = show_rofi_menu(list_items, prompt="Select Item:")
-    if not selected_item:
-        return
-
-    set_theme(selected_theme, selected_item)
-
-
+# ---------------------------------------------------------------------------------
 if __name__ == "__main__":
     main()
