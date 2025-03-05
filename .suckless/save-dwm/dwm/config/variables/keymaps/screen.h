@@ -1,5 +1,0 @@
-#define PICK_COLOR SHCMD("$HOME/.suckless/scripts/xcolor-picker.sh")
-#define SCREENSHOT SHCMD("flameshot gui")
-#define CLOCK SHCMD("$HOME/.suckless/scripts/clock.sh")
-#define SCREENLOCK SHCMD("$HOME/.suckless/scripts/wallpapers/lockscreen/betterlockscreen.py -s")
-#define PICOM_CONFIG SHCMD("kitty -e $HOME/.config/picom/")
