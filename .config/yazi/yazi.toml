@@ -1,0 +1,63 @@
+# ██╗   ██╗ █████╗ ███████╗██╗
+# ╚██╗ ██╔╝██╔══██╗╚══███╔╝██║
+#  ╚████╔╝ ███████║  ███╔╝ ██║
+#   ╚██╔╝  ██╔══██║ ███╔╝  ██║
+#    ██║   ██║  ██║███████╗██║
+#    ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝
+
+[[plugin.prepend_fetchers]]
+id   = "git"
+name = "*"
+run  = "git"
+
+[[plugin.prepend_fetchers]]
+id   = "git"
+name = "*/"
+run  = "git"
+
+[plugin]
+prepend_previewers = [
+	# Archive previewer
+	{ mime = "application/*zip",            run = "ouch" },
+	{ mime = "application/x-tar",           run = "ouch" },
+	{ mime = "application/x-bzip2",         run = "ouch" },
+	{ mime = "application/x-7z-compressed", run = "ouch" },
+	{ mime = "application/x-rar",           run = "ouch" },
+	{ mime = "application/x-xz",            run = "ouch" },
+  { name = "*/",                    run = "eza-preview"},
+]
+
+[opener]
+extract = [
+	{ run = 'ouch d -y "%*"', desc = "Extract here with ouch", for = "windows" },
+	{ run = 'ouch d -y "$@"', desc = "Extract here with ouch", for = "unix" },
+]
+
+prepend_previewers = [
+  { mime = "video/*", run = "video-ffmpeg" },
+]
+
+prepend_preloaders = [
+  { mime = "video/*", run = "video-ffmpeg" },
+]
+
+edit = [
+  { run = 'nvim "$@"', block = true, for = "unix" },
+  { run = 'code "$@"', block = true, for = "unix" },
+  { run = 'vim "$@"', block = true, for = "unix" },
+  { run = 'source "$@"',block = true, for = "unix" },
+]
+play = [
+	{ run = 'mpv "$@"', orphan = true, for = "unix" },
+	{ run = 'feh "$@"', orphan = true, for = "unix" },
+]
+open = [
+	{ run = 'xdg-open "$@"', desc = "Open" },
+]
+
+[manager]
+sort_by = "natural"
+linemode = "size"
+
+
+

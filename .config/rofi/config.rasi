@@ -1,0 +1,185 @@
+* {
+    active-foreground: @foreground;
+    normal-background: @background;
+    normal-foreground: @foreground;
+    font: "CaskaydiaCove Nerd Font 18";
+    urgent-foreground: @foreground;
+
+    alternate-active-background: @background;
+    alternate-active-foreground: @foreground;
+    alternate-normal-background: @background;
+    alternate-normal-foreground: @foreground;
+    alternate-urgent-background: @background;
+    alternate-urgent-foreground: @foreground;
+
+    selected-active-foreground: @foreground;
+    selected-normal-foreground: @foreground;
+    selected-urgent-foreground: @foreground;
+
+    background-color: @background;
+    border-color: @background;
+    spacing: 2;
+}
+
+configuration {
+    display-drun: "   Apps ";
+    display-run: "   Run ";
+    display-window: "   window";
+    display-Network: " 󰤨  Network";
+    drun-display-format: "{icon} {name}";
+    show-icons: true;
+    disable-history: false;
+    terminal: "kitty";
+    location: 0;
+    kb-row-up: "Up,Control+k,Shift+Tab,Shift+ISO_Left_Tab";
+    kb-row-down: "Down,Control+j";
+    kb-accept-entry: "Control+m,Return,KP_Enter";
+    terminal: "mate-terminal";
+    kb-remove-to-eol: "Control+Shift+e";
+    kb-mode-previous: "Shift+Left,Control+Shift+Tab,Control+h";
+    kb-remove-char-back: "BackSpace";
+}
+
+@import "~/.config/rofi/.colorscheme/theme.rasi"
+
+
+window {
+    height: 360px;
+    width: 600px;
+    border: 3px;
+    border-color: @background;
+    background-color: @background;
+}
+
+#mainbox {
+    border: 0;
+    padding: 0;
+}
+
+#message {
+    border: 2px 0px 0px;
+    border-color: @border-color;
+    padding: 1px;
+}
+
+#textbox {
+    text-color: @foreground;
+}
+
+#inputbar {
+    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+}
+
+
+#textbox-prompt-colon {
+    expand: false;
+    str: ":";
+    margin: 0px 0.3em 0em 0em;
+    text-color: @normal-foreground;
+}
+
+#listview {
+    fixed-height: 0;
+    border: 2px 0px 0px;
+    border-color: @border-color;
+    spacing: 2px;
+    scrollbar: true;
+    padding: 2px 0px 0px;
+}
+
+element-icon {
+    size: 40px;
+}
+
+#element {
+    border: 0;
+    padding: 1px;
+}
+
+#element.normal.normal {
+    background-color: @normal-background;
+    text-color: @normal-foreground;
+}
+
+#element.normal.urgent {
+    background-color: @urgent;
+    text-color: @urgent-foreground;
+}
+
+#element.normal.active {
+    background-color: @active;
+    text-color: @active-foreground;
+}
+
+#element.selected.normal {
+    background-color: @selected;
+    text-color: @selected-normal-foreground;
+}
+
+#element.selected.urgent {
+    background-color: @urgent;
+    text-color: @selected-urgent-foreground;
+}
+
+#element.selected.active {
+    background-color: @active;
+    text-color: @selected-active-foreground;
+}
+
+#element.alternate.normal {
+    background-color: @alternate-normal-background;
+    text-color: @alternate-normal-foreground;
+}
+
+#element.alternate.urgent {
+    background-color: @alternate-urgent-background;
+    text-color: @alternate-urgent-foreground;
+}
+
+#element.alternate.active {
+    background-color: @alternate-active-background;
+    text-color: @alternate-active-foreground;
+}
+
+#scrollbar {
+    width: 4px;
+    border: 0;
+    handle-width: 8px;
+    padding: 0;
+}
+
+#sidebar {
+    border: 2px 0px 0px;
+    border-color: @border-color;
+}
+
+#button {
+    text-color: @normal-foreground;
+}
+
+#button.selected {
+    background-color: @selected;
+    text-color: @selected-normal-foreground;
+}
+
+#inputbar {
+    children: [prompt,entry];
+    background-color: @background;
+    border-radius: 5px;
+}
+
+#case-indicator {
+    spacing: 0;
+    text-color: @normal-foreground;
+}
+
+#entry {
+    spacing: 0;
+    text-color: @normal-foreground;
+}
+
+#prompt {
+    spacing: 0;
+    text-color: @normal-foreground;
+}
+
