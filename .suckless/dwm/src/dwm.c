@@ -100,6 +100,9 @@ enum {
     NetNumberOfDesktops,
     NetCurrentDesktop,
     NetWMDesktop,
+    NetWMWindowTypeMenu,
+    NetWMWindowTypeToolbar,
+    NetWMWindowTypePopupMenu,
     NetClientInfo,
     NetWorkarea,
     NetLast
@@ -2245,6 +2248,8 @@ void manage(Window w, XWindowAttributes *wa) {
     unsigned long nitems, bytes_after;
 
     Atom wtype = getatomprop(c, netatom[NetWMWindowType]);
+
+    // Проверка на типы окон
     if (wtype == netatom[NetWMWindowTypeDialog] ||
         wtype == netatom[NetWMWindowTypeNormal]) {
         c->isfloating = 1;
@@ -2256,6 +2261,35 @@ void manage(Window w, XWindowAttributes *wa) {
         XSetWindowBorderWidth(dpy, w, 0);
     }
 
+    // Проверка на тип PopUp меню
+    if (wtype == netatom[NetWMWindowTypePopupMenu]) {
+        c->isfloating = 1;  // Окно будет плавающим
+        c->bw = 0;          // Убираем границу
+        XSetWindowBorderWidth(dpy, w, 0);
+        // Если вы хотите, чтобы PopUp меню всегда было поверх других окон:
+        XRaiseWindow(dpy, w);
+    }
+
+    // Проверка на тип Menu (для контекстных меню или меню приложений)
+    if (wtype == netatom[NetWMWindowTypeMenu]) {
+        c->isfloating = 1;  // Окно будет плавающим
+        c->bw = 0;          // Убираем границу
+        XSetWindowBorderWidth(dpy, w, 0);
+        // Если вы хотите, чтобы меню всегда было поверх других окон:
+        XRaiseWindow(dpy, w);
+    }
+
+    // Проверка на тип Toolbar
+    if (wtype == netatom[NetWMWindowTypeToolbar]) {
+        c->isfloating = 1;                 // Окно будет плавающим
+        c->bw = 0;                         // Убираем границу, если нужно
+        XSetWindowBorderWidth(dpy, w, 0);  // Установить 0 границу для панели инструментов
+
+        // Дополнительные действия для Toolbar, если нужно:
+        XRaiseWindow(dpy, w);  // Повышаем окно (сделать его на переднем плане)
+    }
+
+    // Обработка других типов окон, если нужно...
     if (XGetWindowProperty(dpy, w, netatom[NetWMWindowType], 0L, 1L, False,
                            XA_ATOM, &type, &format, &nitems, &bytes_after,
                            &data) == Success &&
@@ -2292,8 +2326,9 @@ void manage(Window w, XWindowAttributes *wa) {
             return;
         }
         XFree(data);
-    }
-
+    }  // Обработка WM_PROTOCOLS (например, WM_DELETE_WINDOW)
+    Atom protocols;
+    // Убедитесь, что это не окно Dock
     c->bw = borderpx;
 
     if (XGetTransientForHint(dpy, w, &trans) && (t = wintoclient(trans))) {
@@ -3452,10 +3487,13 @@ void setup(void) {
 
     /* init atoms */
     utf8string = XInternAtom(dpy, "UTF8_STRING", False);
+
     wmatom[WMProtocols] = XInternAtom(dpy, "WM_PROTOCOLS", False);
     wmatom[WMDelete] = XInternAtom(dpy, "WM_DELETE_WINDOW", False);
     wmatom[WMState] = XInternAtom(dpy, "WM_STATE", False);
     wmatom[WMTakeFocus] = XInternAtom(dpy, "WM_TAKE_FOCUS", False);
+    netatom[NetWMWindowTypeMenu] = XInternAtom(dpy, "_NET_WM_WINDOW_TYPE_MENU", False);
+    netatom[NetWMWindowTypeToolbar] = XInternAtom(dpy, "_NET_WM_WINDOW_TYPE_TOOLBAR", False);
     netatom[NetActiveWindow] = XInternAtom(dpy, "_NET_ACTIVE_WINDOW", False);
     netatom[NetSupported] = XInternAtom(dpy, "_NET_SUPPORTED", False);
     netatom[NetDesktopViewport] =
@@ -3463,6 +3501,8 @@ void setup(void) {
     netatom[NetActiveWindow] = XInternAtom(dpy, "_NET_ACTIVE_WINDOW", False);
     netatom[NetNumberOfDesktops] =
         XInternAtom(dpy, "_NET_NUMBER_OF_DESKTOPS", False);
+    netatom[NetWMWindowTypePopupMenu] =
+        XInternAtom(dpy, "_NET_WM_WINDOW_TYPE_POPUP_MENU", False);
     netatom[NetCurrentDesktop] = XInternAtom(dpy, "_NET_CURRENT_DESKTOP", False);
     netatom[NetWorkarea] = XInternAtom(dpy, "_NET_WORKAREA", False);
     netatom[NetDesktopNames] = XInternAtom(dpy, "_NET_DESKTOP_NAMES", False);

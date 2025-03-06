@@ -93,12 +93,7 @@ def get_check_pacman() -> int:
         if "ERROR: Cannot fetch updates" in result:
             attempt += 1
             if attempt == 5:
-                if NOTIFY:
-                    shell(
-                        f'notify-send -u critical  "{WARN_ICON} Pacman could not update";'
-                    )
-                else:
-                    print(YELLOW, f"{WARN_ICON} Pacman could not update", YELLOW)
+                print(YELLOW, f"{WARN_ICON} Pacman could not update", YELLOW)
         else:
             return int(result) if result.isdigit() else 0
     exit(1)

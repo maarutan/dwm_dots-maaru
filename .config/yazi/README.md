@@ -24,9 +24,11 @@
 - [yatline-catppuccin.yazi](https://github.com/imsi32/yatline-catppuccin.yazi)
 - [yatline](https://github.com/imsi32/yatline.yazi)
 - [relative-motions.yazi](https://github.com/dedukun/relative-motions.yazi)
-- [max-preview.yazi](https://github.com/yazi-rs/plugins/tree/main/max-preview.yazi)
 - [system-clipboard](https://github.com/orhnk/system-clipboard.yazi)
 - [keycalm](https://github.com/maarutan/keycalm.yazi)
+- [eza-preview](https://github.com/ahkohd/eza-preview.yazi)
+- [toggle-pane](https://github.com/yazi-rs/plugins/tree/a1b678dfacfd2726fad364607aeaa7e1fded3cfa/toggle-pane.yazi)
+- [augment-command](https://github.com/hankertrix/augment-command.yazi)
 
 ## Theme
 
@@ -63,3 +65,5 @@ You must install the following dependencies:
 - [zoxide](https://github.com/ajeetdsouza/zoxide)
 - [fzf](https://github.com/junegunn/fzf)
 - [ClipBoard](https://github.com/Slackadays/ClipBoard)
+- [eza](https://github.com/eza-community)
+- [fd](https://github.com/sharkdp/fd)

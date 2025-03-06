@@ -62,8 +62,8 @@ keymap = [
 	{ on = "V", run = "visual_mode --unset", desc = "Enter visual mode (unset mode)" },
 
 	# Seeking
-	{ on = "<A-k>", run = "seek -5", desc = "Seek up 5 units in the preview" },
-	{ on = "<A-j>", run = "seek 5",  desc = "Seek down 5 units in the preview" },
+	{ on = "K", run = "seek -5", desc = "Seek up 5 units in the preview" },
+	{ on = "J", run = "seek 5",  desc = "Seek down 5 units in the preview" },
 
 	# Spotting
 	{ on = "<Tab>", run = "spot", desc = "Spot hovered file" },
@@ -387,10 +387,6 @@ on   = "l"
 run  = "plugin smart-enter"
 desc = "Enter the child directory, or open the file"
 
-[[manager.prepend_keymap]]
-on   = "T"
-run  = "plugin hide-preview"
-desc = "Hide or show preview"
 
 [[manager.prepend_keymap]]
 on   = "H"
@@ -464,10 +460,6 @@ on = [ "9" ]
 run = "plugin relative-motions 9"
 desc = "Move in relative steps"
 
-[[manager.prepend_keymap]]
-on   = "<A-p>"
-run  = "plugin max-preview"
-desc = "Maximize or restore preview"
 
 
 [[manager.prepend_keymap]]
@@ -524,13 +516,24 @@ desc = "Toggle tree follow symlinks"
 
 # Use K to move up in the parent directory
 [[manager.prepend_keymap]]
-on = "K"
+on = "<A-k>"
 run = ["leave", "arrow -1", "enter"]
 desc = "Move up in the parent directory"
 
 
 # Use J to move down in the parent directory
 [[manager.prepend_keymap]]
-on = "J"
+on = "<A-j>"
 run = ["leave", "arrow 1", "enter"]
 desc = "Move down in the parent directory"
+
+# toggle-pane plugin
+[[manager.prepend_keymap]]
+on   = "T"
+run  = "plugin toggle-pane min-preview"
+desc = "Show or hide the preview pane"
+
+[[manager.prepend_keymap]]
+on   = "t"
+run  = "plugin toggle-pane max-preview"
+desc = "Maximize or restore the preview pane"

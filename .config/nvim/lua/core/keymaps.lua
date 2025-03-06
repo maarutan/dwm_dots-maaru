@@ -105,3 +105,7 @@ vim.api.nvim_set_keymap("c", "<A-b>", "<C-Left>", { noremap = true })
 -- save
 vim.keymap.set("n", "<C-s>", "<cmd>write<CR>")
 vim.keymap.set("i", "<C-s>", "<cmd>write<CR>")
+
+-- plus point and minus point
+vim.keymap.set("n", "<M-1>", "<C-a>", opts)
+vim.keymap.set("n", "<M-2>", "<C-x>", opts)

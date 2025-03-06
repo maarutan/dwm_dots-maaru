@@ -1,6 +1,6 @@
 #define TERM SHCMD("kitty")
 
-#define BROWSER SHCMD("firefox")
+#define BROWSER SHCMD("vieb")
 #define DISCORD SHCMD("vesktop")
 #define MASSANGER SHCMD("telegram-desktop")
 #define CODE_EDITOR SHCMD("code")

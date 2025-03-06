@@ -55,6 +55,10 @@ THEME.git = THEME.git
 -- Set up the git plugin
 require("git"):setup()
 
+require("augment-command"):setup({
+	smooth_scrolling = true,
+})
+
 -- local theme = require("yatline-catppuccin"):setup("macchiato") -- "latte" | "frappe" | "macchiato"
 local theme = require("yatline-gruvbox"):setup("dark") -- or "light"
 require("yatline"):setup({
@@ -108,7 +112,3 @@ require("yatline"):setup({
 	},
 })
 -- local gruvbox_theme = require("yatline-gruvbox"):setup("light") -- or "light"
-
-require("augment-command"):setup({
-	smooth_scrolling = true,
-})

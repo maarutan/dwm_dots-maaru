@@ -13,7 +13,7 @@ import random
 from shutil import rmtree
 
 HOME = os.getenv("HOME")
-ROFI_THEME = f"{HOME}/.suckless/scripts/wallpapers/images/.wall.rasi"
+ROFI_THEME = f"{HOME}/.suckless/scripts/wallpapers/assets/rofi_theme/wall.rasi"
 CACHE_THEME = f"{HOME}/.suckless/scripts/wallpapers/assets/.cache/theme"
 
 
