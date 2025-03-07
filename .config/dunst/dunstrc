@@ -16,7 +16,7 @@ transparency  = 0
 # ====== dynamic =======
 
 
-offset                   = 150x80
+offset                   = 150x75
 origin                   =  top-right
 width                    = 350
 max_icon_size            = 60
