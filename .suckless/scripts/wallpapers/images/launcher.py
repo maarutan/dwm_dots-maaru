@@ -236,10 +236,6 @@ def rofi() -> str:
 
 
 def wall_start() -> None:
-    shell(["pkill", "-f", "mpv"])
-    shell(["pkill", "-f", "xwinwrap"])
-    shell(["pkill", "-f", "ffmpeg"])
-
     shell(["feh", "--no-fehbg", "--bg-scale", rofi()])
 
     if SCREEN_LOCK and read_template() == read_current_wall():

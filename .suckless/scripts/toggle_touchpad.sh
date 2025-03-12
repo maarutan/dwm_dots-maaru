@@ -8,20 +8,16 @@ find_touchpad_id() {
     xinput list | grep -i "Touchpad" | awk '{print $6}' | sed 's/id=//'
 }
 
-# Если ID ранее сохранён, загружаем его
 if [ -f "$TOUCHPAD_ID_FILE" ]; then
     TOUCHPAD_ID=$(cat "$TOUCHPAD_ID_FILE")
 else
-    # Ищем ID тачпада
     TOUCHPAD_ID=$(find_touchpad_id)
-
     # Если тачпад не найден, завершаем скрипт
     if [ -z "$TOUCHPAD_ID" ]; then
         notify-send "Тачпад" "не найден" -i dialog-error
         exit 1
     fi
 
-    # Сохраняем ID для будущего использования
     echo "$TOUCHPAD_ID" > "$TOUCHPAD_ID_FILE"
 fi
 

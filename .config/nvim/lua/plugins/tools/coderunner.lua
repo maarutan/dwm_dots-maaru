@@ -6,11 +6,13 @@ require("code-runner").setup({
 		python = "python3 -u $dir/$fileName",
 		lua = "lua $dir/$fileName",
 		sh = "$dir/$fileName",
+		html = "firefox $dir/$fileName",
 	},
 	extensions = {
 		python = { "py" },
 		lua = { "lua" },
 		sh = { "sh" },
+		html = { "html" },
 	},
 	debug = false, -- Debug mode flag
 })

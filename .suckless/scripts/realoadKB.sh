@@ -4,12 +4,12 @@
 if [[ $EUID -ne 0 ]]; then
     # Use kdialog to prompt for a sudo password
     SUDO_PASSWORD=$(kdialog --password "Enter your sudo password" --title "Sudo Request")
-    
+
     # If the user cancels the input
     if [ $? -ne 0 ]; then
         exit 1
     fi
-    
+
     # Verify the entered password
     echo "$SUDO_PASSWORD" | sudo -S echo "" >/dev/null 2>&1
     if [ $? -ne 0 ]; then
@@ -53,7 +53,7 @@ echo "$SUDO_PASSWORD" | sudo -S udevadm control --start-exec-queue
 xinput enable "$XINPUT_ID"
 
 # Configure keyboard layouts
-setxkbmap -layout us,ru -option 'grp:ctrl_alt_toggle' -option 'ctrl:nocaps'
+setxkbmap -option 'ctrl:nocaps'
 
 # Notify user of success
 notify-send -i none "🔃 Reload Keyboard" "The keyboard has been successfully reset and configured!"

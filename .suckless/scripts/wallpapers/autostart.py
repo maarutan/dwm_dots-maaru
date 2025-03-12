@@ -43,8 +43,14 @@ def live() -> None:
 
 try:
     if read_cache_type() == "live":
+        shell(["pkill", "-f", "mpv"])
+        shell(["pkill", "-f", "xwinwrap"])
+        shell(["pkill", "-f", "ffmpeg"])
         live()
     else:
+        shell(["pkill", "-f", "mpv"])
+        shell(["pkill", "-f", "xwinwrap"])
+        shell(["pkill", "-f", "ffmpeg"])
         shell(["feh", "--no-fehbg", "--bg-scale", read_current_wall()])
 except KeyboardInterrupt:
     print("\n  cancel")
