@@ -1,0 +1,89 @@
+[[plugin.deps]]
+use = "yazi-rs/plugins:full-border"
+rev = "a1b678d"
+hash = "9dce00232a0e0e2502565c7aa2b0ed4e"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-enter"
+rev = "a1b678d"
+hash = "7918aab6a71caf31b58411f789195677"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:jump-to-char"
+rev = "a1b678d"
+hash = "a670c03eb3760812e044a24f94cedc55"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:git"
+rev = "a1b678d"
+hash = "bcbf72738d4b7fb9a03cac84465b9ba4"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:chmod"
+rev = "a1b678d"
+hash = "2f1053f89d1a301a648ab181d0948e38"
+
+[[plugin.deps]]
+use = "Tyarel8/video-ffmpeg"
+rev = "1250b85"
+hash = "54a2158dde0bf6ecb377bd71c9cdcdf9"
+
+[[plugin.deps]]
+use = "Ape/open-with-cmd"
+rev = "433cf30"
+hash = "86e0312b01bc5762813c6c1d0517f073"
+
+[[plugin.deps]]
+use = "TD-Sky/sudo"
+rev = "af70636"
+hash = "a94dcbe9266512806c677138e8591ddb"
+
+[[plugin.deps]]
+use = "imsi32/yatline"
+rev = "6b0fc1e"
+hash = "ab115c6cc77f5710c27f39dfa2f3d4d"
+
+[[plugin.deps]]
+use = "dedukun/relative-motions"
+rev = "8103065"
+hash = "9f13f0740fa3a0c18e47ec6fb62ddfaa"
+
+[[plugin.deps]]
+use = "orhnk/system-clipboard"
+rev = "7775a80"
+hash = "9b8f2573da54334b04747e51556040cc"
+
+[[plugin.deps]]
+use = "maarutan/keycalm"
+rev = "891857e"
+hash = "eb7c7ed0c91d311659de32d4145d344f"
+
+[[plugin.deps]]
+use = "ahkohd/eza-preview"
+rev = "6575a9a"
+hash = "72355a6c8b7c8de6ed4dda0f98f86fee"
+
+[[plugin.deps]]
+use = "hankertrix/augment-command"
+rev = "e676d3c"
+hash = "50edde70fad24f7b0e9922729312dbd7"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:toggle-pane"
+rev = "a1b678d"
+hash = "812fd49667ab6823250f0411f8cf793a"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-mocha"
+rev = "c023460"
+hash = "2ac87e1b3a61f5887472899e86535d29"
+
+[[flavor.deps]]
+use = "bennyyip/gruvbox-dark"
+rev = "b4cc9f2"
+hash = "f44c42bcbed3c8564100e45e2fe3649a"
+
+[[flavor.deps]]
+use = "dangooddd/kanagawa"
+rev = "31167ed"
+hash = "a04e157148549bacbb2831aab0e6e8cb"

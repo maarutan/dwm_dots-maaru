@@ -1,0 +1,47 @@
+[global]
+
+# ====== dynamic =======
+# no change ------------
+
+background    = "#282828"
+highlight     = "#D79921"
+foreground    = "#E2D2AB"
+frame_color   = "#D65D0E"
+
+
+corner_radius = 0
+transparency  = 0
+
+# no change ------------
+# ====== dynamic =======
+
+
+offset                   = 150x75
+origin                   =  top-right
+width                    = 350
+max_icon_size            = 60
+timeout                  = 2
+padding                  = 15
+horizontal_padding       = 20
+font                     = FiraCode NerdFont 14
+notification_limit       = 5
+icon_position            = left
+alignment                = left
+enable_recursive_icon_lookup       = true
+gap_size                           = 0
+line_height                        = 10
+browser                            = /usr/bin/xdg-open
+frame_width                        = 3
+progress_bar_height                = 25
+progress_bar_min_width             = 150
+#progress_bar_max_width            = 300
+progress_bar_horizontal_alignment  = center
+progress_bar_frame_width    = 3
+progress_bar_corner_radius = 0
+progress_bar_corners        = all
+
+
+[ignore_flameshot_warning]
+body    = "grim's screenshot component is implemented based on wlroots, it may not be used in GNOME or similar desktop environments"
+format = ""
+

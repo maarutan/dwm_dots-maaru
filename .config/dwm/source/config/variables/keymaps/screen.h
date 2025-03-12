@@ -1,0 +1,5 @@
+#define PICK_COLOR SHCMD("$HOME/.local/bin/xcolor-picker.sh")
+#define SCREENSHOT SHCMD("flameshot gui")
+#define CLOCK SHCMD("$HOME/.local/bin/clock.sh")
+#define SCREENLOCK SHCMD("$HOME/.local/bin/wallpapers/lockscreen/betterlockscreen.py -s")
+#define PICOM_CONFIG SHCMD("kitty -e $HOME/.config/picom/")

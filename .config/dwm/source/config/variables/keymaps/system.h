@@ -1,0 +1,8 @@
+#define SCRIPT_UPDATE "kitty -e $HOME/.local/bin/update_system/update.py"
+#define SCRIPT_PUSHDOTS "kitty -e $HOME/.local/bin/pushdots.sh"
+#define SCRIPT_TOGGLE_TOUCHPAD "$HOME/.local/bin/toggle_touchpad.sh"
+#define SCRIPT_BLUETOOTH "pgrep blueman-manager && pkill blueman-manager || blueman-manager &"
+#define SCRIPT_NMTUI "pgrep -fx 'kitty --title nmtui nmtui-connect' && pkill -fx 'kitty --title nmtui nmtui-connect' || kitty --title nmtui nmtui-connect &"
+#define SCRIPT_POWERMENU "$HOME/.config/rofi/powermenu/powermenu.sh"
+#define SCRIPT_SCREEN_LOCK "$HOME/.config/rofi/powermenu/.screen-lock.sh"
+#define SCRIPT_QURAN "$HOME/.local/bin/quran"

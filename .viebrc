@@ -1,0 +1,11 @@
+map <S-C-n> <:nohlsearch>
+map <A-S-a> <:translatepage ru>
+map <A-S-s> <:translatepage en>
+
+colorscheme flipped 
+
+set guitabbar=onupdate
+set guinavbar=oninput
+set newtaburl="https://start.duckduckgo.com/"
+set followchars=qwertyhome
+set permissionmicrophone=ask

@@ -1,0 +1,8 @@
+#define CD_DWM "kitty -e $HOME/.config/dwm/"
+#define OPEN_AUTOSTART "kitty -e $HOME/.config/dwm/autostart/"
+#define OPEN_LOG_DWM "kitty -e $HOME/.config/dwm/.log/"
+#define OPEN_SCRIPTS "kitty -e $HOME/.local/bin/"
+#define OPEN_CONFIG "kitty --hold sh -c 'cd $HOME/.config/dwm/source/; nvim init.h ; exec $SHELL'"
+#define OPEN_DWM_C "kitty --hold sh -c 'cd $HOME/.config/dwm/source/src/; nvim dwm.c; exec $SHELL'"
+#define OPEN_CONFIG_REJ "kitty --hold sh -c 'cd $HOME/.config/dwm/source/src; nvim config.def.h.rej; exec $SHELL'"
+#define OPEN_DWM_REJ "kitty --hold sh -c 'cd $HOME/.config/dwm/source/src/; nvimsrc.c.rej; exec $SHELL'"
