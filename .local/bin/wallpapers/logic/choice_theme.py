@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
 
-import os
+import os, pathlib
 from subprocess import run as shell
 
-HOME = os.getenv("HOME")
-ROFI_CONFIG = f"{HOME}/.suckless/scripts/wallpapers/assets/rofi_theme/theme.rasi"
 
-ASSETS = f"{HOME}/.suckless/scripts/wallpapers/assets/theme"
-RESULT = f"{HOME}/.suckless/scripts/wallpapers/assets/.cache/type"
-CACHE_TYPE = f"{HOME}/.suckless/scripts/wallpapers/assets/.cache/type"
-CACHE_THEME = f"{HOME}/.suckless/scripts/wallpapers/assets/.cache/theme"
+ROFI_CONFIG = pathlib.Path(__file__).parent.parent / "assets/rofi_theme/theme.rasi"
+ASSETS = pathlib.Path(__file__).parent.parent / "assets/theme"
+RESULT = pathlib.Path(__file__).parent.parent / "assets/.cache/type"
+CACHE_TYPE = pathlib.Path(__file__).parent.parent / "assets/.cache/type"
+CACHE_THEME = pathlib.Path(__file__).parent.parent / "assets/.cache/theme"
 
 
 def get_theme_cache():

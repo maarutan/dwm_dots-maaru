@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 
-import os
+import os, pathlib
 import argparse
 import subprocess
 
-HOME = os.getenv("HOME")
-CURRENT_WALL = f"{HOME}/.cache/current_wallpaper"
+
+CURRENT_WALL = pathlib.Path().home() / ".cache" / "current_wallpaper"
 
 
 def start():

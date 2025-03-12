@@ -1,13 +1,11 @@
 #!/usr/bin/env python3
 
-import os
+import os, pathlib
 from subprocess import run as shell
 
-HOME = os.getenv("HOME")
-ROFI_CONFIG = f"{HOME}/.suckless/scripts/wallpapers/assets/rofi_theme/types.rasi"
-
-ASSETS = f"{HOME}/.suckless/scripts/wallpapers/assets/choice"
-RESULT = f"{HOME}/.suckless/scripts/wallpapers/assets/.cache/type"
+ROFI_CONFIG = pathlib.Path(__file__).parent.parent / "assets/rofi_theme/types.rasi"
+ASSETS = pathlib.Path(__file__).parent.parent / "assets/choice"
+RESULT = pathlib.Path(__file__).parent.parent / "assets/.cache/type"
 
 
 def get_img():

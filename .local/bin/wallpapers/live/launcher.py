@@ -7,21 +7,19 @@ SCREEN_LOCK = 1
 
 import os
 import glob
+import pathlib
 from subprocess import run as shell
 from PIL import Image
 import random
 from shutil import rmtree
 
-HOME = os.getenv("HOME")
-ROFI_THEME = f"{HOME}/.suckless/scripts/wallpapers/assets/rofi_theme/wall.rasi"
-CACHE_THEME = f"{HOME}/.suckless/scripts/wallpapers/assets/.cache/theme"
-
-
-CACHE_WALL = f"{HOME}/.cache/wallpapers_cache"
-WALL_DIR = f"{HOME}/Pictures/wallpapers"
-CURRENT_WALL = f"{HOME}/.cache/current_wallpaper"
-LIVE_THEME_DIR = f"{HOME}/Pictures/wallpapers/live"
-
+ROFI_THEME = pathlib.Path(__file__).parent.parent / "assets/rofi_theme/wall.rasi"
+CACHE_THEME = pathlib.Path(__file__).parent.parent / "assets/.cache/theme"
+CACHE_WALL = pathlib.Path.home() / ".cache/wallpapers_cache"
+WALL_DIR = pathlib.Path.home() / "Pictures/wallpapers"
+CURRENT_WALL = pathlib.Path.home() / ".cache/current_wallpaper"
+STATIC_THEME_DIR = pathlib.Path.home() / "Pictures/wallpapers/static"
+LIVE_THEME_DIR = pathlib.Path.home() / "Pictures/wallpapers/live"
 
 DEFAULT_WALLS = glob.glob(f"{WALL_DIR}/.default/default.*")
 DEFAULT_WALL = DEFAULT_WALLS[0] if DEFAULT_WALLS else ""

@@ -116,3 +116,134 @@ static
 Theme is the same, no need to clear cache.
 static
 Theme is the same, no need to clear cache.
+catppuccin
+static
+Theme is the same, no need to clear cache.
+static
+Theme is the same, no need to clear cache.
+static
+Theme is the same, no need to clear cache.
+[[1;95mB[m] Betterlockscreen
+[[1;92m*[m] Updating image cache...
+[[1;97m=[m] Detected 1 display(s) @ 1920x1080 total resolution
+[[1;97m=[m] Original image(s): wheat.png
+[[1;97m=[m] Processing display: eDP-1 (1)
+[[1;97m=[m] Resolution: 1920x1080
+[[1;92m*[m] Resizing base image...
+Window does not support WM_TAKE_FOCUS: 18874371
+Restoring tag: 0
+Saved current tag: 0 to /home/maaru/.cache/dwm_current_tag
+Window does not support WM_TAKE_FOCUS: 33554446
+Saved current tag: 1 to /home/maaru/.cache/dwm_current_tag
+Saved current tag: 2 to /home/maaru/.cache/dwm_current_tag
+Window does not support WM_TAKE_FOCUS: 29360142
+Saved current tag: 2 to /home/maaru/.cache/dwm_current_tag
+Window does not support WM_TAKE_FOCUS: 29360142
+Window does not support WM_TAKE_FOCUS: 29360130
+Window does not support WM_TAKE_FOCUS: 35651598
+Saved current tag: 2 to /home/maaru/.cache/dwm_current_tag
+Window does not support WM_TAKE_FOCUS: 35651598
+Window does not support WM_TAKE_FOCUS: 35651598
+Window does not support WM_TAKE_FOCUS: 33554446
+Saved current tag: 1 to /home/maaru/.cache/dwm_current_tag
+Saved current tag: 2 to /home/maaru/.cache/dwm_current_tag
+Saved current tag: 3 to /home/maaru/.cache/dwm_current_tag
+Window does not support WM_TAKE_FOCUS: 29360130
+Window does not support WM_TAKE_FOCUS: 29360130
+Window does not support WM_TAKE_FOCUS: 29360130
+Window does not support WM_TAKE_FOCUS: 35651598
+Saved current tag: 3 to /home/maaru/.cache/dwm_current_tag
+Window does not support WM_TAKE_FOCUS: 35651598
+Window does not support WM_TAKE_FOCUS: 35651598
+Saved current tag: 2 to /home/maaru/.cache/dwm_current_tag
+Window does not support WM_TAKE_FOCUS: 33554446
+Saved current tag: 1 to /home/maaru/.cache/dwm_current_tag
+Window does not support WM_TAKE_FOCUS: 18874371
+Saved current tag: 0 to /home/maaru/.cache/dwm_current_tag
+Window does not support WM_TAKE_FOCUS: 33554446
+Saved current tag: 1 to /home/maaru/.cache/dwm_current_tag
+Window does not support WM_TAKE_FOCUS: 18874371
+Saved current tag: 0 to /home/maaru/.cache/dwm_current_tag
+Window does not support WM_TAKE_FOCUS: 33554446
+Saved current tag: 1 to /home/maaru/.cache/dwm_current_tag
+Saved current tag: 2 to /home/maaru/.cache/dwm_current_tag
+Saved current tag: 2 to /home/maaru/.cache/dwm_current_tag
+Saved current tag: 2 to /home/maaru/.cache/dwm_current_tag
+Saved current tag: 2 to /home/maaru/.cache/dwm_current_tag
+Saved current tag: 2 to /home/maaru/.cache/dwm_current_tag
+Saved current tag: 2 to /home/maaru/.cache/dwm_current_tag
+Window does not support WM_TAKE_FOCUS: 18874371
+Saved current tag: 0 to /home/maaru/.cache/dwm_current_tag
+Window does not support WM_TAKE_FOCUS: 33554446
+Saved current tag: 1 to /home/maaru/.cache/dwm_current_tag
+Saved current tag: 2 to /home/maaru/.cache/dwm_current_tag
+Window does not support WM_TAKE_FOCUS: 18874371
+Saved current tag: 0 to /home/maaru/.cache/dwm_current_tag
+Window does not support WM_TAKE_FOCUS: 33554446
+Saved current tag: 1 to /home/maaru/.cache/dwm_current_tag
+Window does not support WM_TAKE_FOCUS: 18874371
+Saved current tag: 0 to /home/maaru/.cache/dwm_current_tag
+Window does not support WM_TAKE_FOCUS: 33554446
+Saved current tag: 1 to /home/maaru/.cache/dwm_current_tag
+Window does not support WM_TAKE_FOCUS: 29360142
+Saved current tag: 1 to /home/maaru/.cache/dwm_current_tag
+Window does not support WM_TAKE_FOCUS: 29360142
+Window does not support WM_TAKE_FOCUS: 33554446
+Window does not support WM_TAKE_FOCUS: 29360142
+Window does not support WM_TAKE_FOCUS: 33554446
+Window does not support WM_TAKE_FOCUS: 29360142
+Saved current tag: 1 to /home/maaru/.cache/dwm_current_tag
+Window does not support WM_TAKE_FOCUS: 29360142
+Saved current tag: 2 to /home/maaru/.cache/dwm_current_tag
+Window does not support WM_TAKE_FOCUS: 29360142
+Saved current tag: 1 to /home/maaru/.cache/dwm_current_tag
+Saved current tag: 2 to /home/maaru/.cache/dwm_current_tag
+Saved current tag: 3 to /home/maaru/.cache/dwm_current_tag
+Window does not support WM_TAKE_FOCUS: 33554446
+Saved current tag: 3 to /home/maaru/.cache/dwm_current_tag
+Window does not support WM_TAKE_FOCUS: 33554446
+Window does not support WM_TAKE_FOCUS: 33554446
+Window does not support WM_TAKE_FOCUS: 31457294
+Saved current tag: 3 to /home/maaru/.cache/dwm_current_tag
+Window does not support WM_TAKE_FOCUS: 31457294
+Window does not support WM_TAKE_FOCUS: 33554446
+Saved current tag: 4 to /home/maaru[[1;92m*[m] Rendering 'dim' effect...
+[[1;92m*[m] Rendering 'blur' effect...
+[[1;92m*[m] Rendering 'dimblur' effect...
+[[1;92m*[m] Rendering 'pixel' effect...
+[[1;92m*[m] Rendering 'dimpixel' effect...
+[[1;92m*[m] Rendering 'color' effect...
+[[1;92m*[m] Rendering final wallpaper images...
+[[1;92m*[m] Rendering final lockscreen images...
+static
+Theme is the same, no need to clear cache.
+[[1;93m+[m] Done
+static
+Theme is the same, no need to clear cache.
+gruvbox
+static
+Theme is the same, no need to clear cache.
+[[1;95mB[m] Betterlockscreen
+[[1;92m*[m] Updating image cache...
+[[1;97m=[m] Detected 1 display(s) @ 1920x1080 total resolution
+[[1;97m=[m] Original image(s): forest-river.jpg
+[[1;97m=[m] Processing display: eDP-1 (1)
+[[1;97m=[m] Resolution: 1920x1080
+[[1;92m*[m] Resizing base image...
+[[1;92m*[m] Rendering 'dim' effect...
+[[1;92m*[m] Rendering 'blur' effect...
+[[1;92m*[m] Rendering 'dimblur' effect...
+[[1;92m*[m] Rendering 'pixel' effect...
+[[1;92m*[m] Rendering 'dimpixel' effect...
+[[1;92m*[m] Rendering 'color' effect...
+[[1;92m*[m] Rendering final wallpaper images...
+[[1;92m*[m] Rendering final lockscreen images...
+[[1;93m+[m] Done
+static
+Theme is the same, no need to clear cache.
+[[1;95mB[m] Betterlockscreen
+[[1;92m*[m] Running prelock...
+[[1;92m*[m] Locking screen...
+[[1;92m*[m] Running postlock...
+static
+Theme is the same, no need to clear cache.
