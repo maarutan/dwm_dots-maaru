@@ -117,7 +117,6 @@ class Block:
         ):
             try:
                 res = subprocess.check_output(self.command, shell=True, text=True)
-                log_message(f"Block {self.icon} output: {res}")
                 self.output = f"{self.icon}{res}"
                 self.last_run = current_time
             except Exception as e:
@@ -210,10 +209,7 @@ def update_status():
         with open(CACHE_FILE, "w") as cf:
             cf.write(new_status_bar + "\n")
 
-        log_message(f"[update_status] updated: {new_status_bar}")
         last_status_bar = new_status_bar
-    else:
-        log_message("[update_status] status bar not updated")
 
 
 if __name__ == "__main__":

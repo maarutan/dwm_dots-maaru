@@ -2309,9 +2309,9 @@ void manage(Window w, XWindowAttributes *wa) {
             return;
         }
         XFree(data);
-    }  // Обработка WM_PROTOCOLS (например, WM_DELETE_WINDOW)
-    Atom protocols;
-    // Убедитесь, что это не окно Dock
+    }
+    Atom protocols __attribute__((unused));
+
     c->bw = borderpx;
 
     if (XGetTransientForHint(dpy, w, &trans) && (t = wintoclient(trans))) {

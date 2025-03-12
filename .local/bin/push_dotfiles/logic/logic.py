@@ -21,6 +21,8 @@ CLOUD_REPO_FILE_NAME = "current_cloud_repo"
 CACHE_GIT_BRANCH = CACHE_DIR / BRANCH_FILE_NAME
 CACHE_CLOUD_REPO = CACHE_DIR / CLOUD_REPO_FILE_NAME
 
+RESULT_DIR = pathlib.Path(__file__).parent / "dist"
+
 # INFO: for git
 GIT_CLONE = "git clone --depth 1"
 GIT_PULL = "git pull"
