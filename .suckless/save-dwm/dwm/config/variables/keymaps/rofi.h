@@ -1,7 +1,0 @@
-#define ROFI_LAUNCHER SHCMD("$HOME/.config/rofi/launchers/launcher.sh")
-#define ROFI_CLIPBOARD SHCMD("$HOME/.config/rofi/clipboard/clipboard.sh")
-#define ROFI_EMOJI SHCMD("$HOME/.config/rofi/emoji/emoji.sh")
-#define ROFI_SERF SHCMD("$HOME/.config/rofi/serf/serf.sh")
-#define ROFI_PICOM SHCMD("$HOME/.suckless/scripts/picom/picom.py")
-#define ROFI_WALL_SELECT SHCMD("$HOME/.suckless/scripts/wallpapers/images/launcher.py")
-#define ROFI_WALL_TYPE SHCMD("$HOME/.suckless/scripts/wallpapers/images/.types/choice_type.py")

@@ -1,7 +1,0 @@
-#define CD_DWM "kitty -e $HOME/.suckless/dwm"
-#define OPEN_AUTOSTART "kitty -e $HOME/.suckless/autostart"
-#define OPEN_SCRIPTS "kitty -e $HOME/.suckless/scripts"
-#define OPEN_CONFIG "kitty --hold sh -c 'cd $HOME/.suckless/dwm; nvim config.h; exec $SHELL'"
-#define OPEN_DWM_C "kitty --hold sh -c 'cd $HOME/.suckless/dwm; nvim dwm.c; exec $SHELL'"
-#define OPEN_CONFIG_REJ "kitty --hold sh -c 'cd $HOME/.suckless/dwm; nvim config.def.h.rej; exec $SHELL'"
-#define OPEN_DWM_REJ "kitty --hold sh -c 'cd $HOME/.suckless/dwm; nvim dwm.c.rej; exec $SHELL'"
